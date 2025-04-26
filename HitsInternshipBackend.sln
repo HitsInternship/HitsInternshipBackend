@@ -2,6 +2,24 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HitsInternship.Api", "HitsInternship.Api\HitsInternship.Api.csproj", "{C299AA5A-1050-4822-A352-A006AAF1B51A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserModule", "UserModule", "{79735EA4-0A13-4CB7-B4C7-679BDF5800C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthModule", "AuthModule", "{4B3F6AEB-C318-4A52-8354-0AB73C98A0F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StudentModule", "StudentModule", "{C645AA1F-B91A-4BE5-9D9D-B69FEB40FDA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompanyModule", "CompanyModule", "{0DA8D2A9-6B4F-4154-BA5C-350D1F6DA40F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PracticeModule", "PracticeModule", "{11212E98-8FB3-4AA2-A285-7DA1C886D168}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeanModule", "DeanModule", "{C8DB432F-8C5F-478A-A1A6-C0E3378458F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SelectionModule", "SelectionModule", "{B416D439-0FE3-41A6-BB6E-D85FA15E1B2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocumentModule", "DocumentModule", "{05386721-10A8-4CB8-9A94-3C0A07FE1D6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationModule", "NotificationModule", "{FF87A8B7-DE35-4BBC-8077-FECB09DE4446}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
