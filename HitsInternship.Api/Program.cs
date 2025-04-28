@@ -1,9 +1,13 @@
 using Shared.Extensions;
+
+using Shared.Extensions;
 using Shared.Extensions.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+
+builder.Services.AddSharedModule();
 
 builder.Services.AddSwaggerConfig();
 
