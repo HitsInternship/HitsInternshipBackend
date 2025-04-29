@@ -7,8 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 
-builder.Services.AddSharedModule();
-
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddSharedModule();
