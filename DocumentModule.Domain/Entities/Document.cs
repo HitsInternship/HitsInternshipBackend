@@ -4,6 +4,6 @@ namespace DocumentModule.Domain.Entities
 {
     public class Document : BaseEntity
     {
-        public Guid FileId { get; set; }
+        public Guid? FileId { get; set; }
     }
 }

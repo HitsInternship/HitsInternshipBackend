@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DocumentModule.Contracts\DocumentModule.Contracts.csproj" />
     <ProjectReference Include="..\DocumentModule.Domain\DocumentModule.Domain.csproj" />
     <ProjectReference Include="..\DocumentModule.Infrastructure\DocumentModule.Infrastructure.csproj" />
     <ProjectReference Include="..\Shared.Persistence\Shared.Persistence.csproj" />
