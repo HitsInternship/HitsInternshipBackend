@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DeanModule.Infrastructure\DeanModule.Infrastructure.csproj" />
+      <ProjectReference Include="..\DeanModule.Persistence\DeanModule.Persistence.csproj" />
     </ItemGroup>
 
 </Project>
