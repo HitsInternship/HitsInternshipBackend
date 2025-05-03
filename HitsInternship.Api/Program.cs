@@ -1,15 +1,25 @@
 using DeanModule.Controllers;
 using Shared.Extensions;
 using Shared.Extensions.Swagger;
+using System.Text.Json.Serialization;
+using UserModule.Controllers;
+using UserModule.Controllers.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
-
 builder.Services.AddSwaggerConfig();
 
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssemblyContaining<UserController>());
+
 builder.Services.AddSharedModule();
-builder.Services.AddDeanModule(builder.Configuration);
+//builder.Services.AddDeanModule(builder.Configuration);
+builder.Services.AddUserModule(builder.Configuration);
 
 var app = builder.Build();
 
@@ -17,9 +27,13 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseSwaggerConfiguration();
+
+    app.UseUserModule();
 }
 
 app.UseDeanModule();
+
+app.MapControllers();
 
 app.UseHttpsRedirection();
 

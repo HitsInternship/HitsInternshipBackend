@@ -1,23 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shared.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UserModule.Domain.Entities;
 using UserModule.Infrastructure;
+using UserModule.Contracts;
+using UserModule.Contracts.Repositories;
 
 namespace UserModule.Persistence.Repositories
 {
-    public class UserRepository : BaseEntityRepository<User>
+    public class UserRepository : BaseEntityRepository<User>, IUserRepository
     {
-        private readonly UserModuleDbContext _dbContext;
-        public UserRepository(DbContext context, UserModuleDbContext dbContext) : base(context)
+        private readonly UserModuleDbContext context;
+        public UserRepository(UserModuleDbContext context) : base(context)
         {
-            _dbContext = dbContext;
+            this.context = context;
         }
 
+        public async Task<User?> GetByEmail(string email)
+        {
+            return await context.Users.FirstOrDefaultAsync(user => user.Email == email);
+        }
 
+        public async Task<User?> GetUserWithRoles(Guid id)
+        {
+            return await context.Users.Include(user => user.Roles).FirstOrDefaultAsync(user => user.Id == id);
+        }
     }
 }

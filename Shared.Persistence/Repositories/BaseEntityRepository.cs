@@ -7,14 +7,8 @@ namespace Shared.Persistence.Repositories;
 public class BaseEntityRepository<TEntity> : GenericRepository<TEntity>, IBaseEntityRepository<TEntity>
     where TEntity : BaseEntity
 {
-    private readonly DbContext _context;
-    private readonly DbSet<TEntity> _dbSet;
 
-    public BaseEntityRepository(DbContext context) : base(context)
-    {
-        _context = context;
-        _dbSet = context.Set<TEntity>();
-    }
+    public BaseEntityRepository(DbContext context) : base(context) { }
 
     public async Task<TEntity?> GetByIdAsync(Guid id)
     {

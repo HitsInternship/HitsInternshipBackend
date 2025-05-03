@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using UserModule.Contracts.Repositories;
+using UserModule.Persistence.Repositories;
 
 namespace UserModule.Persistence
 {
@@ -6,7 +8,8 @@ namespace UserModule.Persistence
     {
         public static void AddUserModulePersistence(this IServiceCollection services)
         {
-            services.AddTransient<IDeanMemberRepository, UserModuleRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
         }
     }
 }

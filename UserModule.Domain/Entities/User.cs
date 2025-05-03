@@ -9,6 +9,8 @@ namespace UserModule.Domain.Entities
         public string Surname { get; set; }
         public string Email { get; set; }
 
-        public List<Role> Roles { get; set; }
+        public List<Role> Roles { get; set; } = new List<Role>();
+
+        public User() {}
     }
 }
