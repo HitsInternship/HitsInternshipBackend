@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using UserModule.Application;
+using UserModule.Contracts.CQRS;
 using UserModule.Contracts.DTOs;
-using UserModule.Controllers.CQRS.Queries;
 
 namespace UserModule.Controllers.Handlers
 {
@@ -16,7 +16,7 @@ namespace UserModule.Controllers.Handlers
 
         public async Task<UserDTO> Handle(GetUserInfoQuery request, CancellationToken cancellationToken)
         {
-            return new UserDTO(await userService.GetUser(request.userId));
+            return new UserDTO(await userService.GetUserById(request.userId));
         }
     }
 }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Shared.Contracts\Shared.Contracts.csproj" />
+    <ProjectReference Include="..\Shared.Extensions\Shared.Extensions.csproj" />
     <ProjectReference Include="..\UserModule.Domain\UserModule.Domain.csproj" />
   </ItemGroup>
 

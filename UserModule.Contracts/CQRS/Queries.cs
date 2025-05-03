@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using UserModule.Contracts.DTOs;
 
-namespace UserModule.Controllers.CQRS.Queries
+namespace UserModule.Contracts.CQRS
 {
     public record GetUserInfoQuery(Guid userId) : IRequest<UserDTO> { }
 }

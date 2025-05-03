@@ -1,5 +1,7 @@
 using DeanModule.Controllers;
 using Shared.Extensions;
+using Shared.Extensions.ErrorHandling;
+using Shared.Extensions.ErrorHandling.Validation;
 using Shared.Extensions.Swagger;
 using System.Text.Json.Serialization;
 using UserModule.Controllers;
@@ -11,8 +13,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+    .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()))
+    .ConfigureApiBehaviorOptions(options => options.InvalidModelStateResponseFactory = FailedAnnotationValidationResponse.MakeValidationResponse);
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblyContaining<UserController>());
@@ -30,6 +32,8 @@ if (app.Environment.IsDevelopment())
 
     app.UseUserModule();
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseDeanModule();
 
