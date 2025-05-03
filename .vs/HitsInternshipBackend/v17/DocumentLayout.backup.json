@@ -1,0 +1,291 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\HitsInternshipBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Application\\DocumentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Application\\DocumentService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F37B5F7-65B4-4E30-AE22-5934E24F4C0E}|Shared.Persistence\\Shared.Persistence.csproj|d:\\projects\\hitsinternshipbackend\\shared.persistence\\repositories\\baseentityentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F37B5F7-65B4-4E30-AE22-5934E24F4C0E}|Shared.Persistence\\Shared.Persistence.csproj|solutionrelative:shared.persistence\\repositories\\baseentityentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\shared.contracts\\repositories\\ibaseentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|solutionrelative:shared.contracts\\repositories\\ibaseentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\shared.contracts\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|solutionrelative:shared.contracts\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Contracts\\IFileRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Contracts\\IFileRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentModule.Persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Persistence\\DocumentModule.Persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\FileStorageContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Infrastructure\\FileStorageContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Persistence\\DocumentRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\FileRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Persistence\\FileRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Domain\\Entities\\Document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Domain\\Entities\\Document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Controllers\\DependencyInjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Controllers\\DependencyInjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DependencyInjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Infrastructure\\DependencyInjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModuleDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Infrastructure\\DocumentModuleDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DocumentService.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Application\\DocumentService.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Application\\DocumentService.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Application\\DocumentService.cs",
+              "RelativeToolTip": "DocumentModule.Application\\DocumentService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T15:13:37.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IFileRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Contracts\\IFileRepository.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Contracts\\IFileRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Contracts\\IFileRepository.cs",
+              "RelativeToolTip": "DocumentModule.Contracts\\IFileRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T14:45:26.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DocumentModule.Persistence.csproj",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentModule.Persistence.csproj",
+              "RelativeDocumentMoniker": "DocumentModule.Persistence\\DocumentModule.Persistence.csproj",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentModule.Persistence.csproj",
+              "RelativeToolTip": "DocumentModule.Persistence\\DocumentModule.Persistence.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-30T14:44:42.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVDhPrZRNTgIxFMerDIaEhHgU97JxwUKGGaNeQJdyCY0XUBDWGhg4AB\u002BuvQk7OQCRFTP1fXWmMxUMCT94ee177eu/LVQdFK31kTSJ0WgEIa0SMJ2A6QTHcF9iicQqlYpa/6zv2\u002B2HD5nuEkWR/l4udRzHZBtjGzFor1YrPR6P9WKx0MNhpN96vTuZThyLJ1AJLK/iJFFxjBanBsXIozqkWq2qev1c1Wq19063e0ZBwBNP4JaQ6WRC/i8ajQb5wWBAvnxyghpOqQPkC8L5IEEQKjgxaqOTFsCd65tb6nmlkur1\u002BxwXCgX58KfT7QptwvCK52wrSLcJvtUKOABkQ6HFXwbGsmMRBkchzpjNphLZDSrEn5G1qnsp\u002BPEtheloXouRnXDTTjhb5tXmeyg0IgzuliHp\u002By0OANbiOCDXp1IYo3mMUxBT8/mMA/8QhGH6ZzC4Zwi5ZqoQB9M3h62I/\u002B/SAQpniBmtPvdQyGeYUdgyX8pl05eIBSxmTzQYEYbc42AuJQWLGJNQEcrJG4A4BTHneSW2sqfKOyybkxXMPbAvrx3IsyLzkPJFmUcWYtDntjG6lIvnp8cvKXNIlPoFvstpJRlQPIAAAAAASUVORK5CYII=",
+              "WhenOpened": "2025-04-30T13:38:00.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IBaseEntityRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "RelativeDocumentMoniker": "Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "RelativeToolTip": "Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T13:21:28.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseEntityEntityRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Persistence\\Repositories\\BaseEntityEntityRepository.cs",
+              "RelativeDocumentMoniker": "Shared.Persistence\\Repositories\\BaseEntityEntityRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Persistence\\Repositories\\BaseEntityEntityRepository.cs",
+              "RelativeToolTip": "Shared.Persistence\\Repositories\\BaseEntityEntityRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBQAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T12:01:03.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FileStorageContext.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\FileStorageContext.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\FileStorageContext.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\FileStorageContext.cs",
+              "RelativeToolTip": "DocumentModule.Infrastructure\\FileStorageContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T12:19:43.02Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DocumentRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentRepository.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Persistence\\DocumentRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentRepository.cs",
+              "RelativeToolTip": "DocumentModule.Persistence\\DocumentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T11:57:55.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FileRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\FileRepository.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Persistence\\FileRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\FileRepository.cs",
+              "RelativeToolTip": "DocumentModule.Persistence\\FileRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAArwB8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T12:00:16.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Document.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Domain\\Entities\\Document.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Domain\\Entities\\Document.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Domain\\Entities\\Document.cs",
+              "RelativeToolTip": "DocumentModule.Domain\\Entities\\Document.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T11:40:12.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Controllers\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Controllers\\DependencyInjection.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Controllers\\DependencyInjection.cs",
+              "RelativeToolTip": "DocumentModule.Controllers\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T13:28:28.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Shared.Contracts\\Repositories\\IGenericRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IGenericRepository.cs",
+              "RelativeToolTip": "Shared.Contracts\\Repositories\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T13:21:35.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "DocumentModule.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAArwBgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T12:25:01.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "HitsInternship.Api\\appsettings.json",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.json",
+              "RelativeToolTip": "HitsInternship.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-30T13:17:55.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DocumentModuleDbContext.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModuleDbContext.cs",
+              "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\DocumentModuleDbContext.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModuleDbContext.cs",
+              "RelativeToolTip": "DocumentModule.Infrastructure\\DocumentModuleDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T11:49:45.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "HitsInternship.Api\\appsettings.Development.json",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.Development.json",
+              "RelativeToolTip": "HitsInternship.Api\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-30T13:17:53.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DocumentModule.Infrastructure.csproj",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj",
+              "RelativeToolTip": "DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-30T12:34:05.706Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
