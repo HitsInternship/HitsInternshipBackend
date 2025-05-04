@@ -4,13 +4,13 @@ using Shared.Domain.Entites;
 
 namespace Shared.Persistence.Repositories;
 
-public class BaseEntityEntityRepository<TEntity> : GenericRepository<TEntity>, IBaseEntityRepository<TEntity>
+public class BaseEntityRepository<TEntity> : GenericRepository<TEntity>, IBaseEntityRepository<TEntity>
     where TEntity : BaseEntity
 {
     private readonly DbContext _context;
     private readonly DbSet<TEntity> _dbSet;
 
-    public BaseEntityEntityRepository(DbContext context) : base(context)
+    public BaseEntityRepository(DbContext context) : base(context)
     {
         _context = context;
         _dbSet = context.Set<TEntity>();

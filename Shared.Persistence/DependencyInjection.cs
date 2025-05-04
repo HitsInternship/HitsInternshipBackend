@@ -9,6 +9,6 @@ public static class DependencyInjection
     public static void AddGenericRepositories(this IServiceCollection services)
     {
         services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-        services.AddTransient(typeof(IBaseEntityRepository<>), typeof(BaseEntityEntityRepository<>));
+        services.AddTransient(typeof(IBaseEntityRepository<>), typeof(BaseEntityRepository<>));
     }
 }
