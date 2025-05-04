@@ -5,6 +5,6 @@ namespace DeanModule.Contracts.Repositories;
 
 public interface IStreamSemesterRepository : IBaseEntityRepository<StreamSemester>
 {
-    Task<IEnumerable<StreamSemester?>> GetByStreamIdAsync(Guid streamId);
+    Task<IEnumerable<StreamSemester>> GetByStreamIdAsync(Guid streamId);
     Task<StreamSemester?> GetBySemesterIdAsync(Guid semesterId, int semesterNumber);
 }

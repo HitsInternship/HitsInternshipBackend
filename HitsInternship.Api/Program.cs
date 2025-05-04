@@ -5,6 +5,7 @@ using Shared.Extensions.Swagger;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+builder.Services.AddControllers();
 
 builder.Services.AddSwaggerConfig();
 
@@ -19,8 +20,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerConfiguration();
 }
 
-app.UseDeanModule();
+app.Services.UseDeanModule();
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();

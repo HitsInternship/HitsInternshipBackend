@@ -9,5 +9,5 @@ public interface IApplicationRepository : IBaseEntityRepository<Application>
     Task<IEnumerable<Application>> GetByStudentIdAsync(Guid studentId);
     Task<IEnumerable<Application>> GetByCompanyId(Guid companyId);
     Task<IEnumerable<Application>> GetByPositionIdAsync(Guid positionId);
-    Task<IEnumerable<Application>> GetByStatusAsync(ApplicationStatus status);   
+    Task<IEnumerable<Application>> GetByStatusAsync(ApplicationStatus status);
 }
