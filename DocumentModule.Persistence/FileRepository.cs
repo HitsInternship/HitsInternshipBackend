@@ -1,5 +1,5 @@
 ﻿using DocumentModule.Contracts;
-using DocumentModule.Infrastructure;
+using DocumentModule.Infrastructure.FileStorage;
 using Microsoft.AspNetCore.Http;
 using Minio.DataModel.Args;
 using System.Web.Mvc;

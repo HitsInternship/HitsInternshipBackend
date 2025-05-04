@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Minio;
+﻿using Minio;
 using Minio.DataModel.Args;
 
-namespace DocumentModule.Infrastructure
+namespace DocumentModule.Infrastructure.FileStorage
 {
     public class FileStorageContext : IDisposable
     {
@@ -34,13 +32,5 @@ namespace DocumentModule.Infrastructure
         {
             client?.Dispose();
         }
-    }
-
-    public class FileStorageSettings
-    {
-        public string Endpoint { get; set; }
-        public string AccessKey { get; set; }
-        public string SecretKey { get; set; }
-        public string BucketName { get; set; }
     }
 }
