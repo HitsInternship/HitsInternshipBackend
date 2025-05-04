@@ -15,14 +15,9 @@ namespace UserModule.Persistence.Repositories
             this.context = context;
         }
 
-        public async Task<User?> GetByEmail(string email)
+        public async Task<User?> GetByEmailAsync(string email)
         {
             return await context.Users.FirstOrDefaultAsync(user => user.Email == email);
-        }
-
-        public async Task<User?> GetUserWithRoles(Guid id)
-        {
-            return await context.Users.Include(user => user.Roles).FirstOrDefaultAsync(user => user.Id == id);
         }
     }
 }

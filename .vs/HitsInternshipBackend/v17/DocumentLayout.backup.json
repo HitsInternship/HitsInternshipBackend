@@ -3,28 +3,72 @@
   "WorkspaceRootPath": "D:\\Projects\\HitsInternshipBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.application\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|solutionrelative:usermodule.application\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.application\\handlers\\getuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|solutionrelative:usermodule.application\\handlers\\getuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.controllers\\handlers\\createusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|solutionrelative:usermodule.controllers\\handlers\\createusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.application\\handlers\\createusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|solutionrelative:usermodule.application\\handlers\\createusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|solutionrelative:usermodule.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.application\\handlers\\editusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|solutionrelative:usermodule.application\\handlers\\editusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\repositories\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\repositories\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.persistence\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|solutionrelative:usermodule.persistence\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|solutionrelative:usermodule.controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\cqrs\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\cqrs\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.controllers\\handlers\\editusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|solutionrelative:usermodule.controllers\\handlers\\editusercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|solutionrelative:usermodule.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.controllers\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|solutionrelative:usermodule.controllers\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\usermodule.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\usermodule.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.persistence\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|solutionrelative:usermodule.persistence\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|solutionrelative:usermodule.persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\shared.contracts\\repositories\\ibaseentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|solutionrelative:shared.contracts\\repositories\\ibaseentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\cqrs\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\cqrs\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|d:\\projects\\hitsinternshipbackend\\shared.extensions\\errorhandling\\errorexception\\errorcollectionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,10 +87,6 @@
       "RelativeMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|solutionrelative:shared.extensions\\errorhandling\\errorresponse\\errorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.persistence\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|solutionrelative:usermodule.persistence\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|d:\\projects\\hitsinternshipbackend\\shared.extensions\\errorhandling\\validation\\annotations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|solutionrelative:shared.extensions\\errorhandling\\validation\\annotations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -59,14 +99,6 @@
       "RelativeMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|solutionrelative:shared.extensions\\errorhandling\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\usermodule.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\usermodule.contracts.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|d:\\projects\\hitsinternshipbackend\\shared.extensions\\swagger\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|solutionrelative:shared.extensions\\swagger\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -77,10 +109,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|d:\\projects\\hitsinternshipbackend\\shared.extensions\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{493A7638-B82C-4382-87FD-315B0C07C28E}|Shared.Extensions\\Shared.Extensions.csproj|solutionrelative:shared.extensions\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02D50666-3CBC-448F-AA10-BC1EFA0E5C67}|DeanModule.Controllers\\DeanModule.Controllers.csproj|d:\\projects\\hitsinternshipbackend\\deanmodule.controllers\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,32 +127,8 @@
       "RelativeMoniker": "D:0:0:{3C7F7AB3-B702-43AB-834F-504BF1178403}|UserModule.Domain\\UserModule.Domain.csproj|solutionrelative:usermodule.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.controllers\\handlers\\getuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|solutionrelative:usermodule.controllers\\handlers\\getuserqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\cqrs\\queries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\cqrs\\queries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{270E2351-0A49-40E0-9BCD-8EB0C715E9F7}|UserModule.Application\\UserModule.Application.csproj|solutionrelative:usermodule.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.controllers\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA8763B2-90ED-4893-9340-31BE5A9264E8}|UserModule.Controllers\\UserModule.Controllers.csproj|solutionrelative:usermodule.controllers\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.contracts\\repositories\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E9DB538-4314-4099-B541-07E4BDF52965}|UserModule.Contracts\\UserModule.Contracts.csproj|solutionrelative:usermodule.contracts\\repositories\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.persistence\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC4F73B0-F5B9-47B7-8280-A8256C90DD07}|UserModule.Persistence\\UserModule.Persistence.csproj|solutionrelative:usermodule.persistence\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|d:\\projects\\hitsinternshipbackend\\shared.contracts\\repositories\\ibaseentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{860945F4-E99A-48B9-BF76-1A4F27295E74}|Shared.Contracts\\Shared.Contracts.csproj|solutionrelative:shared.contracts\\repositories\\ibaseentityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C7F7AB3-B702-43AB-834F-504BF1178403}|UserModule.Domain\\UserModule.Domain.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.domain\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -145,14 +149,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3C7F7AB3-B702-43AB-834F-504BF1178403}|UserModule.Domain\\UserModule.Domain.csproj|d:\\projects\\hitsinternshipbackend\\usermodule.domain\\enums\\rolename.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C7F7AB3-B702-43AB-834F-504BF1178403}|UserModule.Domain\\UserModule.Domain.csproj|solutionrelative:usermodule.domain\\enums\\rolename.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|d:\\projects\\hitsinternshipbackend\\hitsinternship.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C299AA5A-1050-4822-A352-A006AAF1B51A}|HitsInternship.Api\\HitsInternship.Api.csproj|solutionrelative:hitsinternship.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7EDD2B20-B6D4-418C-8936-F904206BB4E5}|DeanModule.Infrastructure\\DeanModule.Infrastructure.csproj|d:\\projects\\hitsinternshipbackend\\deanmodule.infrastructure\\deanmoduledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -302,56 +298,108 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ErrorCollectionResponse.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
-              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\Program.cs",
+              "RelativeDocumentMoniker": "HitsInternship.Api\\Program.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\Program.cs",
+              "RelativeToolTip": "HitsInternship.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:25:44.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Annotations.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
-              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:20:50.612Z",
+              "WhenOpened": "2025-05-03T13:20:39.952Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ErrorResponse.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
-              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:23:35.58Z",
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "HitsInternship.Api\\appsettings.Development.json",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.Development.json",
+              "RelativeToolTip": "HitsInternship.Api\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-30T13:17:53.746Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "UserModule.Controllers\\DependencyInjection.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\DependencyInjection.cs",
+              "RelativeToolTip": "UserModule.Controllers\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:37:43.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "UserModule.Controllers\\UserController.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\UserController.cs",
+              "RelativeToolTip": "UserModule.Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T11:32:03.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateUserCommandHandler.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\Handlers\\CreateUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "UserModule.Application\\Handlers\\CreateUserCommandHandler.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\Handlers\\CreateUserCommandHandler.cs",
+              "RelativeToolTip": "UserModule.Application\\Handlers\\CreateUserCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T15:18:27.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditUserCommandHandler.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\Handlers\\EditUserCommandHandler.cs",
+              "RelativeDocumentMoniker": "UserModule.Application\\Handlers\\EditUserCommandHandler.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\Handlers\\EditUserCommandHandler.cs*",
+              "RelativeToolTip": "UserModule.Application\\Handlers\\EditUserCommandHandler.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T15:18:47.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IRoleRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\Repositories\\IRoleRepository.cs",
+              "RelativeDocumentMoniker": "UserModule.Contracts\\Repositories\\IRoleRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\Repositories\\IRoleRepository.cs",
+              "RelativeToolTip": "UserModule.Contracts\\Repositories\\IRoleRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T13:51:54.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "RoleRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\Repositories\\RoleRepository.cs",
               "RelativeDocumentMoniker": "UserModule.Persistence\\Repositories\\RoleRepository.cs",
               "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\Repositories\\RoleRepository.cs",
               "RelativeToolTip": "UserModule.Persistence\\Repositories\\RoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBYAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T10:43:29.609Z",
               "EditorCaption": ""
@@ -359,188 +407,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\UserService.cs",
-              "RelativeDocumentMoniker": "UserModule.Application\\UserService.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\UserService.cs*",
-              "RelativeToolTip": "UserModule.Application\\UserService.cs*",
-              "ViewState": "AgIAAAwAAAAAAAAAAADgvyAAAAAMAAAAAAAAAA==",
+              "Title": "GetUserQueryHandler.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\Handlers\\GetUserQueryHandler.cs",
+              "RelativeDocumentMoniker": "UserModule.Application\\Handlers\\GetUserQueryHandler.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\Handlers\\GetUserQueryHandler.cs*",
+              "RelativeToolTip": "UserModule.Application\\Handlers\\GetUserQueryHandler.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T12:15:57.947Z",
+              "WhenOpened": "2025-05-04T15:18:52.628Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CreateUserCommandHandler.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\Handlers\\CreateUserCommandHandler.cs",
-              "RelativeDocumentMoniker": "UserModule.Controllers\\Handlers\\CreateUserCommandHandler.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\Handlers\\CreateUserCommandHandler.cs*",
-              "RelativeToolTip": "UserModule.Controllers\\Handlers\\CreateUserCommandHandler.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAiwBMAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:47:46.994Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EditUserCommandHandler.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\Handlers\\EditUserCommandHandler.cs",
-              "RelativeDocumentMoniker": "UserModule.Controllers\\Handlers\\EditUserCommandHandler.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\Handlers\\EditUserCommandHandler.cs",
-              "RelativeToolTip": "UserModule.Controllers\\Handlers\\EditUserCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T15:43:20.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Commands.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\CQRS\\Commands.cs",
-              "RelativeDocumentMoniker": "UserModule.Contracts\\CQRS\\Commands.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\CQRS\\Commands.cs",
-              "RelativeToolTip": "UserModule.Contracts\\CQRS\\Commands.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAewBsAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T12:31:17.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ErrorResponse.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
-              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T17:05:45.664Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "UserModule.Controllers\\UserController.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\UserController.cs",
-              "RelativeToolTip": "UserModule.Controllers\\UserController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAswBYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T11:32:03.971Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "UserModule.Persistence\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "UserModule.Persistence\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T10:19:11.64Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ErrorCollectionResponse.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
-              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T17:04:42.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FailedAnnotationValidationResponse.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
-              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:22:30.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ErrorHandlingMiddleware.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
-              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:53:28.558Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\Program.cs",
-              "RelativeDocumentMoniker": "HitsInternship.Api\\Program.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\Program.cs",
-              "RelativeToolTip": "HitsInternship.Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:20:39.952Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\DependencyInjection.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\DependencyInjection.cs",
-              "RelativeToolTip": "Shared.Extensions\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T12:25:01.609Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "SwaggerConfig.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerConfig.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\Swagger\\SwaggerConfig.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerConfig.cs",
-              "RelativeToolTip": "Shared.Extensions\\Swagger\\SwaggerConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:56:57.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "SwaggerFilter.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerFilter.cs",
-              "RelativeDocumentMoniker": "Shared.Extensions\\Swagger\\SwaggerFilter.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerFilter.cs",
-              "RelativeToolTip": "Shared.Extensions\\Swagger\\SwaggerFilter.cs",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "HitsInternship.Api\\appsettings.json",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.json",
+              "RelativeToolTip": "HitsInternship.Api\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T16:56:58.278Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-30T13:17:55.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "UserModule.Application\\DependencyInjection.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\DependencyInjection.cs",
+              "RelativeToolTip": "UserModule.Application\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T13:53:25.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "UserModule.Contracts.csproj",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\UserModule.Contracts.csproj",
               "RelativeDocumentMoniker": "UserModule.Contracts\\UserModule.Contracts.csproj",
@@ -553,20 +458,192 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 12,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "UserModule.Persistence\\DependencyInjection.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\DependencyInjection.cs",
+              "RelativeToolTip": "UserModule.Persistence\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T10:09:50.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "UserModule.Persistence\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "UserModule.Persistence\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T10:19:11.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\Repositories\\IUserRepository.cs",
               "RelativeDocumentMoniker": "UserModule.Contracts\\Repositories\\IUserRepository.cs",
               "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\Repositories\\IUserRepository.cs",
               "RelativeToolTip": "UserModule.Contracts\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T13:38:58.654Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IBaseEntityRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "RelativeDocumentMoniker": "Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "RelativeToolTip": "Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T13:21:28.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Commands.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\CQRS\\Commands.cs",
+              "RelativeDocumentMoniker": "UserModule.Contracts\\CQRS\\Commands.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\CQRS\\Commands.cs",
+              "RelativeToolTip": "UserModule.Contracts\\CQRS\\Commands.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:31:17.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "ErrorResponse.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
+              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:23:35.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Annotations.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
+              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\Validation\\Annotations.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:20:50.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ErrorResponse.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
+              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T17:05:45.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ErrorCollectionResponse.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
+              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorResponse\\ErrorCollectionResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:25:44.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ErrorCollectionResponse.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
+              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorException\\ErrorCollectionResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T17:04:42.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FailedAnnotationValidationResponse.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
+              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\Validation\\FailedAnnotationValidationResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:22:30.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ErrorHandlingMiddleware.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
+              "RelativeToolTip": "Shared.Extensions\\ErrorHandling\\ErrorHandlingMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:53:28.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\DependencyInjection.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\DependencyInjection.cs",
+              "RelativeToolTip": "Shared.Extensions\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T12:25:01.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SwaggerConfig.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerConfig.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\Swagger\\SwaggerConfig.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerConfig.cs",
+              "RelativeToolTip": "Shared.Extensions\\Swagger\\SwaggerConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:56:57.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SwaggerFilter.cs",
+              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerFilter.cs",
+              "RelativeDocumentMoniker": "Shared.Extensions\\Swagger\\SwaggerFilter.cs",
+              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Swagger\\SwaggerFilter.cs",
+              "RelativeToolTip": "Shared.Extensions\\Swagger\\SwaggerFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T16:56:58.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Controllers\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DeanModule.Controllers\\DependencyInjection.cs",
@@ -574,38 +651,23 @@
               "RelativeToolTip": "DeanModule.Controllers\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T09:02:52.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T09:02:52.655Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Shared.Extensions",
+              "DocumentIndex": 28,
+              "Title": "Shared.Extensions.csproj",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Shared.Extensions.csproj",
               "RelativeDocumentMoniker": "Shared.Extensions\\Shared.Extensions.csproj",
               "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Extensions\\Shared.Extensions.csproj",
               "RelativeToolTip": "Shared.Extensions\\Shared.Extensions.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-03T16:20:25.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T16:20:25.425Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "UserModule.Application\\DependencyInjection.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Application\\DependencyInjection.cs",
-              "RelativeToolTip": "UserModule.Application\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:53:25.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 30,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "UserModule.Domain\\Entities\\User.cs",
@@ -613,12 +675,11 @@
               "RelativeToolTip": "UserModule.Domain\\Entities\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T09:06:15.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T09:06:15.485Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 29,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\DTOs\\UserDTO.cs",
               "RelativeDocumentMoniker": "UserModule.Contracts\\DTOs\\UserDTO.cs",
@@ -626,25 +687,11 @@
               "RelativeToolTip": "UserModule.Contracts\\DTOs\\UserDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T12:00:53.616Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T12:00:53.616Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "GetUserQueryHandler.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\Handlers\\GetUserQueryHandler.cs",
-              "RelativeDocumentMoniker": "UserModule.Controllers\\Handlers\\GetUserQueryHandler.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\Handlers\\GetUserQueryHandler.cs",
-              "RelativeToolTip": "UserModule.Controllers\\Handlers\\GetUserQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:48:56.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "Queries.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\CQRS\\Queries.cs",
               "RelativeDocumentMoniker": "UserModule.Contracts\\CQRS\\Queries.cs",
@@ -652,25 +699,11 @@
               "RelativeToolTip": "UserModule.Contracts\\CQRS\\Queries.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T12:00:13.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T12:00:13.372Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "UserModule.Controllers\\DependencyInjection.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Controllers\\DependencyInjection.cs",
-              "RelativeToolTip": "UserModule.Controllers\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T11:37:43.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Role.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Domain\\Entities\\Role.cs",
               "RelativeDocumentMoniker": "UserModule.Domain\\Entities\\Role.cs",
@@ -682,43 +715,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IRoleRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\Repositories\\IRoleRepository.cs",
-              "RelativeDocumentMoniker": "UserModule.Contracts\\Repositories\\IRoleRepository.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Contracts\\Repositories\\IRoleRepository.cs",
-              "RelativeToolTip": "UserModule.Contracts\\Repositories\\IRoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:51:54.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "UserModule.Persistence\\DependencyInjection.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\UserModule.Persistence\\DependencyInjection.cs",
-              "RelativeToolTip": "UserModule.Persistence\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T10:09:50.598Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "IBaseEntityRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
-              "RelativeDocumentMoniker": "Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
-              "RelativeToolTip": "Shared.Contracts\\Repositories\\IBaseEntityRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T13:21:28.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 71,
               "Title": "20250503143453_init.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Infrastructure\\Migrations\\20250503143453_init.cs",
               "RelativeDocumentMoniker": "UserModule.Infrastructure\\Migrations\\20250503143453_init.cs",
@@ -730,7 +727,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "RoleName.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Domain\\Enums\\RoleName.cs",
               "RelativeDocumentMoniker": "UserModule.Domain\\Enums\\RoleName.cs",
@@ -742,7 +739,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "BaseEntityRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Persistence\\Repositories\\BaseEntityRepository.cs",
               "RelativeDocumentMoniker": "Shared.Persistence\\Repositories\\BaseEntityRepository.cs",
@@ -754,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "UserModule.Infrastructure\\DependencyInjection.cs",
@@ -766,7 +763,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "UserModuleDbContext.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\UserModule.Infrastructure\\UserModuleDbContext.cs",
               "RelativeDocumentMoniker": "UserModule.Infrastructure\\UserModuleDbContext.cs",
@@ -778,31 +775,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "HitsInternship.Api\\appsettings.Development.json",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.Development.json",
-              "RelativeToolTip": "HitsInternship.Api\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-30T13:17:53.746Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 37,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "HitsInternship.Api\\appsettings.json",
-              "ToolTip": "D:\\Projects\\HitsInternshipBackend\\HitsInternship.Api\\appsettings.json",
-              "RelativeToolTip": "HitsInternship.Api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-30T13:17:55.864Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
               "Title": "DeanModuleDbContext.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Infrastructure\\DeanModuleDbContext.cs",
               "RelativeDocumentMoniker": "DeanModule.Infrastructure\\DeanModuleDbContext.cs",
@@ -814,7 +787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 38,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Application\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DeanModule.Application\\DependencyInjection.cs",
@@ -826,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Persistence\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DeanModule.Persistence\\DependencyInjection.cs",
@@ -838,7 +811,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "ApplicationRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Persistence\\Repositories\\ApplicationRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Persistence\\Repositories\\ApplicationRepository.cs",
@@ -850,7 +823,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "IApplicationRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Contracts\\Repositories\\IApplicationRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Contracts\\Repositories\\IApplicationRepository.cs",
@@ -862,7 +835,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "DeanModule.Controllers.csproj",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Controllers\\DeanModule.Controllers.csproj",
               "RelativeDocumentMoniker": "DeanModule.Controllers\\DeanModule.Controllers.csproj",
@@ -870,12 +843,11 @@
               "RelativeToolTip": "DeanModule.Controllers\\DeanModule.Controllers.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-03T13:33:58.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T13:33:58.322Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Persistence\\Repositories\\GenericRepository.cs",
               "RelativeDocumentMoniker": "Shared.Persistence\\Repositories\\GenericRepository.cs",
@@ -887,7 +859,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DeanModule.Infrastructure\\DependencyInjection.cs",
@@ -899,7 +871,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "DeanMemberRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Persistence\\Repositories\\DeanMemberRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Persistence\\Repositories\\DeanMemberRepository.cs",
@@ -911,7 +883,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "StreamSemesterRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Persistence\\Repositories\\StreamSemesterRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Persistence\\Repositories\\StreamSemesterRepository.cs",
@@ -923,7 +895,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 47,
               "Title": "SemesterRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Persistence\\Repositories\\SemesterRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Persistence\\Repositories\\SemesterRepository.cs",
@@ -935,7 +907,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 49,
               "Title": "StreamSemester.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Domain\\Entities\\StreamSemester.cs",
               "RelativeDocumentMoniker": "DeanModule.Domain\\Entities\\StreamSemester.cs",
@@ -947,7 +919,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 50,
               "Title": "Semester.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Domain\\Entities\\Semester.cs",
               "RelativeDocumentMoniker": "DeanModule.Domain\\Entities\\Semester.cs",
@@ -959,7 +931,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 51,
               "Title": "DeanMember.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Domain\\Entities\\DeanMember.cs",
               "RelativeDocumentMoniker": "DeanModule.Domain\\Entities\\DeanMember.cs",
@@ -971,7 +943,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 52,
               "Title": "Application.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Domain\\Entities\\Application.cs",
               "RelativeDocumentMoniker": "DeanModule.Domain\\Entities\\Application.cs",
@@ -983,7 +955,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 48,
               "Title": "migrate.sh",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Infrastructure\\migrate.sh",
               "RelativeDocumentMoniker": "DeanModule.Infrastructure\\migrate.sh",
@@ -995,7 +967,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 56,
               "Title": "DeanModule.Contracts.csproj",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Contracts\\DeanModule.Contracts.csproj",
               "RelativeDocumentMoniker": "DeanModule.Contracts\\DeanModule.Contracts.csproj",
@@ -1003,12 +975,11 @@
               "RelativeToolTip": "DeanModule.Contracts\\DeanModule.Contracts.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-03T09:04:49.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T09:04:49.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 53,
               "Title": "IStreamSemesterRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Contracts\\Repositories\\IStreamSemesterRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Contracts\\Repositories\\IStreamSemesterRepository.cs",
@@ -1020,7 +991,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 54,
               "Title": "ISemesterRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Contracts\\Repositories\\ISemesterRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Contracts\\Repositories\\ISemesterRepository.cs",
@@ -1032,7 +1003,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 55,
               "Title": "IDeanMemberRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DeanModule.Contracts\\Repositories\\IDeanMemberRepository.cs",
               "RelativeDocumentMoniker": "DeanModule.Contracts\\Repositories\\IDeanMemberRepository.cs",
@@ -1044,7 +1015,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 57,
               "Title": "DocumentService.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Application\\DocumentService.cs",
               "RelativeDocumentMoniker": "DocumentModule.Application\\DocumentService.cs",
@@ -1055,7 +1026,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 60,
               "Title": "IFileRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Contracts\\IFileRepository.cs",
               "RelativeDocumentMoniker": "DocumentModule.Contracts\\IFileRepository.cs",
@@ -1066,7 +1037,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 61,
               "Title": "DocumentModule.Persistence.csproj",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentModule.Persistence.csproj",
               "RelativeDocumentMoniker": "DocumentModule.Persistence\\DocumentModule.Persistence.csproj",
@@ -1077,7 +1048,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 59,
               "Title": ".gitignore",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -1089,7 +1060,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 70,
               "Title": "BaseEntityEntityRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Persistence\\Repositories\\BaseEntityEntityRepository.cs",
               "RelativeDocumentMoniker": "Shared.Persistence\\Repositories\\BaseEntityEntityRepository.cs",
@@ -1100,7 +1071,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 62,
               "Title": "FileStorageContext.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\FileStorageContext.cs",
               "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\FileStorageContext.cs",
@@ -1111,7 +1082,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 63,
               "Title": "DocumentRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\DocumentRepository.cs",
               "RelativeDocumentMoniker": "DocumentModule.Persistence\\DocumentRepository.cs",
@@ -1122,7 +1093,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 64,
               "Title": "FileRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Persistence\\FileRepository.cs",
               "RelativeDocumentMoniker": "DocumentModule.Persistence\\FileRepository.cs",
@@ -1133,7 +1104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 65,
               "Title": "Document.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Domain\\Entities\\Document.cs",
               "RelativeDocumentMoniker": "DocumentModule.Domain\\Entities\\Document.cs",
@@ -1144,7 +1115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 66,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Controllers\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DocumentModule.Controllers\\DependencyInjection.cs",
@@ -1155,7 +1126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 58,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\Shared.Contracts\\Repositories\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Shared.Contracts\\Repositories\\IGenericRepository.cs",
@@ -1167,7 +1138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 67,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\DependencyInjection.cs",
@@ -1178,7 +1149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 68,
               "Title": "DocumentModuleDbContext.cs",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModuleDbContext.cs",
               "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\DocumentModuleDbContext.cs",
@@ -1189,7 +1160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 69,
               "Title": "DocumentModule.Infrastructure.csproj",
               "DocumentMoniker": "D:\\Projects\\HitsInternshipBackend\\DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj",
               "RelativeDocumentMoniker": "DocumentModule.Infrastructure\\DocumentModule.Infrastructure.csproj",

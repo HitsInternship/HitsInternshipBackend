@@ -1,11 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UserModule.Contracts.Repositories;
-using UserModule.Persistence.Repositories;
+using System.Reflection;
+using UserModule.Application.Handlers;
 
 namespace UserModule.Application
 {
@@ -13,7 +8,7 @@ namespace UserModule.Application
     {
         public static void AddUserModuleApplication(this IServiceCollection services)
         {
-            services.AddScoped<UserService>();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using UserModule.Contracts.DTOs;
 using UserModule.Contracts.CQRS;
 
 
@@ -20,27 +19,21 @@ namespace UserModule.Controllers
         [Route("create")]
         public async Task<IActionResult> CreateUserCommand(CreateUserCommand userRequest)
         {
-            UserDTO UserInfo = await mediator.Send(userRequest);
-
-            return Ok(UserInfo);
+            return Ok(await mediator.Send(userRequest));
         }
 
         [HttpGet]
         [Route("{id}/info")]
         public async Task<IActionResult> GetUserInfoQuery(Guid id)
         {
-            UserDTO UserInfo = await mediator.Send(new GetUserInfoQuery(id));
-
-            return Ok(UserInfo);
+            return Ok(await mediator.Send(new GetUserInfoQuery(id)));
         }
 
         [HttpPost]
         [Route("edit")]
         public async Task<IActionResult> EditUserCommand(EditUserCommand userRequest)
         {
-            UserDTO UserInfo = await mediator.Send(userRequest);
-
-            return Ok(UserInfo);
+            return Ok(await mediator.Send(userRequest));
         }
     }
 }

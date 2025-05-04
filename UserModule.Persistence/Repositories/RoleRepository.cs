@@ -15,12 +15,12 @@ namespace UserModule.Persistence.Repositories
             this.context = context;
         }
 
-        public async Task<List<Role>> GetRoles(List<RoleName> roleNames)
+        public async Task<List<Role>> GetRolesAsync(List<RoleName> roleNames)
         {
             return context.Roles.Where(Role => roleNames.Contains(Role.RoleName)).ToList();
         }
 
-        public async Task<List<Role>?> GetRolesByUserId(Guid userId)
+        public async Task<List<Role>?> GetRolesByUserIdAsync(Guid userId)
         {
             return context.Users.Where(user => user.Id == userId).Include(user => user.Roles).FirstOrDefault()?.Roles;
         }

@@ -4,8 +4,8 @@ using Shared.Extensions.ErrorHandling;
 using Shared.Extensions.ErrorHandling.Validation;
 using Shared.Extensions.Swagger;
 using System.Text.Json.Serialization;
+using UserModule.Application.Handlers;
 using UserModule.Controllers;
-using UserModule.Controllers.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,9 +15,6 @@ builder.Services.AddSwaggerConfig();
 builder.Services.AddControllers()
     .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()))
     .ConfigureApiBehaviorOptions(options => options.InvalidModelStateResponseFactory = FailedAnnotationValidationResponse.MakeValidationResponse);
-
-builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssemblyContaining<UserController>());
 
 builder.Services.AddSharedModule();
 //builder.Services.AddDeanModule(builder.Configuration);
@@ -29,9 +26,9 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseSwaggerConfiguration();
-
-    app.UseUserModule();
 }
+
+app.UseUserModule();
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 

@@ -5,6 +5,6 @@ namespace UserModule.Contracts.Repositories
 {
     public interface IUserRepository : IBaseEntityRepository<User>
     {
-        public Task<User?> GetByEmail(string email);
+        public Task<User?> GetByEmailAsync(string email);
     }
 }
