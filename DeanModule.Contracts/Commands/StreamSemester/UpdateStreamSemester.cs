@@ -3,4 +3,4 @@ using MediatR;
 
 namespace DeanModule.Contracts.Commands.StreamSemester;
 
-public record UpdateStreamSemester(Guid StreamSemesterId, StreamSemesterRequestDto SemesterRequestDto) : IRequest<Unit>;
+public record UpdateStreamSemester(Guid StreamSemesterId, StreamSemesterRequestDto StreamSemesterRequestDto) : IRequest<Unit>;

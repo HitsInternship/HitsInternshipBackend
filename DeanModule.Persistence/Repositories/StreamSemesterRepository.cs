@@ -7,16 +7,47 @@ using Shared.Persistence.Repositories;
 namespace DeanModule.Persistence.Repositories;
 
 public class StreamSemesterRepository(DeanModuleDbContext context)
-    : BaseEntityRepository<StreamSemester>(context), IStreamSemesterRepository
+    : BaseEntityRepository<StreamSemesterEntity>(context), IStreamSemesterRepository
 {
-    public async Task<IEnumerable<StreamSemester>> GetByStreamIdAsync(Guid streamId)
+    public async Task<IEnumerable<StreamSemesterEntity>> GetByStreamIdAsync(Guid streamId)
     {
         return await DbSet.Where(s => s.StreamId == streamId).ToListAsync();
     }
 
-    public async Task<StreamSemester?> GetBySemesterIdAsync(Guid semesterId, int semesterNumber)
+    public async Task<StreamSemesterEntity?> GetBySemesterIdAsync(Guid semesterId, int semesterNumber)
     {
         return await DbSet.FirstOrDefaultAsync(x =>
             x.StreamId == semesterId && x.Number == semesterNumber);
+    }
+
+    public new Task<IQueryable<StreamSemesterEntity>> ListAllAsync()
+    {
+        return Task.FromResult(DbSet.Include(x => x.SemesterEntity).AsQueryable());
+    }
+
+    public async Task SoftDeleteRangBySemesterAsync(Guid semesterId)
+    {
+        var semesterEntities = DbSet
+            .Where(x => x.SemesterId == semesterId && !x.IsDeleted);
+
+        foreach (var entity in semesterEntities)
+        {
+            entity.IsDeleted = true;
+        }
+
+        await Context.SaveChangesAsync();
+    }
+
+    public async Task SoftDeleteRangeByStreamAsync(Guid streamId)
+    {
+        var semesterEntities = DbSet
+            .Where(x => x.StreamId == streamId && !x.IsDeleted);
+
+        foreach (var entity in semesterEntities)
+        {
+            entity.IsDeleted = true;
+        }
+
+        await Context.SaveChangesAsync();
     }
 }

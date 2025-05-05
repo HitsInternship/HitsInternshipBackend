@@ -8,14 +8,14 @@ public class DeanModuleDbContext(DbContextOptions<DeanModuleDbContext> options) 
     public DbSet<DeanMember> DeanMembers { get; set; }
     public DbSet<SemesterEntity> Semesters { get; set; }
     public DbSet<Application> Applications { get; set; }
-    public DbSet<StreamSemester> StreamSemesters { get; set; }
+    public DbSet<StreamSemesterEntity> StreamSemesters { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<StreamSemester>()
-            .HasOne(s => s.SemesterEntity);
-
-        modelBuilder.Entity<Application>()
-            .HasKey(a => a.Id);
+        modelBuilder.Entity<StreamSemesterEntity>()
+            .HasOne(s => s.SemesterEntity)
+            .WithMany() 
+            .HasForeignKey(s => s.SemesterId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

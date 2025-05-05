@@ -25,6 +25,8 @@ public class UpdateSemesterCommandHandler : IRequestHandler<UpdateSemesterComman
 
         UpdateSemester(semester, request.SemesterRequestDto);
 
+        await _semesterRepository.UpdateAsync(semester);
+        
         return Unit.Value;
     }
 

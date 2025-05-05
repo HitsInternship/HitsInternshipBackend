@@ -4,16 +4,16 @@ using Shared.Domain.Entites;
 
 namespace DeanModule.Domain.Entities;
 
-public class StreamSemester : BaseEntity
+public class StreamSemesterEntity : BaseEntity
 {
     public Guid StreamId { get; set; }
 
-    [ForeignKey("Semester")]
+    [ForeignKey("SemesterEntity")]
     public Guid SemesterId { get; set; }
     
     [Required]
     public int Number { get; set; }
 
     [Required]
-    public SemesterEntity SemesterEntity { get; set; }
+    public required SemesterEntity SemesterEntity { get; set; }
 }

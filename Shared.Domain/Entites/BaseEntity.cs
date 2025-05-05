@@ -4,8 +4,8 @@ namespace Shared.Domain.Entites;
 
 public abstract class BaseEntity
 {
-    [Key]
-    public Guid Id { get;  } = Guid.NewGuid();
+    [Key] 
+    public Guid Id { get; init; } = Guid.NewGuid();
 
     public bool IsDeleted { get; set; }
 }

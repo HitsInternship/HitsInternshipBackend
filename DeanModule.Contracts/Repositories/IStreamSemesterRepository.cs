@@ -3,8 +3,11 @@ using Shared.Contracts.Repositories;
 
 namespace DeanModule.Contracts.Repositories;
 
-public interface IStreamSemesterRepository : IBaseEntityRepository<StreamSemester>
+public interface IStreamSemesterRepository : IBaseEntityRepository<StreamSemesterEntity>
 {
-    Task<IEnumerable<StreamSemester>> GetByStreamIdAsync(Guid streamId);
-    Task<StreamSemester?> GetBySemesterIdAsync(Guid semesterId, int semesterNumber);
+    Task<IEnumerable<StreamSemesterEntity>> GetByStreamIdAsync(Guid streamId);
+    Task<StreamSemesterEntity?> GetBySemesterIdAsync(Guid semesterId, int semesterNumber);
+    new Task<IQueryable<StreamSemesterEntity>> ListAllAsync();
+    Task SoftDeleteRangBySemesterAsync(Guid semesterId);
+    Task SoftDeleteRangeByStreamAsync (Guid streamId);
 }

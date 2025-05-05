@@ -3,6 +3,7 @@ using System;
 using DeanModule.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeanModule.Infrastructure.Migrations
 {
     [DbContext(typeof(DeanModuleDbContext))]
-    partial class DeanModuleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250505174942_rename")]
+    partial class rename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,6 +118,9 @@ namespace DeanModule.Infrastructure.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("SemesterEntityId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("SemesterId")
                         .HasColumnType("uuid");
 
@@ -123,7 +129,7 @@ namespace DeanModule.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SemesterId");
+                    b.HasIndex("SemesterEntityId");
 
                     b.ToTable("StreamSemesters");
                 });
@@ -132,7 +138,7 @@ namespace DeanModule.Infrastructure.Migrations
                 {
                     b.HasOne("DeanModule.Domain.Entities.SemesterEntity", "SemesterEntity")
                         .WithMany()
-                        .HasForeignKey("SemesterId")
+                        .HasForeignKey("SemesterEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

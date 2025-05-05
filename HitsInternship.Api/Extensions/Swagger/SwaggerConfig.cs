@@ -20,7 +20,7 @@ public static class SwaggerConfig
             options.OperationFilter<SwaggerFilter>();
         });
     }
-    
+
     public static void UseSwaggerConfiguration(this WebApplication app)
     {
         app.UseSwagger();

@@ -7,5 +7,6 @@ public interface IBaseEntityRepository<TEntity> : IGenericRepository<TEntity> wh
     Task<TEntity> GetByIdAsync(Guid id);
     Task<bool> CheckIfExistsAsync(Guid id);
     Task<IQueryable<TEntity>> ListAllAsync();
+    Task<IQueryable<TEntity>> ListAllArchivedAsync();
     Task SoftDeleteAsync(Guid id);    
 }

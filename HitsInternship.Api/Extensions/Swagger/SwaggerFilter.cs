@@ -4,7 +4,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace HitsInternship.Api.Extensions.Swagger;
 
-public abstract class SwaggerFilter : IOperationFilter
+public class SwaggerFilter : IOperationFilter
 {
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
     {

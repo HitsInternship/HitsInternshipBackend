@@ -2,4 +2,4 @@ using MediatR;
 
 namespace DeanModule.Contracts.Commands.StreamSemester;
 
-public record DeleteStreamSemesterCommand(Guid StreamSemesterId) : IRequest<Unit>;
+public record DeleteStreamSemesterCommand(Guid StreamSemesterId, bool IsArchive) : IRequest<Unit>;

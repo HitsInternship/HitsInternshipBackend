@@ -3,6 +3,7 @@ using System;
 using DeanModule.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DeanModule.Infrastructure.Migrations
 {
     [DbContext(typeof(DeanModuleDbContext))]
-    partial class DeanModuleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250505124356_adding_key")]
+    partial class adding_key
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,7 +106,7 @@ namespace DeanModule.Infrastructure.Migrations
                     b.ToTable("Semesters");
                 });
 
-            modelBuilder.Entity("DeanModule.Domain.Entities.StreamSemesterEntity", b =>
+            modelBuilder.Entity("DeanModule.Domain.Entities.StreamSemester", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -115,6 +118,9 @@ namespace DeanModule.Infrastructure.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("SemesterEntityId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("SemesterId")
                         .HasColumnType("uuid");
 
@@ -123,16 +129,16 @@ namespace DeanModule.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SemesterId");
+                    b.HasIndex("SemesterEntityId");
 
                     b.ToTable("StreamSemesters");
                 });
 
-            modelBuilder.Entity("DeanModule.Domain.Entities.StreamSemesterEntity", b =>
+            modelBuilder.Entity("DeanModule.Domain.Entities.StreamSemester", b =>
                 {
                     b.HasOne("DeanModule.Domain.Entities.SemesterEntity", "SemesterEntity")
                         .WithMany()
-                        .HasForeignKey("SemesterId")
+                        .HasForeignKey("SemesterEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

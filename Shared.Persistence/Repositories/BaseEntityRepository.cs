@@ -20,7 +20,12 @@ public class BaseEntityRepository<TEntity>(DbContext context)
 
     public Task<IQueryable<TEntity>> ListAllAsync()
     {
-        return Task.FromResult(DbSet.AsQueryable());
+       return Task.FromResult(DbSet.Where(x=>x.IsDeleted == false).AsQueryable());
+    }
+
+    public Task<IQueryable<TEntity>> ListAllArchivedAsync()
+    {
+        return Task.FromResult(DbSet.Where(x=>x.IsDeleted == true).AsQueryable());
     }
 
     public async Task SoftDeleteAsync(Guid id)

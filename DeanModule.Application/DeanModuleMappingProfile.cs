@@ -7,9 +7,12 @@ namespace DeanModule.Application;
 
 public class DeanModuleMappingProfile : Profile
 {
-    DeanModuleMappingProfile()
+    public DeanModuleMappingProfile()
     {
         CreateMap<SemesterRequestDto, SemesterEntity>();
         CreateMap<SemesterEntity, SemesterResponseDto>();
+        CreateMap<StreamSemesterEntity, StreamSemesterResponseDto>()
+            .ForMember(dest => dest.Semester, opt => opt.MapFrom(src => src.SemesterEntity));
+        CreateMap<StreamSemesterRequestDto, StreamSemesterEntity>();
     }
 }
