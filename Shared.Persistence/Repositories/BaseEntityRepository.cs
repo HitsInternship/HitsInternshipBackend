@@ -4,16 +4,13 @@ using Shared.Domain.Entites;
 
 namespace Shared.Persistence.Repositories;
 
-public class BaseEntityRepository<TEntity> : GenericRepository<TEntity>, IBaseEntityRepository<TEntity>
+public class BaseEntityRepository<TEntity>(DbContext context)
+    : GenericRepository<TEntity>(context), IBaseEntityRepository<TEntity>
     where TEntity : BaseEntity
 {
-    public BaseEntityRepository(DbContext context) : base(context)
+    public async Task<TEntity> GetByIdAsync(Guid id)
     {
-    }
-
-    public async Task<TEntity?> GetByIdAsync(Guid id)
-    {
-        return await DbSet.FirstOrDefaultAsync(x => x.Id == id);
+        return await DbSet.FirstOrDefaultAsync(x => x.Id == id) ?? throw new InvalidOperationException();
     }
 
     public async Task<bool> CheckIfExistsAsync(Guid id)

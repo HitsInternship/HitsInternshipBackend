@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace Shared.Extensions.Swagger;
+namespace HitsInternship.Api.Extensions.Swagger;
 
 public static class SwaggerConfig
 {

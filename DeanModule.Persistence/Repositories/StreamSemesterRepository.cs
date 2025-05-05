@@ -6,12 +6,9 @@ using Shared.Persistence.Repositories;
 
 namespace DeanModule.Persistence.Repositories;
 
-public class StreamSemesterRepository : BaseEntityRepository<StreamSemester>, IStreamSemesterRepository
+public class StreamSemesterRepository(DeanModuleDbContext context)
+    : BaseEntityRepository<StreamSemester>(context), IStreamSemesterRepository
 {
-    public StreamSemesterRepository(DeanModuleDbContext context) : base(context)
-    {
-    }
-
     public async Task<IEnumerable<StreamSemester>> GetByStreamIdAsync(Guid streamId)
     {
         return await DbSet.Where(s => s.StreamId == streamId).ToListAsync();

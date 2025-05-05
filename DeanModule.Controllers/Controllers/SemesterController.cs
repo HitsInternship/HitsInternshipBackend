@@ -36,8 +36,8 @@ public class SemesterController : ControllerBase
     }
 
     [HttpDelete, Route("{semesterId}")]
-    public async Task<IActionResult> DeleteSemester(Guid semesterId)
+    public async Task<IActionResult> DeleteSemester(Guid semesterId, [FromQuery] bool isArchive = true)
     {
-        return Ok(await _sender.Send(new DeleteSemesterCommand(semesterId)));
+        return Ok(await _sender.Send(new DeleteSemesterCommand(semesterId, isArchive)));
     }
 }

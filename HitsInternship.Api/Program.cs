@@ -1,6 +1,7 @@
 using DeanModule.Controllers;
+using HitsInternship.Api.Extensions.Middlewares;
+using HitsInternship.Api.Extensions.Swagger;
 using Shared.Extensions;
-using Shared.Extensions.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.Services.UseDeanModule();
+
+app.AddMiddleware();
 
 app.UseHttpsRedirection();
 

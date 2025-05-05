@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Shared.Extensions.Swagger;
+namespace HitsInternship.Api.Extensions.Swagger;
 
-public class SwaggerFilter : IOperationFilter
+public abstract class SwaggerFilter : IOperationFilter
 {
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
     {

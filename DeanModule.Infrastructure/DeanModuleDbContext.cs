@@ -3,20 +3,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DeanModule.Infrastructure;
 
-public class DeanModuleDbContext : DbContext
+public class DeanModuleDbContext(DbContextOptions<DeanModuleDbContext> options) : DbContext(options)
 {
     public DbSet<DeanMember> DeanMembers { get; set; }
-    public DbSet<Semester> Semesters { get; set; }
+    public DbSet<SemesterEntity> Semesters { get; set; }
     public DbSet<Application> Applications { get; set; }
     public DbSet<StreamSemester> StreamSemesters { get; set; }
-
-    public DeanModuleDbContext(DbContextOptions<DeanModuleDbContext> options) : base(options)
-    {
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<StreamSemester>()
-            .HasOne(s => s.Semester);
+            .HasOne(s => s.SemesterEntity);
+
+        modelBuilder.Entity<Application>()
+            .HasKey(a => a.Id);
     }
 }

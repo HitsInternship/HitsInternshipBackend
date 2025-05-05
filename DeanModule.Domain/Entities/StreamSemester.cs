@@ -15,5 +15,5 @@ public class StreamSemester : BaseEntity
     public int Number { get; set; }
 
     [Required]
-    public Semester Semester { get; set; }
+    public SemesterEntity SemesterEntity { get; set; }
 }

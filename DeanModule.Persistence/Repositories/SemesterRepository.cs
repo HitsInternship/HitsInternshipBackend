@@ -5,9 +5,5 @@ using Shared.Persistence.Repositories;
 
 namespace DeanModule.Persistence.Repositories;
 
-public class SemesterRepository : BaseEntityRepository<Semester>, ISemesterRepository
-{
-    public SemesterRepository(DeanModuleDbContext context) : base(context)
-    {
-    }
-}
+public class SemesterRepository(DeanModuleDbContext context)
+    : BaseEntityRepository<SemesterEntity>(context), ISemesterRepository;

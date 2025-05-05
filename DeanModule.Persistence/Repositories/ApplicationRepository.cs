@@ -7,12 +7,9 @@ using Shared.Persistence.Repositories;
 
 namespace DeanModule.Persistence.Repositories;
 
-public class ApplicationRepository : BaseEntityRepository<Application>, IApplicationRepository
+public class ApplicationRepository(DeanModuleDbContext context)
+    : BaseEntityRepository<Application>(context), IApplicationRepository
 {
-    public ApplicationRepository(DeanModuleDbContext context) : base(context)
-    {
-    }
-
     public async Task<IEnumerable<Application>> GetByStudentIdAsync(Guid studentId)
     {
         return await DbSet.Where(a => a.StudentId == studentId).ToListAsync();
