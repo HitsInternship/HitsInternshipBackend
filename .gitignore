@@ -367,6 +367,7 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
-
 appsettings.json
 appsettings.Development.json
+/.idea
+/.vs
