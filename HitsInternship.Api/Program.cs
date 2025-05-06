@@ -1,3 +1,4 @@
+using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using Shared.Extensions;
 using Shared.Extensions.Swagger;
@@ -9,7 +10,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddSharedModule();
-builder.Services.AddDeanModule(builder.Configuration);
+//builder.Services.AddDeanModule(builder.Configuration);
+builder.Services.AddCompanyModule(builder.Configuration);
 
 var app = builder.Build();
 
@@ -19,7 +21,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerConfiguration();
 }
 
-app.UseDeanModule();
+//app.UseDeanModule();
+app.UseCompanyModule();
 
 app.UseHttpsRedirection();
 

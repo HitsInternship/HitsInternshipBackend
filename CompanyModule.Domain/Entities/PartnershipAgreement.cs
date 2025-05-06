@@ -12,5 +12,7 @@ namespace CompanyModule.Domain.Entities
         public string Description { get; set; }
         public Guid DocumentId { get; set; }
         public Company Company { get; set; }
+
+        public PartnershipAgreement() {}
     }
 }
