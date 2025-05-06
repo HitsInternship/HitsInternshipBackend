@@ -13,5 +13,7 @@ namespace CompanyModule.Domain.Entities
         public string Description { get; set; }
         public Company Company { get; set; }
         public List<Attachment> Attachments { get; set; } = new List<Attachment>();
+
+        public Appointment() {}
     }
 }

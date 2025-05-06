@@ -1,3 +1,4 @@
+using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using HitsInternship.Api.Extensions.Middlewares;
 using HitsInternship.Api.Extensions.Swagger;
@@ -21,6 +22,7 @@ builder.Services.AddControllers()
 builder.Services.AddSharedModule(builder.Configuration);
 builder.Services.AddDeanModule(builder.Configuration);
 builder.Services.AddUserModule(builder.Configuration);
+builder.Services.AddCompanyModule(builder.Configuration);
 
 var app = builder.Build();
 
@@ -31,10 +33,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseUserModule();
-
-app.UseMiddleware<ErrorHandlingMiddleware>();
-
 app.Services.UseDeanModule();
+app.UseCompanyModule();
 
 app.AddMiddleware();
 

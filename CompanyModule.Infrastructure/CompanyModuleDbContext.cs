@@ -19,7 +19,8 @@ namespace CompanyModule.Infrastructure
         {
             base.OnModelCreating(modelBuilder);
 
-
+            modelBuilder.Entity<Curator>();
+            modelBuilder.Entity<CompanyRepresenter>();
         }
     }
 }

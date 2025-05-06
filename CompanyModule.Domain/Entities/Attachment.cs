@@ -12,5 +12,7 @@ namespace CompanyModule.Domain.Entities
         public string Name { get; set; }
         public Guid DocumentId { get; set; }
         public Appointment Appointment { get; set; }
+
+        public Attachment() {}
     }
 }
