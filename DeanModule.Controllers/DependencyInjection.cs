@@ -1,6 +1,8 @@
-﻿using DeanModule.Infrastructure;
+﻿using DeanModule.Application;
+using DeanModule.Contracts.Dtos.Responses;
+using DeanModule.Controllers.Controllers;
+using DeanModule.Infrastructure;
 using DeanModule.Persistence;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,10 +14,20 @@ public static class DependencyInjection
     {
         services.AddDeanModuleInfrastructure(configuration);
         services.AddDeanModulePersistence();
+        services.AddApplication();
+
+        services.AddSwaggerGen(options =>
+        {
+            var deanModuleControllersXmlFilename = $"{typeof(SemesterController).Assembly.GetName().Name}.xml";
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, deanModuleControllersXmlFilename));
+
+            var deanModuleDtosXmlFiles = $"{typeof(SemesterResponseDto).Assembly.GetName().Name}.xml";
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, deanModuleDtosXmlFiles));
+        });
     }
 
-    public static void UseDeanModule(this WebApplication app)
+    public static void UseDeanModule(this IServiceProvider services)
     {
-        app.AddDeanModuleInfrastructure();
+        services.AddDeanModuleInfrastructure();
     }
 }

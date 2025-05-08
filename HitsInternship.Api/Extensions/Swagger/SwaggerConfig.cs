@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace Shared.Extensions.Swagger;
+namespace HitsInternship.Api.Extensions.Swagger;
 
 public static class SwaggerConfig
 {
@@ -22,7 +20,7 @@ public static class SwaggerConfig
             options.OperationFilter<SwaggerFilter>();
         });
     }
-    
+
     public static void UseSwaggerConfiguration(this WebApplication app)
     {
         app.UseSwagger();
