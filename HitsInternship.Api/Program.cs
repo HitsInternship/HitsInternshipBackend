@@ -1,23 +1,26 @@
 using DeanModule.Controllers;
+using HitsInternship.Api.Extensions.Middlewares;
+using HitsInternship.Api.Extensions.Swagger;
 using Shared.Extensions;
 using Shared.Extensions.ErrorHandling;
 using Shared.Extensions.ErrorHandling.Validation;
 using Shared.Extensions.Swagger;
 using System.Text.Json.Serialization;
-using UserModule.Application.Handlers;
 using UserModule.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+builder.Services.AddControllers();
+
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()))
     .ConfigureApiBehaviorOptions(options => options.InvalidModelStateResponseFactory = FailedAnnotationValidationResponse.MakeValidationResponse);
 
-builder.Services.AddSharedModule();
-//builder.Services.AddDeanModule(builder.Configuration);
+builder.Services.AddSharedModule(builder.Configuration);
+builder.Services.AddDeanModule(builder.Configuration);
 builder.Services.AddUserModule(builder.Configuration);
 
 var app = builder.Build();
@@ -32,10 +35,12 @@ app.UseUserModule();
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
-app.UseDeanModule();
+app.Services.UseDeanModule();
 
-app.MapControllers();
+app.AddMiddleware();
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();
