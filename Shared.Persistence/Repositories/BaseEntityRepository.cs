@@ -8,6 +8,7 @@ public class BaseEntityRepository<TEntity>(DbContext context)
     : GenericRepository<TEntity>(context), IBaseEntityRepository<TEntity>
     where TEntity : BaseEntity
 {
+
     public async Task<TEntity> GetByIdAsync(Guid id)
     {
         return await DbSet.FirstOrDefaultAsync(x => x.Id == id) ?? throw new InvalidOperationException();
