@@ -8,25 +8,30 @@ using Shared.Persistence.Repositories;
 namespace DeanModule.Persistence.Repositories;
 
 public class ApplicationRepository(DeanModuleDbContext context)
-    : BaseEntityRepository<Application>(context), IApplicationRepository
+    : BaseEntityRepository<ApplicationEntity>(context), IApplicationRepository
 {
-    public async Task<IEnumerable<Application>> GetByStudentIdAsync(Guid studentId)
+    public async Task<IEnumerable<ApplicationEntity>> GetByStudentIdAsync(Guid studentId)
     {
         return await DbSet.Where(a => a.StudentId == studentId).ToListAsync();
     }
 
-    public async Task<IEnumerable<Application>> GetByCompanyId(Guid companyId)
+    public async Task<IEnumerable<ApplicationEntity>> GetByCompanyId(Guid companyId)
     {
         return await DbSet.Where(a => a.CompanyId == companyId).ToListAsync();
     }
 
-    public async Task<IEnumerable<Application>> GetByPositionIdAsync(Guid positionId)
+    public async Task<IEnumerable<ApplicationEntity>> GetByPositionIdAsync(Guid positionId)
     {
         return await DbSet.Where(a => a.PositionId == positionId).ToListAsync();
     }
 
-    public async Task<IEnumerable<Application>> GetByStatusAsync(ApplicationStatus status)
+    public async Task<IEnumerable<ApplicationEntity>> GetByStatusAsync(ApplicationStatus status)
     {
         return await DbSet.Where(a => a.Status == status).ToListAsync();
+    }
+
+    public Task<int> CountAsync()
+    {
+        return DbSet.CountAsync();
     }
 }

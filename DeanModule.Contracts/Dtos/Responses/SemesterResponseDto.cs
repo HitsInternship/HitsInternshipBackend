@@ -10,15 +10,15 @@ public record SemesterResponseDto : BaseDto
     /// <summary>
     /// Дата начала семестра.
     /// </summary>
-    public DateTime StartDate { get; set; }
+    public DateTime StartDate { get; init; }
 
     /// <summary>
     /// Дата окончания семестра.
     /// </summary>
-    public DateTime EndDate { get; set; }
+    public DateTime EndDate { get; init; }
 
     /// <summary>
     /// Описание семестра.
     /// </summary>
-    public string? Description { get; set; }
+    public string? Description { get; init; }
 }

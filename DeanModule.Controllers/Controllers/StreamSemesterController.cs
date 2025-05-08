@@ -52,7 +52,7 @@ public class StreamSemesterController(ISender sender) : ControllerBase
     /// <response code="200">Связь успешно удалена или архивирована.</response>
     [HttpDelete, Route("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> DeleteStreamSemester(Guid id, [FromQuery] bool isArchive = false)
+    public async Task<IActionResult> DeleteStreamSemester(Guid id, [FromQuery] bool isArchive = true)
     {
         return Ok(await sender.Send(new DeleteStreamSemesterCommand(id, isArchive)));
     }

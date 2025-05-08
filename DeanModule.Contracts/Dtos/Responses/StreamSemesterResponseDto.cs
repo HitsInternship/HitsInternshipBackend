@@ -12,10 +12,10 @@ public record StreamSemesterResponseDto : BaseDto
     /// <summary>
     /// Порядковый номер семестра в рамках потока.
     /// </summary>
-    public int Number { get; set; }
+    public int Number { get; init; }
 
     /// <summary>
     /// Информация о семестре.
     /// </summary>
-    public required SemesterResponseDto Semester { get; set; }
+    public required SemesterResponseDto Semester { get; init; }
 }

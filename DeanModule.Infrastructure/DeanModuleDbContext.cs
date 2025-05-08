@@ -7,7 +7,7 @@ public class DeanModuleDbContext(DbContextOptions<DeanModuleDbContext> options) 
 {
     public DbSet<DeanMember> DeanMembers { get; set; }
     public DbSet<SemesterEntity> Semesters { get; set; }
-    public DbSet<Application> Applications { get; set; }
+    public DbSet<ApplicationEntity> Applications { get; set; }
     public DbSet<StreamSemesterEntity> StreamSemesters { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -4,10 +4,11 @@ using Shared.Contracts.Repositories;
 
 namespace DeanModule.Contracts.Repositories;
 
-public interface IApplicationRepository : IBaseEntityRepository<Application>
+public interface IApplicationRepository : IBaseEntityRepository<ApplicationEntity>
 {
-    Task<IEnumerable<Application>> GetByStudentIdAsync(Guid studentId);
-    Task<IEnumerable<Application>> GetByCompanyId(Guid companyId);
-    Task<IEnumerable<Application>> GetByPositionIdAsync(Guid positionId);
-    Task<IEnumerable<Application>> GetByStatusAsync(ApplicationStatus status);
+    Task<IEnumerable<ApplicationEntity>> GetByStudentIdAsync(Guid studentId);
+    Task<IEnumerable<ApplicationEntity>> GetByCompanyId(Guid companyId);
+    Task<IEnumerable<ApplicationEntity>> GetByPositionIdAsync(Guid positionId);
+    Task<IEnumerable<ApplicationEntity>> GetByStatusAsync(ApplicationStatus status);
+    Task<int> CountAsync();
 }

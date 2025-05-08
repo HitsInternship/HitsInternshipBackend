@@ -14,5 +14,8 @@ public class DeanModuleMappingProfile : Profile
         CreateMap<StreamSemesterEntity, StreamSemesterResponseDto>()
             .ForMember(dest => dest.Semester, opt => opt.MapFrom(src => src.SemesterEntity));
         CreateMap<StreamSemesterRequestDto, StreamSemesterEntity>();
+        CreateMap<ApplicationRequestDto, ApplicationEntity>();
+        CreateMap<ApplicationEntity, ApplicationResponseDto>();
+        CreateMap<ApplicationEntity, ListedApplicationResponseDto>();
     }
 }

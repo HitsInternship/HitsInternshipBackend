@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddSwaggerConfig();
 
-builder.Services.AddSharedModule();
+builder.Services.AddSharedModule(builder.Configuration);
 builder.Services.AddDeanModule(builder.Configuration);
 
 var app = builder.Build();
