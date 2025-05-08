@@ -4,7 +4,6 @@ using HitsInternship.Api.Extensions.Swagger;
 using Shared.Extensions;
 using Shared.Extensions.ErrorHandling;
 using Shared.Extensions.ErrorHandling.Validation;
-using Shared.Extensions.Swagger;
 using System.Text.Json.Serialization;
 using UserModule.Controllers;
 

@@ -8,18 +8,10 @@ public class BaseEntityRepository<TEntity>(DbContext context)
     : GenericRepository<TEntity>(context), IBaseEntityRepository<TEntity>
     where TEntity : BaseEntity
 {
-    private readonly DbContext _context;
-    private readonly DbSet<TEntity> _dbSet;
 
-    public BaseEntityRepository(DbContext context) : base(context)
+    public async Task<TEntity> GetByIdAsync(Guid id)
     {
-        _context = context;
-        _dbSet = context.Set<TEntity>();
-    }
-
-    public async Task<TEntity?> GetByIdAsync(Guid id)
-    {
-        return await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
+        return await DbSet.FirstOrDefaultAsync(x => x.Id == id) ?? throw new InvalidOperationException();
     }
 
     public async Task<bool> CheckIfExistsAsync(Guid id)
