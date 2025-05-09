@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UserModule.Application;
 using UserModule.Infrastructure;
 using UserModule.Persistence;
@@ -21,9 +15,9 @@ namespace UserModule.Controllers
             services.AddUserModuleApplication();
         }
 
-        public static void UseUserModule(this WebApplication app)
+        public static void UseUserModule(this IServiceProvider services)
         {
-            app.AddUserModuleInfrastructure();
+            services.AddUserModuleInfrastructure();
         }
     }
 }

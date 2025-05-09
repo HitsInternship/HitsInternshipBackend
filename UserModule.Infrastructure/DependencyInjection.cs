@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,9 +12,9 @@ namespace UserModule.Infrastructure
                 options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
         }
 
-        public static void AddUserModuleInfrastructure(this WebApplication app)
+        public static void AddUserModuleInfrastructure(this IServiceProvider services)
         {
-            using var serviceScope = app.Services.CreateScope();
+            using var serviceScope = services.CreateScope();
             var dbContext = serviceScope.ServiceProvider.GetService<UserModuleDbContext>();
             dbContext?.Database.Migrate();
         }

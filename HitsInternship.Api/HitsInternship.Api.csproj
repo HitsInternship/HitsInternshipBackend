@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DeanModule.Controllers\DeanModule.Controllers.csproj" />
+      <ProjectReference Include="..\DocumentModule.Controllers\DocumentModule.Controllers.csproj" />
       <ProjectReference Include="..\Shared.Extensions\Shared.Extensions.csproj" />
       <ProjectReference Include="..\UserModule.Controllers\UserModule.Controllers.csproj" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />

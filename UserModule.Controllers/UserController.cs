@@ -9,31 +9,32 @@ namespace UserModule.Controllers
     [Route("api/users/")]
     public class UserController : ControllerBase
     {
-        private readonly IMediator mediator;
+        private readonly IMediator _mediator;
+
         public UserController(IMediator mediator)
         {
-            this.mediator = mediator;
+            _mediator = mediator;
         }
 
         [HttpPost]
         [Route("create")]
         public async Task<IActionResult> CreateUserCommand(CreateUserCommand userRequest)
         {
-            return Ok(await mediator.Send(userRequest));
+            return Ok(await _mediator.Send(userRequest));
         }
 
         [HttpGet]
         [Route("{id}/info")]
         public async Task<IActionResult> GetUserInfoQuery(Guid id)
         {
-            return Ok(await mediator.Send(new GetUserInfoQuery(id)));
+            return Ok(await _mediator.Send(new GetUserInfoQuery(id)));
         }
 
         [HttpPost]
         [Route("edit")]
         public async Task<IActionResult> EditUserCommand(EditUserCommand userRequest)
         {
-            return Ok(await mediator.Send(userRequest));
+            return Ok(await _mediator.Send(userRequest));
         }
     }
 }
