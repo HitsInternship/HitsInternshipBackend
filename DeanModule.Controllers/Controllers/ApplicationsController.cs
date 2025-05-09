@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using DeanModule.Contracts.Commands.Application;
 using DeanModule.Contracts.Dtos.Requests;
+using DeanModule.Contracts.Dtos.Responses;
 using DeanModule.Contracts.Queries;
 using DeanModule.Domain.Enums;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeanModule.Controllers.Controllers;
@@ -32,6 +34,7 @@ public class ApplicationsController : ControllerBase
     /// <param name="page">Номер страницы (по умолчанию 1).</param>
     /// <returns>Список заявок с пагинацией.</returns>
     [HttpGet]
+    [ProducesResponseType(typeof(ApplicationsDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetApplications([FromQuery] ApplicationStatus? status, [FromQuery] Guid? studentId,
         bool isArchived = false, int page = 1)
     {
@@ -98,6 +101,7 @@ public class ApplicationsController : ControllerBase
     /// <param name="applicationId">Идентификатор заявки.</param>
     /// <returns>Полная информация о заявке.</returns>
     [HttpGet, Route("{applicationId}")]
+    [ProducesResponseType(typeof(ApplicationResponseDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetApplication(Guid applicationId)
     {
         // TODO: заменить временный userId на текущего пользователя

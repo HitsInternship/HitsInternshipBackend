@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using UserModule.Application.Handlers;
 
 namespace UserModule.Application
 {
