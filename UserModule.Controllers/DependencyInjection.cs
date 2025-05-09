@@ -21,9 +21,9 @@ namespace UserModule.Controllers
             services.AddUserModuleApplication();
         }
 
-        public static void UseUserModule(this WebApplication app)
+        public static void UseUserModule(this IServiceProvider services)
         {
-            app.AddUserModuleInfrastructure();
+            services.AddUserModuleInfrastructure();
         }
     }
 }

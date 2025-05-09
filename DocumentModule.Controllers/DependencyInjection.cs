@@ -12,9 +12,9 @@ namespace DocumentModule.Controllers
             services.AddDocumentModuleInfrastructure(configuration);
         }
 
-        public static void UseDocumentModule(this WebApplication app)
+        public static void UseDocumentModule(this IServiceProvider services)
         {
-            app.AddDocumentModuleInfrastructure();
+            services.AddDocumentModuleInfrastructure();
         }
     }
 }
