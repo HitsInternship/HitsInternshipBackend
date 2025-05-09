@@ -1,27 +1,29 @@
 ﻿using MediatR;
-using Shared.Extensions.ErrorHandling.Error;
-using UserModule.Contracts.CQRS;
+using Shared.Extensions.ErrorHandling.ErrorException;
+using UserModule.Contracts.Commands;
 using UserModule.Contracts.DTOs;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 
 namespace UserModule.Application.Handlers
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDTO>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
     {
-        private readonly IUserRepository userRepository;
-        private readonly IRoleRepository roleRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
+
         public CreateUserCommandHandler(IUserRepository userRepository, IRoleRepository roleRepository)
         {
-            this.userRepository = userRepository;
-            this.roleRepository = roleRepository;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
-        public async Task<UserDTO> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            if (await userRepository.GetByEmailAsync(request.email) != null) throw new ErrorException(409, "Пользователь с таким email уже существует");
+            if (await _userRepository.GetByEmailAsync(request.email) != null)
+                throw new ErrorException(409, "Пользователь с таким email уже существует");
 
-            List<Role> roles = await roleRepository.GetRolesAsync(request.roles);
+            List<Role> roles = await _roleRepository.GetRolesAsync(request.roles);
 
             User user = new User()
             {
@@ -31,9 +33,9 @@ namespace UserModule.Application.Handlers
                 Roles = roles
             };
 
-            await userRepository.AddAsync(user);
+            await _userRepository.AddAsync(user);
 
-            return new UserDTO(user);
+            return new UserDto(user);
         }
     }
 }

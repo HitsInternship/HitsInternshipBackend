@@ -1,31 +1,31 @@
 ﻿using MediatR;
-using Shared.Extensions.ErrorHandling.Error;
-using UserModule.Contracts.CQRS;
+using Shared.Extensions.ErrorHandling.ErrorException;
 using UserModule.Contracts.DTOs;
+using UserModule.Contracts.Queries;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 
 namespace UserModule.Application.Handlers
 {
-    public class GetUserInfoQueryHandler : IRequestHandler<GetUserInfoQuery, UserDTO>
+    public class GetUserInfoQueryHandler : IRequestHandler<GetUserInfoQuery, UserDto>
     {
-        private readonly IUserRepository userRepository;
-        private readonly IRoleRepository roleRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
 
         public GetUserInfoQueryHandler(IUserRepository userRepository, IRoleRepository roleRepository)
         {
-            this.userRepository = userRepository;
-            this.roleRepository = roleRepository;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
-        public async Task<UserDTO> Handle(GetUserInfoQuery request, CancellationToken cancellationToken)
+        public async Task<UserDto> Handle(GetUserInfoQuery request, CancellationToken cancellationToken)
         {
-            User? user = await userRepository.GetByIdAsync(request.userId);
+            User? user = await _userRepository.GetByIdAsync(request.UserId);
             if (user == null) throw new ErrorException(404, "Пользователя с таким id нет");
 
-            await roleRepository.GetRolesByUserIdAsync(user.Id);
+            await _roleRepository.GetRolesByUserIdAsync(user.Id);
 
-            return new UserDTO(user);
+            return new UserDto(user);
         }
     }
 }

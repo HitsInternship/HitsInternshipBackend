@@ -1,38 +1,40 @@
 ﻿using MediatR;
-using Shared.Extensions.ErrorHandling.Error;
-using UserModule.Contracts.CQRS;
+using Shared.Extensions.ErrorHandling.ErrorException;
+using UserModule.Contracts.Commands;
 using UserModule.Contracts.DTOs;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 
 namespace UserModule.Application.Handlers
 {
-    public class EditUserCommandHandler : IRequestHandler<EditUserCommand, UserDTO>
+    public class EditUserCommandHandler : IRequestHandler<EditUserCommand, UserDto>
     {
-        private readonly IUserRepository userRepository;
-        private readonly IRoleRepository roleRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
+
         public EditUserCommandHandler(IUserRepository userRepository, IRoleRepository roleRepository)
         {
-            this.userRepository = userRepository;
-            this.roleRepository = roleRepository;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
-        public async Task<UserDTO> Handle(EditUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserDto> Handle(EditUserCommand request, CancellationToken cancellationToken)
         {
-            User? user = await userRepository.GetByIdAsync(request.id);
+            User? user = await _userRepository.GetByIdAsync(request.id);
             if (user == null) throw new ErrorException(404, "Пользователя с таким id нет");
 
-            await roleRepository.GetRolesByUserIdAsync(user.Id);
+            await _roleRepository.GetRolesByUserIdAsync(user.Id);
 
-            if (user.Email != request.email && userRepository.GetByEmailAsync(request.email) != null) throw new ErrorException(409, "Пользователь с таким email уже существует");
+            if (user.Email != request.email && _userRepository.GetByEmailAsync(request.email) != null)
+                throw new ErrorException(409, "Пользователь с таким email уже существует");
 
             user.Name = request.name;
             user.Email = request.email;
             user.Surname = request.surname;
 
-            await userRepository.UpdateAsync(user);
+            await _userRepository.UpdateAsync(user);
 
-            return new UserDTO(user);
+            return new UserDto(user);
         }
     }
 }

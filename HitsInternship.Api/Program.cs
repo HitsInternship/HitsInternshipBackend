@@ -7,8 +7,6 @@ using HitsInternship.Api.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
-builder.Services.AddControllers();
-
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddControllers()
@@ -27,11 +25,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.Services.UseApplicationModules();
-
 app.AddMiddleware();
-
 app.UseHttpsRedirection();
-
 app.MapControllers();
-
 app.Run();

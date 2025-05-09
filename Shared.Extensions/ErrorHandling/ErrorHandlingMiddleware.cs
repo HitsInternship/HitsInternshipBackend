@@ -19,7 +19,7 @@ namespace Shared.Extensions.ErrorHandling
             {
                 await _next(context);
             }
-            catch (ErrorException exception)
+            catch (ErrorException.ErrorException exception)
             {
                 await HandleExceptionAsync(context, exception);
             }
@@ -29,7 +29,7 @@ namespace Shared.Extensions.ErrorHandling
             }
         }
 
-        private Task HandleExceptionAsync(HttpContext context, ErrorException exception)
+        private Task HandleExceptionAsync(HttpContext context, ErrorException.ErrorException exception)
         {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = exception.status;

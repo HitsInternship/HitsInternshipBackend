@@ -3,9 +3,9 @@ using DeanModule.Domain.Enums;
 namespace DeanModule.Contracts.Dtos.Responses;
 
 /// <summary>
-/// DTO для отображения информации заявке студента.
+/// Ответ по заявке студента.
 /// </summary>
-public record ApplicationResponseDto()
+public record ApplicationResponseDto
 {
     /// <summary>
     /// Описание заявки.

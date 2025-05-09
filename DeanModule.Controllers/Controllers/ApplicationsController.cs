@@ -34,7 +34,7 @@ public class ApplicationsController : ControllerBase
     /// <param name="page">Номер страницы (по умолчанию 1).</param>
     /// <returns>Список заявок с пагинацией.</returns>
     [HttpGet]
-    [ProducesResponseType(typeof(List<ApplicationsDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApplicationsDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetApplications([FromQuery] ApplicationStatus? status, [FromQuery] Guid? studentId,
         bool isArchived = false, int page = 1)
     {
@@ -101,7 +101,7 @@ public class ApplicationsController : ControllerBase
     /// <param name="applicationId">Идентификатор заявки.</param>
     /// <returns>Полная информация о заявке.</returns>
     [HttpGet, Route("{applicationId}")]
-    [ProducesResponseType(typeof(List<ApplicationResponseDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApplicationResponseDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetApplication(Guid applicationId)
     {
         // TODO: заменить временный userId на текущего пользователя
