@@ -1,17 +1,17 @@
-﻿using Minio;
+﻿using DocumentModule.Domain.Enums;
+using Microsoft.VisualBasic.FileIO;
+using Minio;
 using Minio.DataModel.Args;
 
 namespace DocumentModule.Infrastructure.FileStorage
 {
     public class FileStorageContext : IDisposable
     {
-        public readonly IMinioClient client;
-        public readonly string bucketName;
+        public readonly IMinioClient _client;
 
         public FileStorageContext(FileStorageSettings settings)
         {
-            bucketName = settings.BucketName;
-            client = new MinioClient()
+            _client = new MinioClient()
                 .WithEndpoint(settings.Endpoint, 9000)
                 .WithCredentials(settings.AccessKey, settings.SecretKey)
                 .Build();
@@ -21,16 +21,18 @@ namespace DocumentModule.Infrastructure.FileStorage
 
         private async Task InitializeBucketAsync()
         {
-            var exists = await client.BucketExistsAsync(new BucketExistsArgs().WithBucket(bucketName));
-            if (!exists)
+            foreach (DocumentType documentType in Enum.GetValues(typeof(DocumentType)))
             {
-                await client.MakeBucketAsync(new MakeBucketArgs().WithBucket(bucketName));
+                if (!await _client.BucketExistsAsync(new BucketExistsArgs().WithBucket(documentType.ToString())))
+                {
+                    await _client.MakeBucketAsync(new MakeBucketArgs().WithBucket(documentType.ToString()));
+                }
             }
         }
 
         public void Dispose()
         {
-            client?.Dispose();
+            _client?.Dispose();
         }
     }
 }

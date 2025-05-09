@@ -1,9 +1,9 @@
 ﻿using UserModule.Domain.Entities;
 using UserModule.Domain.Enums;
 
-namespace UserModule.Contracts.DTOs
+namespace UserModule.Contracts.DTOs.Responses
 {
-    public class UserDTO
+    public class UserResponse
     {
         public Guid id { get; set; }
         public string name { get; set; }
@@ -11,9 +11,9 @@ namespace UserModule.Contracts.DTOs
         public string email { get; set; }
         public List<RoleName> roles { get; set; }
 
-        public UserDTO() { }
+        public UserResponse() { }
 
-        public UserDTO(User user)
+        public UserResponse(User user)
         {
             id = user.Id;
             name = user.Name;

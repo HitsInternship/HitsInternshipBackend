@@ -10,8 +10,8 @@ namespace DocumentModule.Infrastructure
     {
         public static void AddDocumentModuleInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<DocumentModuleDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
+            //services.AddDbContext<DocumentModuleDbContext>(options =>
+            //    options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
 
             services.AddScoped<FileStorageContext>(provider =>
             {

@@ -1,38 +1,41 @@
-﻿using MediatR;
-using Shared.Extensions.ErrorHandling.Error;
+﻿using AutoMapper;
+using MediatR;
+using Shared.Domain.Exceptions;
 using UserModule.Contracts.CQRS;
-using UserModule.Contracts.DTOs;
+using UserModule.Contracts.DTOs.Responses;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
+using UserModule.Persistence.Repositories;
 
 namespace UserModule.Application.Handlers
 {
-    public class EditUserCommandHandler : IRequestHandler<EditUserCommand, UserDTO>
+    public class EditUserCommandHandler : IRequestHandler<EditUserCommand, User>
     {
-        private readonly IUserRepository userRepository;
-        private readonly IRoleRepository roleRepository;
-        public EditUserCommandHandler(IUserRepository userRepository, IRoleRepository roleRepository)
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
+        private readonly IMapper _mapper;
+        public EditUserCommandHandler(IUserRepository userRepository, IRoleRepository roleRepository, IMapper mapper)
         {
-            this.userRepository = userRepository;
-            this.roleRepository = roleRepository;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
+            _mapper = mapper;
         }
 
-        public async Task<UserDTO> Handle(EditUserCommand request, CancellationToken cancellationToken)
+        public async Task<User> Handle(EditUserCommand command, CancellationToken cancellationToken)
         {
-            User? user = await userRepository.GetByIdAsync(request.id);
-            if (user == null) throw new ErrorException(404, "Пользователя с таким id нет");
+            User? user = await _userRepository.GetByIdAsync(command.userId);
+            if (user == null) throw new NotFound("No user with such id");
 
-            await roleRepository.GetRolesByUserIdAsync(user.Id);
+            if (user.Email != command.editRequest.email && _userRepository.GetByEmailAsync(command.editRequest.email) != null) throw new Conflict("User with such email already exists");
 
-            if (user.Email != request.email && userRepository.GetByEmailAsync(request.email) != null) throw new ErrorException(409, "Пользователь с таким email уже существует");
+            List<Role> roles = await _roleRepository.GetRolesAsync(command.editRequest.roles);
 
-            user.Name = request.name;
-            user.Email = request.email;
-            user.Surname = request.surname;
+            user = _mapper.Map<User>(command.editRequest);
+            user.Roles = roles;
 
-            await userRepository.UpdateAsync(user);
+            await _userRepository.UpdateAsync(user);
 
-            return new UserDTO(user);
+            return user;
         }
     }
 }

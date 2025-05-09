@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.Extensions.ErrorHandling.Validation
+namespace Shared.Extensions.Validation
 {
     public static class Annotations
     {
@@ -13,7 +13,7 @@ namespace Shared.Extensions.ErrorHandling.Validation
         {
             public EmailAttribute() : base("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(?:[a-zA-Z]{2,})(?:\\.[a-zA-Z]{2,})*$")
             {
-                ErrorMessage = "Неверная электронная почта";
+                ErrorMessage = "Invalid email";
             }
         }
     }

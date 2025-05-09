@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DocumentModule.Infrastructure\DocumentModule.Infrastructure.csproj" />
+    <ProjectReference Include="..\DocumentModule.Persistence\DocumentModule.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

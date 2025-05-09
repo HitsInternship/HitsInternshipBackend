@@ -1,10 +1,11 @@
-﻿using DocumentModule.Contracts;
+﻿using DocumentModule.Contracts.Repositories;
+using DocumentModule.Domain.Enums;
 using DocumentModule.Infrastructure.FileStorage;
 using Microsoft.AspNetCore.Http;
 using Minio.DataModel.Args;
 using System.Web.Mvc;
 
-namespace DocumentModule.Persistence
+namespace DocumentModule.Persistence.Repositories
 {
     public class FileRepository : IFileRepository
     {
@@ -15,27 +16,27 @@ namespace DocumentModule.Persistence
             _context = context;
         }
 
-        public async Task<string> AddFileAsync(Guid fileId, IFormFile file)
+        public async Task<string> AddFileAsync(Guid fileId, DocumentType documentType, IFormFile file)
         {
             var args = new PutObjectArgs()
-                .WithBucket(_context.bucketName)
+                .WithBucket(documentType.ToString())
                 .WithObject(fileId.ToString())
                 .WithStreamData(file.OpenReadStream())
                 .WithObjectSize(file.Length)
                 .WithContentType(file.ContentType)
                 .WithHeaders(new Dictionary<string, string> { { "Name", Uri.EscapeDataString(file.FileName) } });
 
-            await _context.client.PutObjectAsync(args);
+            await _context._client.PutObjectAsync(args);
             return file.ContentType;
         }
 
-        public async Task<FileContentResult?> GetFileAsync(Guid fileId)
+        public async Task<FileContentResult?> GetFileAsync(Guid fileId, DocumentType documentType)
         {
             using var memoryStream = new MemoryStream();
 
-            var metadata = await _context.client.GetObjectAsync(
+            var metadata = await _context._client.GetObjectAsync(
                 new GetObjectArgs()
-                    .WithBucket(_context.bucketName)
+                    .WithBucket(documentType.ToString())
                     .WithObject(fileId.ToString())
                     .WithCallbackStream(stream => stream.CopyTo(memoryStream)));
 
@@ -47,11 +48,11 @@ namespace DocumentModule.Persistence
             };
         }
 
-        public async Task DeleteFileAsync(Guid fileId)
+        public async Task DeleteFileAsync(Guid fileId, DocumentType documentType)
         {
-            await _context.client.RemoveObjectAsync(
+            await _context._client.RemoveObjectAsync(
                 new RemoveObjectArgs()
-                    .WithBucket(_context.bucketName)
+                    .WithBucket(documentType.ToString())
                     .WithObject(fileId.ToString()));
         }
     }

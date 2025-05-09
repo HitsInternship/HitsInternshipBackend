@@ -2,7 +2,7 @@
 using DocumentModule.Infrastructure;
 using Shared.Persistence.Repositories;
 
-namespace DocumentModule.Persistence
+namespace DocumentModule.Persistence.Repositories
 {
     public class DocumentRepository : BaseEntityRepository<Document>
     {

@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CompanyModule.Domain\CompanyModule.Domain.csproj" />
-    <ProjectReference Include="..\Shared.Contracts\Shared.Contracts.csproj" />
+    <ProjectReference Include="..\CompanyModule.Contracts\CompanyModule.Contracts.csproj" />
+    <ProjectReference Include="..\DocumentModule.Contracts\DocumentModule.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

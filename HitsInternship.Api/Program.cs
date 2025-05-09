@@ -1,10 +1,10 @@
 using CompanyModule.Controllers;
 using DeanModule.Controllers;
+using DocumentModule.Controllers;
 using HitsInternship.Api.Extensions.Middlewares;
 using HitsInternship.Api.Extensions.Swagger;
 using Shared.Extensions;
-using Shared.Extensions.ErrorHandling;
-using Shared.Extensions.ErrorHandling.Validation;
+using Shared.Extensions.Validation;
 using System.Text.Json.Serialization;
 using UserModule.Controllers;
 
@@ -20,7 +20,8 @@ builder.Services.AddControllers()
     .ConfigureApiBehaviorOptions(options => options.InvalidModelStateResponseFactory = FailedAnnotationValidationResponse.MakeValidationResponse);
 
 builder.Services.AddSharedModule(builder.Configuration);
-builder.Services.AddDeanModule(builder.Configuration);
+//builder.Services.AddDeanModule(builder.Configuration);
+builder.Services.AddDocumentModule(builder.Configuration);
 builder.Services.AddUserModule(builder.Configuration);
 builder.Services.AddCompanyModule(builder.Configuration);
 
@@ -33,7 +34,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseUserModule();
-app.Services.UseDeanModule();
+//app.Services.UseDeanModule();
 app.UseCompanyModule();
 
 app.AddMiddleware();

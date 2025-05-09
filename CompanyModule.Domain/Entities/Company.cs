@@ -19,6 +19,5 @@ namespace CompanyModule.Domain.Entities
         public List<Appointment> Appointments { get; set; } = new List<Appointment>();
 
         public Company() { }
-
     }
 }

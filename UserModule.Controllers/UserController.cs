@@ -1,6 +1,9 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserModule.Contracts.CQRS;
+using UserModule.Contracts.DTOs.Requests;
+using UserModule.Contracts.DTOs.Responses;
 
 
 namespace UserModule.Controllers
@@ -15,25 +18,40 @@ namespace UserModule.Controllers
             this.mediator = mediator;
         }
 
+        /// <summary>
+        /// Добавляет пользователя в систему.
+        /// </summary>
+        /// <returns>Добавленный пользователь.</returns>
         [HttpPost]
         [Route("create")]
-        public async Task<IActionResult> CreateUserCommand(CreateUserCommand userRequest)
+        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
+        public async Task<IActionResult> CreateUserCommand(UserRequest createRequest)
         {
-            return Ok(await mediator.Send(userRequest));
+            return Ok(new UserResponse(await mediator.Send(new CreateUserCommand(createRequest))));
         }
 
+        /// <summary>
+        /// Возвращает информацию о пользователе.
+        /// </summary>
+        /// <returns>Информация о пользователе.</returns>
         [HttpGet]
         [Route("{id}/info")]
+        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUserInfoQuery(Guid id)
         {
-            return Ok(await mediator.Send(new GetUserInfoQuery(id)));
+            return Ok(new UserResponse(await mediator.Send(new GetUserQuery(id))));
         }
 
+        /// <summary>
+        /// Изменяет информацию о пользователе.
+        /// </summary>
+        /// <returns>Измененный пользователь.</returns>
         [HttpPost]
-        [Route("edit")]
-        public async Task<IActionResult> EditUserCommand(EditUserCommand userRequest)
+        [Route("{id}/edit")]
+        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
+        public async Task<IActionResult> EditUserCommand(Guid id, UserRequest userRequest)
         {
-            return Ok(await mediator.Send(userRequest));
+            return Ok(new UserResponse(await mediator.Send(new EditUserCommand(id, userRequest))));
         }
     }
 }

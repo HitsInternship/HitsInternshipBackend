@@ -1,5 +1,6 @@
 ﻿using CompanyModule.Infrastructure;
 using CompanyModule.Persistence;
+using CompanyModule.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,7 @@ namespace CompanyModule.Controllers
         {
             services.AddCompanyModuleInfrastructure(configuration);
             services.AddCompanyModulePersistence();
+            services.AddCompanyModuleApplication();
         }
 
         public static void UseCompanyModule(this WebApplication app)
