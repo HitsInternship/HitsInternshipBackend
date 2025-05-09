@@ -7,14 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
+=======
+>>>>>>> f7116892c871c6e26e81efd7ffdcd0bb2698baa8
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <ProjectReference Include="..\CompanyModule.Application\CompanyModule.Application.csproj" />
+=======
+>>>>>>> f7116892c871c6e26e81efd7ffdcd0bb2698baa8
     <ProjectReference Include="..\CompanyModule.Infrastructure\CompanyModule.Infrastructure.csproj" />
     <ProjectReference Include="..\CompanyModule.Persistence\CompanyModule.Persistence.csproj" />
   </ItemGroup>

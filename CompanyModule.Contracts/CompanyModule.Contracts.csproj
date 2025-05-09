@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
   </ItemGroup>
 
   <ItemGroup>
+=======
+>>>>>>> f7116892c871c6e26e81efd7ffdcd0bb2698baa8
     <ProjectReference Include="..\CompanyModule.Domain\CompanyModule.Domain.csproj" />
     <ProjectReference Include="..\Shared.Contracts\Shared.Contracts.csproj" />
   </ItemGroup>
