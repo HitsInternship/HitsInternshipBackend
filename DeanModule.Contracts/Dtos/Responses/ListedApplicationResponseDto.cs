@@ -3,11 +3,22 @@ using Shared.Contracts.Dtos;
 
 namespace DeanModule.Contracts.Dtos.Responses;
 
+/// <summary>
+/// Упрощённая информация о заявке.
+/// </summary>
 public record ListedApplicationResponseDto : BaseDto
 {
-    //todo: add student dto
+    /// <summary>
+    /// Дата подачи заявки.
+    /// </summary>
     public DateTime Date { get; init; }
-    //todo: add company dto
-    //todo: add position dto
+
+    /// <summary>
+    /// Статус заявки.
+    /// </summary>
     public ApplicationStatus Status { get; init; }
+
+    // todo: добавить DTO студента
+    // todo: добавить DTO компании
+    // todo: добавить DTO позиции
 }

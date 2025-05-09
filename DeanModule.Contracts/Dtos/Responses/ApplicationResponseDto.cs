@@ -2,15 +2,32 @@ using DeanModule.Domain.Enums;
 
 namespace DeanModule.Contracts.Dtos.Responses;
 
-public record ApplicationResponseDto()
+/// <summary>
+/// Ответ по заявке студента.
+/// </summary>
+public record ApplicationResponseDto
 {
-    //todo: add student dto
+    /// <summary>
+    /// Описание заявки.
+    /// </summary>
     public string? Description { get; init; }
 
+    /// <summary>
+    /// Дата подачи заявки.
+    /// </summary>
     public DateTime Date { get; init; }
 
-    //todo: add position dto
-    //todo: add company dto
+    /// <summary>
+    /// URL на прикреплённый документ (если имеется).
+    /// </summary>
     public string? DocumentUrl { get; init; }
+
+    /// <summary>
+    /// Текущий статус заявки.
+    /// </summary>
     public ApplicationStatus Status { get; init; }
+
+    // todo: добавить DTO студента
+    // todo: добавить DTO позиции
+    // todo: добавить DTO компании
 }
