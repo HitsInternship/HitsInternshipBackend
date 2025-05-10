@@ -19,7 +19,7 @@ namespace DocumentModule.Persistence.Repositories
         public async Task<string> AddFileAsync(Guid fileId, DocumentType documentType, IFormFile file)
         {
             var args = new PutObjectArgs()
-                .WithBucket(documentType.ToString())
+                .WithBucket(documentType.ToString().ToLower())
                 .WithObject(fileId.ToString())
                 .WithStreamData(file.OpenReadStream())
                 .WithObjectSize(file.Length)
@@ -36,7 +36,7 @@ namespace DocumentModule.Persistence.Repositories
 
             var metadata = await _context._client.GetObjectAsync(
                 new GetObjectArgs()
-                    .WithBucket(documentType.ToString())
+                    .WithBucket(documentType.ToString().ToLower())
                     .WithObject(fileId.ToString())
                     .WithCallbackStream(stream => stream.CopyTo(memoryStream)));
 
@@ -52,7 +52,7 @@ namespace DocumentModule.Persistence.Repositories
         {
             await _context._client.RemoveObjectAsync(
                 new RemoveObjectArgs()
-                    .WithBucket(documentType.ToString())
+                    .WithBucket(documentType.ToString().ToLower())
                     .WithObject(fileId.ToString()));
         }
     }

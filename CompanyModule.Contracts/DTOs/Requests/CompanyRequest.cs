@@ -12,5 +12,15 @@ namespace CompanyModule.Contracts.DTOs.Requests
         public string name { get; set; }
         public string description { get; set; }
         public CompanyStatus status { get; set; }
+
+        public CompanyRequest() {}
+    }
+
+    public class EditCompanyRequest
+    {
+        public string name { get; set; }
+        public string description { get; set; }
+
+        public EditCompanyRequest() { }
     }
 }

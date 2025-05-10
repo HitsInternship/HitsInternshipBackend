@@ -18,5 +18,7 @@ namespace UserModule.Contracts.DTOs.Requests
         [Annotations.Email]
         public string email { get; set; }
         public List<RoleName> roles { get; set; }
+
+        public UserRequest() {}
     }
 }

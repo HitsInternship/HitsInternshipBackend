@@ -14,6 +14,12 @@ namespace CompanyModule.Controllers
             services.AddCompanyModuleInfrastructure(configuration);
             services.AddCompanyModulePersistence();
             services.AddCompanyModuleApplication();
+
+            services.AddSwaggerGen(options =>
+            {
+                var companyModuleControllersXmlFilename = $"{typeof(CompanyController).Assembly.GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, companyModuleControllersXmlFilename));
+            });
         }
 
         public static void UseCompanyModule(this WebApplication app)

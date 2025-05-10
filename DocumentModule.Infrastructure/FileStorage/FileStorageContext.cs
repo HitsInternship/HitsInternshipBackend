@@ -23,9 +23,9 @@ namespace DocumentModule.Infrastructure.FileStorage
         {
             foreach (DocumentType documentType in Enum.GetValues(typeof(DocumentType)))
             {
-                if (!await _client.BucketExistsAsync(new BucketExistsArgs().WithBucket(documentType.ToString())))
+                if (!await _client.BucketExistsAsync(new BucketExistsArgs().WithBucket(documentType.ToString().ToLower())))
                 {
-                    await _client.MakeBucketAsync(new MakeBucketArgs().WithBucket(documentType.ToString()));
+                    await _client.MakeBucketAsync(new MakeBucketArgs().WithBucket(documentType.ToString().ToLower()));
                 }
             }
         }

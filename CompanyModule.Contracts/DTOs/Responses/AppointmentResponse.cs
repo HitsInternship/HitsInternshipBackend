@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace CompanyModule.Contracts.DTOs.Responses
 {
-    public class PartnershipAgreementResponse
+    public class AppointmentResponse
     {
+        public DateTime date { get; set; }
         public string description { get; set; }
-        public Guid documentId { get; set; }
-        public Guid companyId { get; set; }
 
-        public PartnershipAgreementResponse() {}
+        public AppointmentResponse() {}
     }
 }

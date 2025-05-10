@@ -1,15 +1,16 @@
 ﻿using Shared.Domain.Entites;
+using System.ComponentModel.DataAnnotations.Schema;
+using UserModule.Domain.Entities;
 
 namespace CompanyModule.Domain.Entities
 {
     public abstract class CompanyPerson : BaseEntity
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Email { get; set; }
+        public Guid UserId { get; set; }
+        [NotMapped] 
+        public User User { get; set; }
         public string Telegram { get; set; }
         public string Phone { get; set; }
-        public Guid UserId { get; set; }
         public Company Company { get; set; }
 
         protected CompanyPerson() {}

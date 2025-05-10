@@ -7,21 +7,22 @@ using MediatR;
 
 namespace CompanyModule.Application.Handlers
 {
-    public class AddCompanyCommandHandler : IRequestHandler<AddCompanyCommand, Company>
+    public class EditCompanyCommandHandler : IRequestHandler<EditCompanyCommand, Company>
     {
         private readonly ICompanyRepository _companyRepository;
         private readonly IMapper _mapper;
-        public AddCompanyCommandHandler(ICompanyRepository companyRepository, IMapper mapper)
+        public EditCompanyCommandHandler(ICompanyRepository companyRepository, IMapper mapper)
         {
             _companyRepository = companyRepository;
             _mapper = mapper;
         }
 
-        public async Task<Company> Handle(AddCompanyCommand command, CancellationToken cancellationToken)
+        public async Task<Company> Handle(EditCompanyCommand command, CancellationToken cancellationToken)
         {
-            Company company = _mapper.Map<Company>(command.createRequest);
+            Company company = await _companyRepository.GetByIdAsync(command.companyId);
+            _mapper.Map(command.editRequest, company);
 
-            await _companyRepository.AddAsync(company);
+            await _companyRepository.UpdateAsync(company);
 
             return company;
         }

@@ -26,11 +26,12 @@ namespace UserModule.Application.Handlers
             User? user = await _userRepository.GetByIdAsync(command.userId);
             if (user == null) throw new NotFound("No user with such id");
 
-            if (user.Email != command.editRequest.email && _userRepository.GetByEmailAsync(command.editRequest.email) != null) throw new Conflict("User with such email already exists");
+            if (user.Email != command.editRequest.email && (await _userRepository.GetByEmailAsync(command.editRequest.email)) != null) throw new Conflict("User with such email already exists");
 
+            await _roleRepository.GetRolesByUserIdAsync(user.Id);
             List<Role> roles = await _roleRepository.GetRolesAsync(command.editRequest.roles);
 
-            user = _mapper.Map<User>(command.editRequest);
+            user = _mapper.Map(command.editRequest, user);
             user.Roles = roles;
 
             await _userRepository.UpdateAsync(user);

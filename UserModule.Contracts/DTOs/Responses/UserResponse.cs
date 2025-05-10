@@ -12,14 +12,5 @@ namespace UserModule.Contracts.DTOs.Responses
         public List<RoleName> roles { get; set; }
 
         public UserResponse() { }
-
-        public UserResponse(User user)
-        {
-            id = user.Id;
-            name = user.Name;
-            surname = user.Surname;
-            email = user.Email;
-            roles = user.Roles.Select(Role => Role.RoleName).ToList();
-        }
     }
 }

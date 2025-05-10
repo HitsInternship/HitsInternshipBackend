@@ -13,6 +13,8 @@ namespace CompanyModule.Application
         public static void AddCompanyModuleApplication(this IServiceCollection services)
         {
             services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+            services.AddAutoMapper(typeof(CompanyModuleMappingProfile));
         }
     }
 }

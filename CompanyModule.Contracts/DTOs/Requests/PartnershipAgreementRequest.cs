@@ -11,5 +11,7 @@ namespace CompanyModule.Contracts.DTOs.Requests
     {
         public string description { get; set; }
         public IFormFile file { get; set; }
+
+        public PartnershipAgreementRequest() {}
     }
 }

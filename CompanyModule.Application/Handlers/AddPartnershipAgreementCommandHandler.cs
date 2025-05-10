@@ -15,9 +15,10 @@ namespace CompanyModule.Application.Handlers
         private readonly ICompanyRepository _companyRepository;
         private readonly IFileRepository _fileRepository;
         private readonly IMapper _mapper;
-        public AddPartnershipAgreementCommandHandler(IPartnershipAgreementRepository companyRepository, IFileRepository fileRepository, IMapper mapper)
+        public AddPartnershipAgreementCommandHandler(IPartnershipAgreementRepository partnershipAgreementRepository, ICompanyRepository companyRepository, IFileRepository fileRepository, IMapper mapper)
         {
-            _partnershipAgreementRepository = companyRepository;
+            _partnershipAgreementRepository = partnershipAgreementRepository;
+            _companyRepository = companyRepository;
             _fileRepository = fileRepository;
             _mapper = mapper;
         }

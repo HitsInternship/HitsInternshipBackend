@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserModule.Contracts.CQRS;
@@ -12,23 +13,25 @@ namespace UserModule.Controllers
     [Route("api/users/")]
     public class UserController : ControllerBase
     {
-        private readonly IMediator mediator;
-        public UserController(IMediator mediator)
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
+        public UserController(IMediator mediator, IMapper mapper)
         {
-            this.mediator = mediator;
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
-        /// <summary>
-        /// Добавляет пользователя в систему.
-        /// </summary>
-        /// <returns>Добавленный пользователь.</returns>
-        [HttpPost]
-        [Route("create")]
-        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
-        public async Task<IActionResult> CreateUserCommand(UserRequest createRequest)
-        {
-            return Ok(new UserResponse(await mediator.Send(new CreateUserCommand(createRequest))));
-        }
+        ///// <summary>
+        ///// Добавляет пользователя в систему.
+        ///// </summary>
+        ///// <returns>Добавленный пользователь.</returns>
+        //[HttpPost]
+        //[Route("create")]
+        //[ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
+        //public async Task<IActionResult> CreateUserCommand(UserRequest createRequest)
+        //{
+        //    return Ok(_mapper.Map<UserResponse>(await mediator.Send(new CreateUserCommand(createRequest))));
+        //}
 
         /// <summary>
         /// Возвращает информацию о пользователе.
@@ -39,7 +42,7 @@ namespace UserModule.Controllers
         [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUserInfoQuery(Guid id)
         {
-            return Ok(new UserResponse(await mediator.Send(new GetUserQuery(id))));
+            return Ok(_mapper.Map<UserResponse>(await _mediator.Send(new GetUserQuery(id))));
         }
 
         /// <summary>
@@ -51,7 +54,7 @@ namespace UserModule.Controllers
         [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> EditUserCommand(Guid id, UserRequest userRequest)
         {
-            return Ok(new UserResponse(await mediator.Send(new EditUserCommand(id, userRequest))));
+            return Ok(_mapper.Map<UserResponse>(await _mediator.Send(new EditUserCommand(id, userRequest))));
         }
     }
 }
