@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE2BB6E1-E80A-4C76-B306-A9D510AB4617}|StudentModule.Application\\StudentModule.Application.csproj|c:\\users\\romka\\source\\repos\\hitsinternshipbackend\\studentmodule.application\\handlers\\streamhandlers\\deletestreamcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE2BB6E1-E80A-4C76-B306-A9D510AB4617}|StudentModule.Application\\StudentModule.Application.csproj|solutionrelative:studentmodule.application\\handlers\\streamhandlers\\deletestreamcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D813EC1C-13CF-4018-B0ED-E7656B9EED39}|StudentModule.Infrastructure\\StudentModule.Infrastructure.csproj|c:\\users\\romka\\source\\repos\\hitsinternshipbackend\\studentmodule.infrastructure\\studentmoduledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D813EC1C-13CF-4018-B0ED-E7656B9EED39}|StudentModule.Infrastructure\\StudentModule.Infrastructure.csproj|solutionrelative:studentmodule.infrastructure\\studentmoduledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A35A55-DA9C-4260-944C-591388B30913}|StudentModule.Domain\\StudentModule.Domain.csproj|c:\\users\\romka\\source\\repos\\hitsinternshipbackend\\studentmodule.domain\\entities\\groupentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A35A55-DA9C-4260-944C-591388B30913}|StudentModule.Domain\\StudentModule.Domain.csproj|solutionrelative:studentmodule.domain\\entities\\groupentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A35A55-DA9C-4260-944C-591388B30913}|StudentModule.Domain\\StudentModule.Domain.csproj|c:\\users\\romka\\source\\repos\\hitsinternshipbackend\\studentmodule.domain\\entities\\streamentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A35A55-DA9C-4260-944C-591388B30913}|StudentModule.Domain\\StudentModule.Domain.csproj|solutionrelative:studentmodule.domain\\entities\\streamentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE2BB6E1-E80A-4C76-B306-A9D510AB4617}|StudentModule.Application\\StudentModule.Application.csproj|c:\\users\\romka\\source\\repos\\hitsinternshipbackend\\studentmodule.application\\handlers\\grouphandlers\\deletegroupcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE2BB6E1-E80A-4C76-B306-A9D510AB4617}|StudentModule.Application\\StudentModule.Application.csproj|solutionrelative:studentmodule.application\\handlers\\grouphandlers\\deletegroupcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E69D567-486C-427A-A986-48498BD616AD}|StudentModule.Contracts\\StudentModule.Contracts.csproj|c:\\users\\romka\\source\\repos\\hitsinternshipbackend\\studentmodule.contracts\\commands\\groupcommands\\deletegroupcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E69D567-486C-427A-A986-48498BD616AD}|StudentModule.Contracts\\StudentModule.Contracts.csproj|solutionrelative:studentmodule.contracts\\commands\\groupcommands\\deletegroupcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E69D567-486C-427A-A986-48498BD616AD}|StudentModule.Contracts\\StudentModule.Contracts.csproj|c:\\users\\romka\\source\\repos\\hitsinternshipbackend\\studentmodule.contracts\\commands\\streamcommands\\deletestreamcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E69D567-486C-427A-A986-48498BD616AD}|StudentModule.Contracts\\StudentModule.Contracts.csproj|solutionrelative:studentmodule.contracts\\commands\\streamcommands\\deletestreamcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +55,97 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentModuleDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Infrastructure\\StudentModuleDbContext.cs",
+              "RelativeDocumentMoniker": "StudentModule.Infrastructure\\StudentModuleDbContext.cs",
+              "ToolTip": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Infrastructure\\StudentModuleDbContext.cs",
+              "RelativeToolTip": "StudentModule.Infrastructure\\StudentModuleDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T13:12:33.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StreamEntity.cs",
+              "DocumentMoniker": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Domain\\Entities\\StreamEntity.cs",
+              "RelativeDocumentMoniker": "StudentModule.Domain\\Entities\\StreamEntity.cs",
+              "ToolTip": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Domain\\Entities\\StreamEntity.cs",
+              "RelativeToolTip": "StudentModule.Domain\\Entities\\StreamEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T13:12:13.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GroupEntity.cs",
+              "DocumentMoniker": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Domain\\Entities\\GroupEntity.cs",
+              "RelativeDocumentMoniker": "StudentModule.Domain\\Entities\\GroupEntity.cs",
+              "ToolTip": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Domain\\Entities\\GroupEntity.cs",
+              "RelativeToolTip": "StudentModule.Domain\\Entities\\GroupEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T13:11:58.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeleteStreamCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Application\\Handlers\\StreamHandlers\\DeleteStreamCommandHandler.cs",
+              "RelativeDocumentMoniker": "StudentModule.Application\\Handlers\\StreamHandlers\\DeleteStreamCommandHandler.cs",
+              "ToolTip": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Application\\Handlers\\StreamHandlers\\DeleteStreamCommandHandler.cs",
+              "RelativeToolTip": "StudentModule.Application\\Handlers\\StreamHandlers\\DeleteStreamCommandHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwB0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T13:08:22.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DeleteGroupCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\romka\\Source\\Repos\\HitsInternshipBackend\\StudentModule.Application\\Handlers\\GroupHandlers\\DeleteGroupCommandHandler.cs",
+              "RelativeDocumentMoniker": "StudentModule.Application\\Handlers\\GroupHandlers\\DeleteGroupCommandHandler.cs",
+              "ToolTip": "C:\\Users\\romka\\Source\\Repos\\HitsInternshipBackend\\StudentModule.Application\\Handlers\\GroupHandlers\\DeleteGroupCommandHandler.cs",
+              "RelativeToolTip": "StudentModule.Application\\Handlers\\GroupHandlers\\DeleteGroupCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwCIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T13:06:23.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DeleteGroupCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Contracts\\Commands\\GroupCommands\\DeleteGroupCommand.cs",
+              "RelativeDocumentMoniker": "StudentModule.Contracts\\Commands\\GroupCommands\\DeleteGroupCommand.cs",
+              "ToolTip": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Contracts\\Commands\\GroupCommands\\DeleteGroupCommand.cs",
+              "RelativeToolTip": "StudentModule.Contracts\\Commands\\GroupCommands\\DeleteGroupCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T13:05:24.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DeleteStreamCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Contracts\\Commands\\StreamCommands\\DeleteStreamCommand.cs",
+              "RelativeDocumentMoniker": "StudentModule.Contracts\\Commands\\StreamCommands\\DeleteStreamCommand.cs",
+              "ToolTip": "C:\\Users\\romka\\source\\repos\\HitsInternshipBackend\\StudentModule.Contracts\\Commands\\StreamCommands\\DeleteStreamCommand.cs",
+              "RelativeToolTip": "StudentModule.Contracts\\Commands\\StreamCommands\\DeleteStreamCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T13:05:12.844Z",
+              "EditorCaption": ""
             }
           ]
         }
