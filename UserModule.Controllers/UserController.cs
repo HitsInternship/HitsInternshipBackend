@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using UserModule.Contracts.CQRS;
 using UserModule.Contracts.DTOs.Requests;
 using UserModule.Contracts.DTOs.Responses;
+using UserModule.Domain.Enums;
 
 
 namespace UserModule.Controllers
@@ -34,6 +35,18 @@ namespace UserModule.Controllers
         //}
 
         /// <summary>
+        /// Возвращает список пользователей по соответствующим параметрам.
+        /// </summary>
+        /// <returns>Список пользователей.</returns>
+        [HttpGet]
+        [Route("search")]
+        [ProducesResponseType(typeof(List<UserResponse>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetListUserInfoQuery([FromQuery]SearchUserRequest searchRequest)
+        {
+            return Ok((await _mediator.Send(new GetListUserQuery(searchRequest))).Select(_mapper.Map<UserResponse>));
+        }
+
+        /// <summary>
         /// Возвращает информацию о пользователе.
         /// </summary>
         /// <returns>Информация о пользователе.</returns>
@@ -42,7 +55,7 @@ namespace UserModule.Controllers
         [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUserInfoQuery(Guid id)
         {
-            return Ok(_mapper.Map<UserResponse>(await _mediator.Send(new GetUserQuery(id))));
+            return Ok(_mapper.Map<UserResponse>(await _mediator.Send(new GetUserInfoQuery(id))));
         }
 
         /// <summary>

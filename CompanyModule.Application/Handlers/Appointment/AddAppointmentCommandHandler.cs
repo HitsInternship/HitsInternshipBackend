@@ -9,10 +9,12 @@ namespace CompanyModule.Application.Handlers
     public class AddAppointmentCommandHandler : IRequestHandler<AddAppointmentCommand, Appointment>
     {
         private readonly IAppointmentRepository _appointmentRepository;
+        private readonly ICompanyRepository _companyRepository;
         private readonly IMapper _mapper;
-        public AddAppointmentCommandHandler(IAppointmentRepository appointmentRepository, IMapper mapper)
+        public AddAppointmentCommandHandler(IAppointmentRepository appointmentRepository, ICompanyRepository companyRepository, IMapper mapper)
         {
             _appointmentRepository = appointmentRepository;
+            _companyRepository = companyRepository;
             _mapper = mapper;
         }
 
@@ -20,6 +22,7 @@ namespace CompanyModule.Application.Handlers
         {
             Appointment appointment = _mapper.Map<Appointment>(command.createRequest);
 
+            appointment.Company = await _companyRepository.GetByIdAsync(command.companyId);
             await _appointmentRepository.AddAsync(appointment);
 
             return appointment;

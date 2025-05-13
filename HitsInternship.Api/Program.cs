@@ -13,6 +13,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder => builder.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
+
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddControllers()
@@ -32,6 +40,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerConfiguration();
 }
+
+app.UseCors("AllowAllOrigins");
 
 app.UseUserModule();
 //app.Services.UseDeanModule();

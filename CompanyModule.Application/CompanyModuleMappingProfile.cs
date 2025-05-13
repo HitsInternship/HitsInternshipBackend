@@ -27,7 +27,10 @@ public class CompanyModuleMappingProfile : Profile
             .ForMember(dest => dest.surname, opt => opt.MapFrom(src => src.User.Surname))
             .ForMember(dest => dest.email, opt => opt.MapFrom(src => src.User.Email));
 
-        CreateMap<AppointmentRequest, Appointment>();
-        CreateMap<Appointment, AppointmentResponse>();
+        CreateMap<AppointmentRequest, Appointment>()
+            .ForMember(dest => dest.Date, opt => opt.MapFrom(src => src.date.ToUniversalTime()));
+        CreateMap<Appointment, AppointmentResponse>()
+            .ForMember(dest => dest.documentIds, opt => opt.MapFrom(src => src.Attachments.Select(attachment => attachment.DocumentId)))
+            .ForMember(dest => dest.date, opt => opt.MapFrom(src => src.Date.ToLocalTime()));
     }
 }

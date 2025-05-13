@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using CompanyModule.Contracts.CQRS;
 using CompanyModule.Contracts.Repositories;
 using CompanyModule.Domain.Entities;
 using MediatR;
-using static CompanyModule.Contracts.CQRS.Queries;
 
 namespace CompanyModule.Application.Handlers
 {

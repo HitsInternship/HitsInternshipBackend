@@ -7,9 +7,8 @@ using CompanyModule.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static CompanyModule.Contracts.CQRS.Queries;
 
-namespace CompanyModule.Controllers
+namespace CompanyModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/companies/")]
@@ -72,6 +71,18 @@ namespace CompanyModule.Controllers
         }
 
         /// <summary>
+        /// Позволяет получить документы о партнерстве c компанией.
+        /// </summary>
+        /// <returns>Документ о партнерстве.</returns>
+        [HttpGet]
+        [Route("{companyId}/agreements")]
+        [ProducesResponseType(typeof(List<PartnershipAgreementResponse>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetPartnershipAgreements(Guid companyId)
+        {
+            return Ok((await _sender.Send(new GetPartnershipAgreementsQuery(companyId))).Select(_mapper.Map<PartnershipAgreementResponse>));
+        }
+
+        /// <summary>
         /// Изменяет статус компании-партнера.
         /// </summary>
         [HttpPut]
@@ -87,6 +98,7 @@ namespace CompanyModule.Controllers
         /// <summary>
         /// Добавить человека от компании.
         /// </summary>
+        /// <param name="createRequest.userId">Если необходимо создать человека от компании на основе уже существующего пользователя.</param>
         /// <returns>Добавленный человек от компании.</returns>
         [HttpPost]
         [Route("{companyId}/persons/add")]
@@ -105,31 +117,7 @@ namespace CompanyModule.Controllers
         [ProducesResponseType(typeof(List<CompanyPersonResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetCompanyPersons(Guid companyId, bool includeCurators, bool includeRepresenters)
         {
-            return Ok((await _sender.Send(new GetCompanyPersonsQuery(companyId, includeCurators, includeRepresenters))).Select(companyPerson => _mapper.Map<CompanyPersonResponse>(companyPerson)).ToList());
+            return Ok((await _sender.Send(new GetCompanyPersonsQuery(companyId, includeCurators, includeRepresenters))).Select(_mapper.Map<CompanyPersonResponse>));
         }
-
-        /// <summary>
-        /// Добавить встречу с компанией.
-        /// </summary>
-        /// <returns>Встреча с компанией.</returns>
-        [HttpPost]
-        [Route("{companyId}/appointments/add")]
-        [ProducesResponseType(typeof(AppointmentResponse), StatusCodes.Status200OK)]
-        public async Task<IActionResult> AddAppointment(Guid companyId, AppointmentRequest createRequest)
-        {
-            return Ok(_mapper.Map<AppointmentResponse>(await _sender.Send(new AddAppointmentCommand(companyId, createRequest))));
-        }
-
-        ///// <summary>
-        ///// Изменить встречу с компанией.
-        ///// </summary>
-        ///// <returns>Встреча с компанией.</returns>
-        //[HttpPost]
-        //[Route("appointments/{appointmentId}")]
-        //[ProducesResponseType(typeof(AppointmentResponse), StatusCodes.Status200OK)]
-        //public async Task<IActionResult> EditAppointment(Guid appointmentId, AppointmentRequest editRequest)
-        //{
-        //    return Ok(_mapper.Map<AppointmentResponse>(await _sender.Send(new EditAppointmentCommand(appointmentId, editRequest))));
-        //}
     }
 }

@@ -9,8 +9,10 @@ namespace CompanyModule.Contracts.DTOs.Responses
 {
     public class AppointmentResponse
     {
+        public Guid id { get; set; }
         public DateTime date { get; set; }
         public string description { get; set; }
+        public List<string> documentIds { get; set; }
 
         public AppointmentResponse() {}
     }

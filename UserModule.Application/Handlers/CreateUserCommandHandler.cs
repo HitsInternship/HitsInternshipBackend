@@ -24,10 +24,10 @@ namespace UserModule.Application.Handlers
         {
             if (await _userRepository.GetByEmailAsync(command.createRequest.email) != null) throw new Conflict("User with such email already exists");
 
-            List<Role> roles = await _roleRepository.GetRolesAsync(command.createRequest.roles);
+            //List<Role> roles = await _roleRepository.GetRolesAsync(command.createRequest.roles);
 
             User user = _mapper.Map<User>(command.createRequest);
-            user.Roles = roles;
+            //user.Roles = roles;
 
             await _userRepository.AddAsync(user);
 

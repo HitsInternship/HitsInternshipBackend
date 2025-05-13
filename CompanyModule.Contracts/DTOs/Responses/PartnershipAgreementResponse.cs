@@ -11,7 +11,6 @@ namespace CompanyModule.Contracts.DTOs.Responses
     {
         public string description { get; set; }
         public Guid documentId { get; set; }
-        public Guid companyId { get; set; }
 
         public PartnershipAgreementResponse() {}
     }

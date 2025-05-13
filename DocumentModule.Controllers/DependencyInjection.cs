@@ -1,4 +1,5 @@
-﻿using DocumentModule.Infrastructure;
+﻿using DocumentModule.Application;
+using DocumentModule.Infrastructure;
 using DocumentModule.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,14 @@ namespace DocumentModule.Controllers
         {
             services.AddDocumentModuleInfrastructure(configuration);
             services.AddDocumentModulePersistence();
+            services.AddDocumentModuleApplication();
+
+            services.AddSwaggerGen(options =>
+            {
+                var companyModuleControllersXmlFilename = $"{typeof(DocumentController).Assembly.GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, companyModuleControllersXmlFilename));
+            });
+
         }
 
         public static void UseDocumentModule(this WebApplication app)

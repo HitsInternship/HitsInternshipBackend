@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace CompanyModule.Contracts.CQRS
 {
-    public class Queries
-    {
-        public record GetCompanyPersonsQuery(Guid companyId, bool includeCurators, bool includeRepresenters) : IRequest<List<CompanyPerson>>;
-        public record GetCompaniesQuery() : IRequest<List<Company>>;
-    }
+    public record GetCompanyPersonsQuery(Guid companyId, bool includeCurators, bool includeRepresenters) : IRequest<List<CompanyPerson>>;
+    public record GetCompaniesQuery() : IRequest<List<Company>>;
+    public record GetPartnershipAgreementsQuery(Guid companyId) : IRequest<List<PartnershipAgreement>>;
+    public record GetAppointmentsQuery(Guid companyId) : IRequest<List<Appointment>>;
 }

@@ -9,7 +9,6 @@ namespace CompanyModule.Domain.Entities
 {
     public class Attachment : BaseEntity
     {
-        public string Name { get; set; }
         public Guid DocumentId { get; set; }
         public Appointment Appointment { get; set; }
 

@@ -6,7 +6,6 @@ using CompanyModule.Domain.Entities;
 using MediatR;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
-using static CompanyModule.Contracts.CQRS.Queries;
 
 namespace CompanyModule.Application.Handlers
 {

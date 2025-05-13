@@ -2,8 +2,8 @@
 using DocumentModule.Domain.Enums;
 using DocumentModule.Infrastructure.FileStorage;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Minio.DataModel.Args;
-using System.Web.Mvc;
 
 namespace DocumentModule.Persistence.Repositories
 {
@@ -28,6 +28,18 @@ namespace DocumentModule.Persistence.Repositories
 
             await _context._client.PutObjectAsync(args);
             return file.ContentType;
+        }
+
+        public async Task<string?> GetFileNameAsync(Guid fileId, DocumentType documentType)
+        {
+            var metadata = await _context._client.StatObjectAsync(
+                new StatObjectArgs()
+                    .WithBucket(documentType.ToString().ToLower())
+                    .WithObject(fileId.ToString())
+            );
+
+            if (metadata == null) return null;
+            else return Uri.UnescapeDataString(metadata.MetaData["Name"]);
         }
 
         public async Task<FileContentResult?> GetFileAsync(Guid fileId, DocumentType documentType)
