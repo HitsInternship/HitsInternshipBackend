@@ -1,17 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-using MediatR;
-using Shared.Extensions.ErrorHandling.Validation;
-using UserModule.Contracts.DTOs;
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UserModule.Contracts.DTOs.Requests;
+using UserModule.Domain.Entities;
 
-namespace UserModule.Contracts.Commands;
-
-public record EditUserCommand() : IRequest<UserDto>
+namespace UserModule.Contracts.Commands
 {
-    public Guid id { get; set; }
-    public string name { get; set; }
-    public string surname { get; set; }
-
-    [DataType(DataType.EmailAddress)]
-    [Annotations.Email]
-    public string email { get; set; }
+    public record EditUserCommand(Guid userId, UserRequest editRequest) : IRequest<User>;
 }

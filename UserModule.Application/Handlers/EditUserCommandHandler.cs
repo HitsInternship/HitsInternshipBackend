@@ -1,40 +1,38 @@
-﻿using MediatR;
-using Shared.Extensions.ErrorHandling.ErrorException;
+﻿using AutoMapper;
+using MediatR;
+using Shared.Domain.Exceptions;
 using UserModule.Contracts.Commands;
-using UserModule.Contracts.DTOs;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 
 namespace UserModule.Application.Handlers
 {
-    public class EditUserCommandHandler : IRequestHandler<EditUserCommand, UserDto>
+    public class EditUserCommandHandler : IRequestHandler<EditUserCommand, User>
     {
         private readonly IUserRepository _userRepository;
         private readonly IRoleRepository _roleRepository;
-
-        public EditUserCommandHandler(IUserRepository userRepository, IRoleRepository roleRepository)
+        private readonly IMapper _mapper;
+        public EditUserCommandHandler(IUserRepository userRepository, IRoleRepository roleRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
+            _mapper = mapper;
         }
 
-        public async Task<UserDto> Handle(EditUserCommand request, CancellationToken cancellationToken)
+        public async Task<User> Handle(EditUserCommand command, CancellationToken cancellationToken)
         {
-            User? user = await _userRepository.GetByIdAsync(request.id);
-            if (user == null) throw new ErrorException(404, "Пользователя с таким id нет");
+            User? user = await _userRepository.GetByIdAsync(command.userId);
+            if (user == null) throw new NotFound("No user with such id");
+
+            if (user.Email != command.editRequest.email && (await _userRepository.GetByEmailAsync(command.editRequest.email)) != null) throw new Conflict("User with such email already exists");
 
             await _roleRepository.GetRolesByUserIdAsync(user.Id);
 
-            if (user.Email != request.email && _userRepository.GetByEmailAsync(request.email) != null)
-                throw new ErrorException(409, "Пользователь с таким email уже существует");
-
-            user.Name = request.name;
-            user.Email = request.email;
-            user.Surname = request.surname;
+            _mapper.Map(command.editRequest, user);
 
             await _userRepository.UpdateAsync(user);
 
-            return new UserDto(user);
+            return user;
         }
     }
 }

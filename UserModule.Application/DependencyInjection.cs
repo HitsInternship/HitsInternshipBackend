@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CompanyModule.Application;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace UserModule.Application
@@ -8,6 +9,8 @@ namespace UserModule.Application
         public static void AddUserModuleApplication(this IServiceCollection services)
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+            services.AddAutoMapper(typeof(UserModuleMappingProfile));
         }
     }
 }
