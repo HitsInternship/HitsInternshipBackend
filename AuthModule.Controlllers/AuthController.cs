@@ -1,5 +1,7 @@
 ﻿using AuthModule.Contracts.CQRS;
+using AuthModule.Contracts.Model;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthModule.Controllers;
@@ -29,10 +31,25 @@ public class AuthController: ControllerBase
         return Ok(role);
     }
 
-    [HttpPut("refreshToken")]
-    public async Task<IActionResult> RefreshToken(string token)
+    [HttpPost("refresh-token")]
+    public async Task<IActionResult> RefreshToken([FromBody] TokenRefreshDTO dto)
     {
-        return Ok();
+        var tokens = await mediator.Send(dto);
+        return Ok(tokens);
+    }
+
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        var userId = User.FindFirst("UserId").Value;
+
+        if (userId == null)
+        {
+            return Unauthorized(new { Message = "Invalid or missing user ID in token" });
+        }
+
+        await mediator.Send(new LogoutDTO { UserId = Guid.Parse(userId) });
+        return Ok(new { Message = "Logout successful" });
     }
     
 }

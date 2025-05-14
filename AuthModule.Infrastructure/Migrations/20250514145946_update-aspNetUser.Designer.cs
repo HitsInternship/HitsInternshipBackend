@@ -3,6 +3,7 @@ using System;
 using AuthModel.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace UserInfrastructure.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    partial class AuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250514145946_update-aspNetUser")]
+    partial class updateaspNetUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,37 +40,15 @@ namespace UserInfrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("RefreshToken")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("RefreshTokenExpiryTime")
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("AuthModule.Domain.Entity.Student", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("FIO")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Group")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
                 });
 #pragma warning restore 612, 618
         }
