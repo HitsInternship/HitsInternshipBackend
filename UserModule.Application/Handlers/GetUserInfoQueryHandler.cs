@@ -8,13 +8,13 @@ namespace UserModule.Application.Handlers
 {
     public class GetUserInfoQueryHandler : IRequestHandler<GetUserInfoQuery, User>
     {
-        private readonly IUserRepository userRepository;
-        private readonly IRoleRepository roleRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
 
         public GetUserInfoQueryHandler(IUserRepository userRepository, IRoleRepository roleRepository)
         {
-            this.userRepository = userRepository;
-            this.roleRepository = roleRepository;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
         public async Task<User> Handle(GetUserInfoQuery request, CancellationToken cancellationToken)
@@ -22,7 +22,7 @@ namespace UserModule.Application.Handlers
             User? user = await userRepository.GetByIdAsync(request.userId);
             if (user == null) throw new NotFound("No user with such id");
 
-            await roleRepository.GetRolesByUserIdAsync(user.Id);
+            await _roleRepository.GetRolesByUserIdAsync(user.Id);
 
             return user;
         }

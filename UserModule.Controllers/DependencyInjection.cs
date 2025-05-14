@@ -1,12 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UserModule.Application;
+using UserModule.Contracts.DTOs;
 using UserModule.Infrastructure;
 using UserModule.Persistence;
 
@@ -19,11 +14,20 @@ namespace UserModule.Controllers
             services.AddUserModuleInfrastructure(configuration);
             services.AddUserModulePersistence();
             services.AddUserModuleApplication();
+
+            services.AddSwaggerGen(options =>
+            {
+                var userModuleControllersXmlFilename = $"{typeof(UserController).Assembly.GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, userModuleControllersXmlFilename));
+
+                var userModuleDtosXmlFiles = $"{typeof(UserDto).Assembly.GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, userModuleDtosXmlFiles));
+            });
         }
 
-        public static void UseUserModule(this WebApplication app)
+        public static void UseUserModule(this IServiceProvider services)
         {
-            app.AddUserModuleInfrastructure();
+            services.AddUserModuleInfrastructure();
         }
     }
 }
