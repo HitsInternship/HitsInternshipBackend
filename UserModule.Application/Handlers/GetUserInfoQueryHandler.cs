@@ -19,7 +19,7 @@ namespace UserModule.Application.Handlers
 
         public async Task<User> Handle(GetUserInfoQuery request, CancellationToken cancellationToken)
         {
-            User? user = await userRepository.GetByIdAsync(request.userId);
+            User? user = await _userRepository.GetByIdAsync(request.userId);
             if (user == null) throw new NotFound("No user with such id");
 
             await _roleRepository.GetRolesByUserIdAsync(user.Id);

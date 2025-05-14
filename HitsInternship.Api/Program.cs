@@ -5,9 +5,9 @@ using HitsInternship.Api.Extensions.Middlewares;
 using HitsInternship.Api.Extensions.Swagger;
 using Shared.Extensions;
 using Shared.Extensions.Validation;
-using Shared.Extensions.ErrorHandling.Validation;
 using System.Text.Json.Serialization;
 using HitsInternship.Api.Extensions;
+using UserModule.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,13 +28,13 @@ builder.Services.AddControllers()
     .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()))
     .ConfigureApiBehaviorOptions(options =>
         options.InvalidModelStateResponseFactory = FailedAnnotationValidationResponse.MakeValidationResponse);
+
 builder.Services.AddApplicationModules(builder.Configuration);
 builder.Services.AddSharedModule(builder.Configuration);
-//builder.Services.AddDeanModule(builder.Configuration);
+builder.Services.AddDeanModule(builder.Configuration);
 builder.Services.AddDocumentModule(builder.Configuration);
 builder.Services.AddUserModule(builder.Configuration);
 builder.Services.AddCompanyModule(builder.Configuration);
-builder.Services.AddUserModule(builder.Configuration);
 
 var app = builder.Build();
 
@@ -45,8 +45,8 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("AllowAllOrigins");
 
-app.UseUserModule();
-//app.Services.UseDeanModule();
+app.Services.UseUserModule();
+app.Services.UseDeanModule();
 app.UseCompanyModule();
 
 app.Services.UseApplicationModules();
