@@ -2,8 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DocumentModule.Contracts.CQRS
+namespace DocumentModule.Contracts.Queries
 {
-    public record GetDocumentNameQuery(Guid documentId, DocumentType documentType) : IRequest<string>;
     public record GetDocumentQuery(Guid documentId, DocumentType documentType) : IRequest<FileContentResult>;
 }

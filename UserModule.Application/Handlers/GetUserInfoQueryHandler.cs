@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Shared.Domain.Exceptions;
-using UserModule.Contracts.CQRS;
-using UserModule.Contracts.DTOs.Responses;
+using UserModule.Contracts.Queries;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 

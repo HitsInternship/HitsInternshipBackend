@@ -2,13 +2,13 @@
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UserModule.Contracts.CQRS;
+using UserModule.Contracts.Commands;
 using UserModule.Contracts.DTOs.Requests;
 using UserModule.Contracts.DTOs.Responses;
-using UserModule.Domain.Enums;
+using UserModule.Contracts.Queries;
 
 
-namespace UserModule.Controllers
+namespace UserModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/users/")]
@@ -29,7 +29,7 @@ namespace UserModule.Controllers
         //[HttpPost]
         //[Route("create")]
         //[ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
-        //public async Task<IActionResult> CreateUserCommand(UserRequest createRequest)
+        //public async Task<IActionResult> CreateUser(UserRequest createRequest)
         //{
         //    return Ok(_mapper.Map<UserResponse>(await mediator.Send(new CreateUserCommand(createRequest))));
         //}
@@ -41,7 +41,7 @@ namespace UserModule.Controllers
         [HttpGet]
         [Route("search")]
         [ProducesResponseType(typeof(List<UserResponse>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetListUserInfoQuery([FromQuery]SearchUserRequest searchRequest)
+        public async Task<IActionResult> GetListUserInfo([FromQuery] SearchUserRequest searchRequest)
         {
             return Ok((await _mediator.Send(new GetListUserQuery(searchRequest))).Select(_mapper.Map<UserResponse>));
         }
@@ -53,7 +53,7 @@ namespace UserModule.Controllers
         [HttpGet]
         [Route("{id}/info")]
         [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetUserInfoQuery(Guid id)
+        public async Task<IActionResult> GetUserInfo(Guid id)
         {
             return Ok(_mapper.Map<UserResponse>(await _mediator.Send(new GetUserInfoQuery(id))));
         }
@@ -65,7 +65,7 @@ namespace UserModule.Controllers
         [HttpPost]
         [Route("{id}/edit")]
         [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
-        public async Task<IActionResult> EditUserCommand(Guid id, UserRequest userRequest)
+        public async Task<IActionResult> EditUser(Guid id, UserRequest userRequest)
         {
             return Ok(_mapper.Map<UserResponse>(await _mediator.Send(new EditUserCommand(id, userRequest))));
         }

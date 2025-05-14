@@ -1,4 +1,4 @@
-﻿using DocumentModule.Contracts.CQRS;
+﻿using DocumentModule.Contracts.Queries;
 using DocumentModule.Contracts.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using UserModule.Contracts.CQRS;
+using UserModule.Contracts.Queries;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 

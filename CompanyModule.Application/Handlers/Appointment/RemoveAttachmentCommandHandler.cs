@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CompanyModule.Contracts.CQRS;
+using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.Repositories;
 using CompanyModule.Domain.Entities;
 using DocumentModule.Contracts.Repositories;

@@ -1,10 +1,13 @@
 ﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UserModule.Contracts.DTOs.Requests;
-using UserModule.Contracts.DTOs.Responses;
 using UserModule.Domain.Entities;
 
-namespace UserModule.Contracts.CQRS
+namespace UserModule.Contracts.Queries
 {
-    public record GetUserInfoQuery(Guid userId) : IRequest<User> { }
     public record GetListUserQuery(SearchUserRequest searchRequest) : IRequest<List<User>> { }
 }

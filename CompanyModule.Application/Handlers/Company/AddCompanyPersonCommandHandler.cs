@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using CompanyModule.Contracts.CQRS;
-using CompanyModule.Contracts.DTOs.Responses;
+using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.Repositories;
 using CompanyModule.Domain.Entities;
 using MediatR;

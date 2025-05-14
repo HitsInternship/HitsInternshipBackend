@@ -1,7 +1,6 @@
-﻿using DocumentModule.Contracts.CQRS;
+﻿using DocumentModule.Contracts.Queries;
 using DocumentModule.Contracts.Repositories;
 using MediatR;
-using System.Web.Mvc;
 
 namespace DocumentModule.Application.Handlers
 {

@@ -1,4 +1,4 @@
-﻿using DocumentModule.Contracts.CQRS;
+﻿using DocumentModule.Contracts.Queries;
 using DocumentModule.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Http;

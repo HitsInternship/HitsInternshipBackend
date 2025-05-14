@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Shared.Domain.Exceptions;
-using UserModule.Contracts.CQRS;
-using UserModule.Contracts.DTOs;
+using UserModule.Contracts.Commands;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 

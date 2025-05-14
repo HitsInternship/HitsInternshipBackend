@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using CompanyModule.Contracts.CQRS;
+﻿using CompanyModule.Contracts.Queries;
 using CompanyModule.Contracts.Repositories;
 using CompanyModule.Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace CompanyModule.Application.Handlers
 {

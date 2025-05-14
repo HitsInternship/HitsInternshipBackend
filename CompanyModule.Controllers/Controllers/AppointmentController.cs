@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using CompanyModule.Contracts.CQRS;
+using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.DTOs.Requests;
 using CompanyModule.Contracts.DTOs.Responses;
-using CompanyModule.Domain.Entities;
-using CompanyModule.Domain.Enums;
+using CompanyModule.Contracts.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
