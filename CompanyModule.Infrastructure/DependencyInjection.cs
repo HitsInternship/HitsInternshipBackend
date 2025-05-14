@@ -10,12 +10,12 @@ namespace CompanyModule.Infrastructure
         public static void AddCompanyModuleInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<CompanyModuleDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
+                options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING") ?? configuration.GetConnectionString("HitsInternship")));
         }
 
-        public static void AddCompanyModuleInfrastructure(this WebApplication app)
+        public static void AddCompanyModuleInfrastructure(this IServiceProvider services)
         {
-            using var serviceScope = app.Services.CreateScope();
+            using var serviceScope = services.CreateScope();
             var dbContext = serviceScope.ServiceProvider.GetService<CompanyModuleDbContext>();
             dbContext?.Database.Migrate();
         }

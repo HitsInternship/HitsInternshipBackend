@@ -23,9 +23,9 @@ namespace CompanyModule.Controllers
             });
         }
 
-        public static void UseCompanyModule(this WebApplication app)
+        public static void UseCompanyModule(this IServiceProvider services)
         {
-            app.AddCompanyModuleInfrastructure();
+            services.AddCompanyModuleInfrastructure();
         }
     }
 }
