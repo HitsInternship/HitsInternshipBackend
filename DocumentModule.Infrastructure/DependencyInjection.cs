@@ -17,7 +17,7 @@ namespace DocumentModule.Infrastructure
             services.AddScoped<FileStorageContext>(provider =>
             {
                 FileStorageSettings settings = new FileStorageSettings();
-                configuration.Bind("FileStorageSettings", settings);
+                if (Environment.GetEnvironmentVariable("MINIO_ENDPOINT") == null) configuration.Bind("FileStorageSettings", settings);
 
                 return new FileStorageContext(settings);
             });
