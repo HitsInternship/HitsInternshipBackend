@@ -10,13 +10,13 @@ namespace DocumentModule.Infrastructure
         public static void AddDocumentModuleInfrastructure(this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddDbContext<DocumentModuleDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
+            //services.AddDbContext<DocumentModuleDbContext>(options =>
+            //    options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
 
             services.AddScoped<FileStorageContext>(provider =>
             {
                 FileStorageSettings settings = new FileStorageSettings();
-                configuration.Bind("FileStorageSettings", settings);
+                if (Environment.GetEnvironmentVariable("MINIO_ENDPOINT") == null) configuration.Bind("FileStorageSettings", settings);
 
                 return new FileStorageContext(settings);
             });

@@ -1,19 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-using MediatR;
-using Shared.Extensions.ErrorHandling.Validation;
-using UserModule.Contracts.DTOs;
-using UserModule.Domain.Enums;
+﻿using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UserModule.Contracts.DTOs.Requests;
+using UserModule.Domain.Entities;
 
-namespace UserModule.Contracts.Commands;
-
-public record CreateUserCommand() : IRequest<UserDto>
+namespace UserModule.Contracts.Commands
 {
-    public string name { get; set; }
-    public string surname { get; set; }
-
-    [DataType(DataType.EmailAddress)]
-    [Annotations.Email]
-    public string email { get; set; }
-
-    public List<RoleName> roles { get; set; }
+    public record CreateUserCommand(UserRequest createRequest) : IRequest<User>;
 }
