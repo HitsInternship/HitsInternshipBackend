@@ -1,0 +1,38 @@
+﻿using MediatR;
+using StudentModule.Contracts.DTOs;
+using StudentModule.Contracts.Queries.GroupQueries;
+using StudentModule.Contracts.Repositories;
+using UserModule.Contracts.Repositories;
+
+namespace StudentModule.Application.Handlers.GroupHandlers
+{
+    public class GetGroupQueryHandler : IRequestHandler<GetGroupQuery, GroupDto>
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly IGroupRepository _groupRepository;
+
+        public GetGroupQueryHandler(IUserRepository userRepository, IGroupRepository groupRepository)
+        {
+            _userRepository = userRepository;
+            _groupRepository = groupRepository;
+        }
+
+        public async Task<GroupDto> Handle(GetGroupQuery request, CancellationToken cancellationToken)
+        {
+            var group = await _groupRepository.GetGroupByIdAsync(request.groupId);
+            var studentDtos = new List<StudentDto>();
+
+            foreach (var student in group.Students)
+            {
+                var user = await _userRepository.GetByIdAsync(student.UserId);
+                student.User = user;
+                studentDtos.Add(new StudentDto(student));
+            }
+
+            var groupDto = new GroupDto(group);
+            groupDto.Students = studentDtos;
+
+            return groupDto;
+        }
+    }
+}

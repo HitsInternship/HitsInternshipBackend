@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using StudentModule.Infrastructure;
@@ -11,9 +12,11 @@ using StudentModule.Infrastructure;
 namespace StudentModule.Infrastructure.Migrations
 {
     [DbContext(typeof(StudentModuleDbContext))]
-    partial class StudentModuleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250514114650_StudentEntityFix")]
+    partial class StudentEntityFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +44,7 @@ namespace StudentModule.Infrastructure.Migrations
 
                     b.HasIndex("StreamId");
 
-                    b.ToTable("Groups", (string)null);
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("StudentModule.Domain.Entities.StreamEntity", b =>
@@ -64,7 +67,7 @@ namespace StudentModule.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Streams", (string)null);
+                    b.ToTable("Streams");
                 });
 
             modelBuilder.Entity("StudentModule.Domain.Entities.StudentEntity", b =>
@@ -99,7 +102,7 @@ namespace StudentModule.Infrastructure.Migrations
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("StudentModule.Domain.Entities.GroupEntity", b =>

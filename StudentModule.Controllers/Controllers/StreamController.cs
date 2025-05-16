@@ -8,6 +8,7 @@ namespace StudentModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/streams/")]
+    //[Authorize(Roles = "Dean")]
     public class StreamController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -18,7 +19,6 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpPost]
         [Route("create")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> CreateStream(CreateStreamCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -26,7 +26,6 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpPut]
         [Route("edit")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> EditStream(EditStreamCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -34,7 +33,6 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpPatch]
         [Route("edit-status")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> EditStreamStatus(EditStreamStatusCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -42,7 +40,6 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpDelete]
         [Route("delete")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> DeleteStream(DeleteStreamCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -50,10 +47,17 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpGet]
         [Route("get")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> GetStreams()
         {
             var query = new GetStreamsQuery();
+            return Ok(await _mediator.Send(query));
+        }
+
+        [HttpGet]
+        [Route("get/{streamId}")]
+        public async Task<IActionResult> GetStream([FromRoute] Guid streamId)
+        {
+            var query = new GetStreamQuery() {streamId = streamId };
             return Ok(await _mediator.Send(query));
         }
     }

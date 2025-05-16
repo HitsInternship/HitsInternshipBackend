@@ -10,7 +10,7 @@ namespace StudentModule.Contracts.DTOs
         public int streamNumber { get; set; }
         public int year { get; set; }
         public StreamStatus status { get; set; }
-        public List<Guid>? groups { get; set; }
+        public List<GroupDto> groups { get; set; }
 
         public StreamDto() { }
 
@@ -20,7 +20,9 @@ namespace StudentModule.Contracts.DTOs
             streamNumber = stream.StreamNumber;
             year = stream.Year;
             status = stream.Status;
-            groups = stream.Groups.Select(group => group.Id).ToList();
+            /*groups = stream.Groups
+                    .Select(g => new GroupDto(g))
+                    .ToList();*/
         }
     }
 }

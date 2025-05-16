@@ -1,19 +1,16 @@
 ﻿using Shared.Domain.Entites;
 using StudentModule.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+using UserModule.Domain.Entities;
 
 namespace StudentModule.Domain.Entities
 {
     public class StudentEntity : BaseEntity
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public Guid UserId { get; set; }
+        [NotMapped]
+        public User User { get; set; }
         public string? Middlename { get; set; }
-        public string Email { get; set; }
         public string Phone { get; set; }
         public bool IsHeadMan { get; set; }
         public StudentStatus Status { get; set; }

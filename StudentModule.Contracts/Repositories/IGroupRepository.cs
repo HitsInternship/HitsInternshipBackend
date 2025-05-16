@@ -11,5 +11,6 @@ namespace StudentModule.Contracts.Repositories
     public interface IGroupRepository : IBaseEntityRepository<GroupEntity>
     {
         Task<List<GroupEntity>> GetGroupAsync();
+        Task<GroupEntity> GetGroupByIdAsync(Guid id);
     }
 }

@@ -1,9 +1,5 @@
 ﻿using StudentModule.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StudentModule.Contracts.DTOs
 {
@@ -12,7 +8,7 @@ namespace StudentModule.Contracts.DTOs
         public Guid Id { get; set; }
         public int GroupNumber { get; set; }
         public Guid StreamId { get; set; }
-        public List<Guid>? Students { get; set; }
+        public List<StudentDto> Students { get; set; }
 
         public GroupDto() { }
 
@@ -21,7 +17,9 @@ namespace StudentModule.Contracts.DTOs
             Id = group.Id;
             GroupNumber = group.GroupNumber;
             StreamId = group.StreamId;
-            Students = group.Students.Select(student => student.Id).ToList();
+            /*Students = group.Students
+                       .Select(s => new StudentDto(s))
+                       .ToList();*/
         }
     }
 }

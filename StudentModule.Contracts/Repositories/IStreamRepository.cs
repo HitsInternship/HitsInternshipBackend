@@ -13,5 +13,6 @@ namespace StudentModule.Contracts.Repositories
     {
         Task<bool> IsStreamWithNumderExistsAsync(int number);
         Task<List<StreamEntity>> GetStreamsAsync();
+        Task<StreamEntity> GetStreamByIdAsync(Guid id);
     }
 }

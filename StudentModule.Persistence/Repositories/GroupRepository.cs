@@ -20,5 +20,14 @@ namespace StudentModule.Persistence.Repositories
 
             return groups;
         }
+
+        public async Task<GroupEntity> GetGroupByIdAsync(Guid id)
+        {
+            var group = await context.Groups
+                        .Include(g => g.Students)
+                        .FirstOrDefaultAsync(g => g.Id == id);
+
+            return group;
+        }
     }
 }

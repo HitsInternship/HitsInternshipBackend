@@ -1,15 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using StudentModule.Contracts.Comands.StreamComands;
 using StudentModule.Contracts.Commands.GroupCommands;
 using StudentModule.Contracts.Queries.GroupQueries;
-using StudentModule.Contracts.Queries.StreamQueries;
 
 
 namespace StudentModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/groups/")]
+    //[Authorize(Roles = "Dean")]
     public class GroupController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -20,7 +19,6 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpPost]
         [Route("create")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> CreateGroup(CreateGroupCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -28,7 +26,6 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpPut]
         [Route("edit")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> EditGroup(EditGroupCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -36,7 +33,6 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpDelete]
         [Route("delete")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> DeleteGroup(DeleteGroupCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -44,10 +40,17 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpGet]
         [Route("get")]
-        //[Authorize(Roles = "Dean")]
         public async Task<IActionResult> GetGroups()
         {
             var query = new GetGroupsQuery();
+            return Ok(await _mediator.Send(query));
+        }
+
+        [HttpGet]
+        [Route("get/{groupId}")]
+        public async Task<IActionResult> GetGroup([FromRoute] Guid groupId)
+        {
+            var query = new GetGroupQuery() { groupId = groupId };
             return Ok(await _mediator.Send(query));
         }
     }

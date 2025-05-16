@@ -23,9 +23,16 @@ namespace StudentModule.Persistence.Repositories
 
         public async Task<List<StreamEntity>> GetStreamsAsync()
         {
-            var streams = context.Streams.Include(s => s.Groups).ToList();
+            var streams = context.Streams.Include(s => s.Groups).ThenInclude(g => g.Students).ToList();
             
             return streams;
+        }
+
+        public async Task<StreamEntity> GetStreamByIdAsync(Guid id)
+        {
+            var stream = await context.Streams.Include(s => s.Groups).ThenInclude(g => g.Students).FirstOrDefaultAsync(s => s.Id == id);
+
+            return stream;
         }
     }
 }

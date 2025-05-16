@@ -18,6 +18,7 @@
       <ProjectReference Include="..\DeanModule.Controllers\DeanModule.Controllers.csproj" />
       <ProjectReference Include="..\Shared.Extensions\Shared.Extensions.csproj" />
       <ProjectReference Include="..\StudentModule.Controllers\StudentModule.Controllers.csproj" />
+      <ProjectReference Include="..\UserModule.Controllers\UserModule.Controllers.csproj" />
     </ItemGroup>
 
 </Project>
