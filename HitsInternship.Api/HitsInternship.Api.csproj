@@ -17,7 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CompanyModule.Controllers\CompanyModule.Controllers.csproj" />
       <ProjectReference Include="..\DeanModule.Controllers\DeanModule.Controllers.csproj" />
       <ProjectReference Include="..\DocumentModule.Controllers\DocumentModule.Controllers.csproj" />
       <ProjectReference Include="..\Shared.Extensions\Shared.Extensions.csproj" />

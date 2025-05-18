@@ -1,4 +1,3 @@
-using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;
 using Shared.Extensions;
@@ -14,7 +13,6 @@ public static class Modules
         services.AddDeanModule(configuration);
         services.AddUserModule(configuration);
         services.AddDocumentModule(configuration);
-        services.AddCompanyModule(configuration);
     }
 
     public static void UseApplicationModules(this IServiceProvider services)
