@@ -16,7 +16,7 @@ public static class DependencyInjection
         services.AddScoped<IHashService, HashService>();
     }
 
-    public static void AddAuthModule(this IServiceProvider services)
+    public static void UseAuthModule(this IServiceProvider services)
     {
         services.AddAuthModuleInfrastructure();
     }
