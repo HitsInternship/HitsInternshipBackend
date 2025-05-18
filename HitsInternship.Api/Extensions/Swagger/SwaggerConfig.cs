@@ -8,6 +8,7 @@ public static class SwaggerConfig
     {
         services.AddSwaggerGen(options =>
         {
+            options.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 In = ParameterLocation.Header,
@@ -17,7 +18,22 @@ public static class SwaggerConfig
                 BearerFormat = "JWT",
                 Scheme = "Bearer"
             });
-            options.OperationFilter<SwaggerFilter>();
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type=ReferenceType.SecurityScheme,
+                            Id="Bearer"
+                        }
+                    },
+                    new string[]{}
+                }
+            });
+
+            options.CustomSchemaIds(type => type.ToString());
         });
     }
 
