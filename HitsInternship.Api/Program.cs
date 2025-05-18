@@ -1,22 +1,12 @@
 using HitsInternship.Api.Extensions.Middlewares;
 using HitsInternship.Api.Extensions.Swagger;
-using Shared.Extensions.Validation;
+using Shared.Extensions.ErrorHandling.Validation;
 using System.Text.Json.Serialization;
 using HitsInternship.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAllOrigins",
-        builder => builder.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader());
-});
-
-
+builder.Services.AddOpenApi();
 builder.Services.AddSwaggerConfig();
 
 builder.Services.AddControllers()
@@ -33,10 +23,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerConfiguration();
 }
-app.UseCors("AllowAllOrigins");
 
 app.Services.UseApplicationModules();
-
 app.AddMiddleware();
 app.UseHttpsRedirection();
 app.MapControllers();
