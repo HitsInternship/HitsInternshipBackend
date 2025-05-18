@@ -24,5 +24,6 @@ public static class Modules
         services.UseUserModule();
         services.UseDocumentModule();
         services.UseCompanyModule();
+        services.UseAuthModule();
     }
 }
