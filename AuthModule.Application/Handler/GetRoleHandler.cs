@@ -8,7 +8,7 @@ using AuthModule.Contracts.CQRS;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Shared.Extensions.ErrorHandling.Error;
+using Shared.Domain.Exceptions;
 using UserModule.Contracts.Repositories;
 
 namespace AuthModel.Service.Handler;
@@ -30,7 +30,7 @@ public class GetRoleHandler :  IRequestHandler<GetRoleQuery, string>
         var roles = await roleRepository.GetRolesByUserIdAsync(request.UserId);
         if (roles == null || !roles.Any())
         {
-            throw new ErrorException(404, "Роль для пользователя не найдены");
+            throw new NotFound("Роль для пользователя не найдены");
         }
         
         return roles.First().RoleName.ToString();

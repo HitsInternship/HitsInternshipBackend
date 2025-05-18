@@ -1,3 +1,4 @@
+using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;
 using Shared.Extensions;

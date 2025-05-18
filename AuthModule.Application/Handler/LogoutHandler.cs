@@ -2,7 +2,7 @@ using AuthModel.Infrastructure;
 using AuthModule.Contracts.Model;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Shared.Extensions.ErrorHandling.Error;
+using Shared.Domain.Exceptions;
 
 namespace AuthModel.Service.Handler;
 
@@ -22,7 +22,7 @@ public class LogoutHandler : IRequestHandler<LogoutDTO, Unit>
 
         if (user == null)
         {
-            throw new ErrorException(404, "Пользователь не найден");
+            throw new NotFound("Пользователь не найден");
         }
 
         user.RefreshToken = null;

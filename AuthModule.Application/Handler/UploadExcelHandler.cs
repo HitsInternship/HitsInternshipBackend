@@ -3,7 +3,7 @@ using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
 using AuthModule.Domain.Entity;
 using OfficeOpenXml;
-using Shared.Extensions.ErrorHandling.Error;
+using Shared.Domain.Exceptions;
 using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace AuthModel.Service.Handler;
@@ -23,7 +23,7 @@ public class UploadExcelHandler : IRequestHandler<UploadExcelDTO, List<ExcelStud
     public async Task<List<ExcelStudentDTO>> Handle(UploadExcelDTO request, CancellationToken cancellationToken)
     {
         if (request.File == null || request.File.Length == 0)
-            throw new ErrorException(400, "Файл отсутствует или пустой");
+            throw new BadRequest("Файл отсутствует или пустой");
 
         ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
@@ -36,7 +36,7 @@ public class UploadExcelHandler : IRequestHandler<UploadExcelDTO, List<ExcelStud
 
         var worksheet = package.Workbook.Worksheets.Count > 0 ? package.Workbook.Worksheets[0] : null;
         if (worksheet == null)
-            throw new ErrorException(400, "Лист в файле не найден");
+            throw new BadRequest("Лист в файле не найден");
 
         var rowCount = worksheet.Dimension.Rows;
 

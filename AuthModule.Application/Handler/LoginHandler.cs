@@ -9,7 +9,7 @@ using AuthModule.Contracts.Model;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Shared.Extensions.ErrorHandling.Error;
+using Shared.Domain.Exceptions;
 
 namespace AuthModel.Service.Handler;
 
@@ -33,7 +33,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
 
         if (user == null)
         {
-            throw new ErrorException(404, "Пользователь не найден");
+            throw new NotFound("Пользователь не найден");
         }
 
         var accessToken = GenerateAccessToken(user.Id);

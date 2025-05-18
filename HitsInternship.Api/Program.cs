@@ -55,11 +55,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAllOrigins");
 
 app.Services.UseApplicationModules();
-<<<<<<< HEAD
-=======
 app.UseAuthentication();
 app.UseAuthorization();
->>>>>>> login-role
 
 app.AddMiddleware();
 app.UseHttpsRedirection();

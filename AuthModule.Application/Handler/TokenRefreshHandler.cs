@@ -7,7 +7,7 @@ using AuthModule.Contracts.Model;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Shared.Extensions.ErrorHandling.Error;
+using Shared.Domain.Exceptions;
 
 namespace AuthModel.Service.Handler;
 
@@ -27,7 +27,7 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
 
         if (user == null || user.RefreshTokenExpiryTime < DateTime.UtcNow)
         {
-            throw new ErrorException(401, "Невалидный или истекший refresh token");
+            throw new Unauthorized("Невалидный или истекший refresh token");
         }
 
         var accessToken = GenerateAccessToken(user.Id);
