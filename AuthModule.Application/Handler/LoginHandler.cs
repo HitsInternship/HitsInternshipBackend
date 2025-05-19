@@ -6,10 +6,12 @@ using AuthModel.Infrastructure;
 using AuthModel.Service.Interface;
 using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
+using AuthModule.Domain.Entity;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Shared.Domain.Exceptions;
+using UserModule.Contracts.Repositories;
 
 namespace AuthModel.Service.Handler;
 
@@ -17,10 +19,12 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
 {
     private readonly IHashService hashService;
     private readonly AuthDbContext context;
-    public LoginHandler(IHashService hashService, AuthDbContext context)
+    private readonly IRoleRepository roleRepository;
+    public LoginHandler(IHashService hashService, AuthDbContext context, IRoleRepository roleRepository)
     {
         this.hashService = hashService;
         this.context = context;
+        this.roleRepository = roleRepository;
     }
     
     public async Task<LoginResponseDTO> Handle(LoginDTO request, CancellationToken cancellationToken)
@@ -36,7 +40,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
             throw new NotFound("Пользователь не найден");
         }
 
-        var accessToken = GenerateAccessToken(user.Id);
+        var accessToken = await GenerateAccessToken(user);
         var refreshToken = GenerateRefreshToken();
 
         user.RefreshToken = refreshToken;
@@ -46,19 +50,25 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
 
         return new LoginResponseDTO
         {
-            AccessToken = accessToken,
+            AccessToken = accessToken.ToString(),
             RefreshToken = refreshToken
         };
     }
     
-    private string GenerateAccessToken(Guid id)
+    private async Task<string> GenerateAccessToken(AspNetUser user)
     {
         var handler = new JwtSecurityTokenHandler();
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSettings.PrivateKey));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        var claims = new List<Claim> { new Claim("UserId", id.ToString()) };
-
+        var claims = new List<Claim> { new Claim("UserId", user.Id.ToString()) };
+        
+        var roles = await roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
+        foreach (var role in roles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role.RoleName.ToString()));
+        }
+        
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),

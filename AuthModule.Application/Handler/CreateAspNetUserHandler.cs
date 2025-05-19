@@ -34,7 +34,9 @@ public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, Cr
             Id = Guid.NewGuid(),
             Login = genNewAspNetUserDto.Login,
             Password = hashService.GetHash(sha256Hash, genNewAspNetUserDto.Password),
+            UserId = genNewAspNetUserDto.UserId
         });
+
         await context.SaveChangesAsync();
         
         return genNewAspNetUserDto;
