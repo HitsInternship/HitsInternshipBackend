@@ -1,11 +1,11 @@
-using AuthModel.Infrastructure;
 using AuthModel.Service;
 using AuthModel.Service.Interface;
+using AuthModel.Service.Service;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using UserModule.Application;
+using UserInfrastructure;
 
-namespace AuthModule.Controllers;
+namespace AuthModule.Controlllers;
 
 public static class DependencyInjection
 {
@@ -16,7 +16,7 @@ public static class DependencyInjection
         services.AddScoped<IHashService, HashService>();
     }
 
-    public static void AddAuthModule(this IServiceProvider services)
+    public static void UseAuthModule(this IServiceProvider services)
     {
         services.AddAuthModuleInfrastructure();
     }

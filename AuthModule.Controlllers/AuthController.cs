@@ -3,8 +3,9 @@ using AuthModule.Contracts.Model;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Domain.Exceptions;
 
-namespace AuthModule.Controllers;
+namespace AuthModule.Controlllers;
 
 [ApiController]
 [Route("api/auth/")]
@@ -22,6 +23,23 @@ public class AuthController: ControllerBase
     {
         var token = await mediator.Send(loginDTO);
         return Ok(new { Token = token });
+    }
+    [HttpPut("edit/pass")]
+    [Authorize]
+    public async Task<IActionResult> Login(EditPasswordDTO password)
+    {
+        var userId = User.FindFirst("UserId")?.Value;
+        if (userId == null) throw new Unauthorized("UserId - not found");
+        
+        var newPassword = new EditPasswordQuery()
+        {
+            OldPassword = password.OldPassword,
+            NewPassword = password.NewPassword,
+            UserId = Guid.Parse(userId),
+            Login = password.Login,
+        };
+        await mediator.Send(newPassword);
+        return Ok();
     }
     
     [HttpPost("getRoleById")]

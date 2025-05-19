@@ -2,14 +2,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AuthModel.Infrastructure;
+namespace UserInfrastructure;
 
 public static class DependencyInjection
 {
     public static void AddAuthModuleInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<AuthDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
+            options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING") ?? configuration.GetConnectionString("HitsInternship")));
     }
 
     public static void AddAuthModuleInfrastructure(this IServiceProvider services)

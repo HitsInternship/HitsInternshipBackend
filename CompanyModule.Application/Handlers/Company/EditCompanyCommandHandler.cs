@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.Repositories;
-using CompanyModule.Domain.Entities;
 using MediatR;
 
-namespace CompanyModule.Application.Handlers
+namespace CompanyModule.Application.Handlers.Company
 {
-    public class EditCompanyCommandHandler : IRequestHandler<EditCompanyCommand, Company>
+    public class EditCompanyCommandHandler : IRequestHandler<EditCompanyCommand, Domain.Entities.Company>
     {
         private readonly ICompanyRepository _companyRepository;
         private readonly IMapper _mapper;
@@ -16,9 +15,9 @@ namespace CompanyModule.Application.Handlers
             _mapper = mapper;
         }
 
-        public async Task<Company> Handle(EditCompanyCommand command, CancellationToken cancellationToken)
+        public async Task<Domain.Entities.Company> Handle(EditCompanyCommand command, CancellationToken cancellationToken)
         {
-            Company company = await _companyRepository.GetByIdAsync(command.companyId);
+            Domain.Entities.Company company = await _companyRepository.GetByIdAsync(command.companyId);
             _mapper.Map(command.editRequest, company);
 
             await _companyRepository.UpdateAsync(company);
