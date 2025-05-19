@@ -12,5 +12,6 @@ namespace StudentModule.Contracts.Repositories
     {
         Task<List<GroupEntity>> GetGroupAsync();
         Task<GroupEntity> GetGroupByIdAsync(Guid id);
+        Task<bool> IsGroupWithNumderExistsAsync(int number);
     }
 }

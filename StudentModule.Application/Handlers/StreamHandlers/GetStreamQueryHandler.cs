@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Queries.StreamQueries;
 using StudentModule.Contracts.Repositories;
@@ -20,7 +21,9 @@ namespace StudentModule.Application.Handlers.StreamHandlers
 
         public async Task<StreamDto> Handle(GetStreamQuery request, CancellationToken cancellationToken)
         {
-            var stream = await _streamRepository.GetStreamByIdAsync(request.streamId);
+            var stream = await _streamRepository.GetStreamByIdAsync(request.streamId)
+                ?? throw new NotFound("Stream not found");
+
             var groups = new List<GroupDto>();
             var students = new List<StudentDto>();
 

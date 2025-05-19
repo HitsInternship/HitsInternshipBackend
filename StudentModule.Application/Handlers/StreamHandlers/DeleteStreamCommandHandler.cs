@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Comands.StreamComands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
@@ -22,13 +23,8 @@ namespace StudentModule.Application.Handlers.StreamHandlers
 
         public async Task<Unit> Handle(DeleteStreamCommand request, CancellationToken cancellationToken)
         {
-            StreamEntity? stream = await _streamRepository.GetByIdAsync(request.StreamId);
+            StreamEntity? stream = await _streamRepository.GetByIdAsync(request.StreamId) ?? throw new NotFound("Stream not found");
 
-            if (stream == null)
-            {
-                //todo: добавить обработку исключений
-                throw new Exception();
-            }
 
             await _streamRepository.DeleteAsync(stream);
 

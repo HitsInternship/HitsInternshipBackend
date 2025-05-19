@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Queries.StudentQueries;
 using StudentModule.Contracts.Repositories;
@@ -21,9 +22,13 @@ namespace StudentModule.Application.Handlers.StudentHandlres
 
         public async Task<StudentDto> Handle(GetStudentQuery request, CancellationToken cancellationToken)
         {
-            var student = await _studentRepository.GetByIdAsync(request.id);
+            var student = await _studentRepository.GetByIdAsync(request.id) 
+                ?? throw new NotFound("Student not found"); 
+
             var user = await _userRepository.GetByIdAsync(student.UserId);
-            var group = await _groupRepository.GetByIdAsync(student.GroupId);
+
+            var group = await _groupRepository.GetByIdAsync(student.GroupId) 
+                ?? throw new NotFound("Group not found");
 
             student.User = user;
             student.Group = group;

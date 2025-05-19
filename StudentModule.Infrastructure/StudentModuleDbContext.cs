@@ -10,7 +10,7 @@ namespace StudentModule.Infrastructure
 
         public DbSet<StreamEntity> Streams { get; set; }
         public DbSet<GroupEntity> Groups { get; set; }
-        public DbSet<StudentEntity> Students { get; set; }
+        public DbSet<StudentEntity> SStudents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {

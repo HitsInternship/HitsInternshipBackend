@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Comands.StreamComands;
 using StudentModule.Contracts.Commands.GroupCommands;
 using StudentModule.Contracts.Repositories;
@@ -22,13 +23,8 @@ namespace StudentModule.Application.Handlers.GroupHandlers
 
         public async Task<Unit> Handle(DeleteGroupCommand request, CancellationToken cancellationToken)
         {
-            GroupEntity? group = await _groupRepository.GetByIdAsync(request.GroupId);
-
-            if (group == null)
-            {
-                //todo: добавить обработку исключений
-                throw new Exception();
-            }
+            GroupEntity? group = await _groupRepository.GetByIdAsync(request.GroupId)
+                ?? throw new NotFound("Group not found");
 
             await _groupRepository.DeleteAsync(group);
 

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Commands.StudentCommands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
@@ -26,11 +27,15 @@ namespace StudentModule.Application.Handlers.StudentHandlres
 
         public async Task<StudentDto> Handle(EditStudentGroupCommand request, CancellationToken cancellationToken)
         {
-            var student = await _studentRepository.GetByIdAsync(request.studentId);
-            var user = await _userRepository.GetByIdAsync(student.UserId);
-            var group = await _groupRepository.GetByIdAsync(request.groupId);
+            var student = await _studentRepository.GetByIdAsync(request.studentId) 
+                ?? throw new NotFound("Student not found");
 
-            //todo добавить проверку на существование студента
+            var user = await _userRepository.GetByIdAsync(student.UserId);
+
+            var group = await _groupRepository.GetByIdAsync(request.groupId) 
+                ?? throw new NotFound("Group not found");
+
+            
 
             student.GroupId = request.groupId;
             await _studentRepository.UpdateAsync(student);

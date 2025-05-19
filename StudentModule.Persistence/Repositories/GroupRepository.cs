@@ -29,5 +29,10 @@ namespace StudentModule.Persistence.Repositories
 
             return group;
         }
+
+        public async Task<bool> IsGroupWithNumderExistsAsync(int number)
+        {
+            return await context.Groups.AnyAsync(s => s.GroupNumber == number);
+        }
     }
 }

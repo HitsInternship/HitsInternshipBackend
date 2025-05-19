@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Commands.StudentCommands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
@@ -29,7 +30,8 @@ namespace StudentModule.Application.Handlers.StudentHandlres
             User user;
             if (request.userId != null)
             {
-                user = await _userRepository.GetByIdAsync((Guid)request.userId);
+                user = await _userRepository.GetByIdAsync((Guid)request.userId)
+                    ?? throw new NotFound("User not found");
             }
 
             else
@@ -44,7 +46,8 @@ namespace StudentModule.Application.Handlers.StudentHandlres
                 await _userRepository.AddAsync(user);
             }
 
-            var group = await _groupRepository.GetByIdAsync(request.GroupId);
+            var group = await _groupRepository.GetByIdAsync(request.GroupId)
+                ?? throw new NotFound("Group not found");
 
             StudentEntity student = new StudentEntity()
             {

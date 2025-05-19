@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Commands.StudentCommands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
@@ -18,11 +19,12 @@ namespace StudentModule.Application.Handlers.StudentHandlres
         }
         public async Task<StudentDto> Handle(EditStudentStatusCommand request, CancellationToken cancellationToken)
         {
-            var student = await _studentRepository.GetByIdAsync(request.StudentId);
+            var student = await _studentRepository.GetByIdAsync(request.StudentId) 
+                ?? throw new NotFound("Student not found");
+
             var user = await _userRepository.GetByIdAsync(student.UserId);
 
-            //todo добавить проверку на существование студента
-
+            
             student.Status = request.Status;
             await _studentRepository.UpdateAsync(student);
 

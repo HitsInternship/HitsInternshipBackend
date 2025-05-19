@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Comands.StreamComands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
@@ -17,7 +18,11 @@ namespace StudentModule.Application.Handlers.StreamHandlers
 
         public async Task<StreamDto> Handle(CreateStreamCommand request, CancellationToken cancellationToken)
         {
-            //todo: добавить обработку исключений
+            if (await _streamRepository.IsStreamWithNumderExistsAsync(request.StreamNumber))
+                throw new Conflict($"Stream with number {request.StreamNumber} already exists");
+
+            if (request.Year < 2017 || request.Year > DateTime.Now.Year)
+                throw new BadRequest("Invalid year");
 
 
             StreamEntity stream = new StreamEntity()

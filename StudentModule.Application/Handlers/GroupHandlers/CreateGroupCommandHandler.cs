@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Commands.GroupCommands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
@@ -18,12 +19,11 @@ namespace StudentModule.Application.Handlers.GroupHandlers
         }
         public async Task<GroupDto> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
         {
-            StreamEntity? stream = await _streamRepository.GetByIdAsync(request.StreamId);
-            if (stream == null)
-            {
-                //todo: добавить обработку исключений
-                throw new Exception();
-            }
+            StreamEntity? stream = await _streamRepository.GetByIdAsync(request.StreamId) 
+                ?? throw new NotFound("Stream not found");
+
+            if (await _groupRepository.IsGroupWithNumderExistsAsync(request.GroupNumber))
+                throw new Conflict($"Group with number {request.GroupNumber} already exists");
 
             GroupEntity group = new GroupEntity()
             {

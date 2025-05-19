@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Comands.StreamComands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
@@ -22,12 +23,9 @@ namespace StudentModule.Application.Handlers.StreamHandlers
 
         public async Task<StreamDto> Handle(EditStreamStatusCommand request, CancellationToken cancellationToken)
         { 
-            StreamEntity? stream = await _streamRepository.GetByIdAsync(request.Id);
-            if (stream == null)
-            {
-                //todo: добавить обработку исключений
-                throw new Exception();
-            }
+            StreamEntity? stream = await _streamRepository.GetByIdAsync(request.Id) 
+                ?? throw new NotFound("Stream not found");
+
 
             stream.Status = request.Status;
 
