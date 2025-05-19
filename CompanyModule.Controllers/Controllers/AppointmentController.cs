@@ -4,12 +4,14 @@ using CompanyModule.Contracts.DTOs.Requests;
 using CompanyModule.Contracts.DTOs.Responses;
 using CompanyModule.Contracts.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyModule.Controllers.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/companies/")]
     public class AppointmentController : ControllerBase
     {

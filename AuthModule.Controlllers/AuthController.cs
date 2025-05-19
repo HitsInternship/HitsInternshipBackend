@@ -12,16 +12,16 @@ namespace AuthModule.Controlllers;
 public class AuthController: ControllerBase
 {
 
-    private readonly IMediator mediator;
+    private readonly IMediator _mediator;
     public AuthController(IMediator mediator)
     {
-        this.mediator = mediator;
+        _mediator = mediator;
     }
 
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginDTO loginDTO)
     {
-        var token = await mediator.Send(loginDTO);
+        var token = await _mediator.Send(loginDTO);
         return Ok(new { Token = token });
     }
 
@@ -39,7 +39,7 @@ public class AuthController: ControllerBase
             UserId = Guid.Parse(userId),
             Login = password.Login,
         };
-        await mediator.Send(newPassword);
+        await _mediator.Send(newPassword);
         return Ok();
     }
     
@@ -47,14 +47,14 @@ public class AuthController: ControllerBase
     [HttpPost("getRoleById")]
     public async Task<IActionResult> GetMyRole(GetRoleQuery query)
     {
-        var role = await mediator.Send(query);
+        var role = await _mediator.Send(query);
         return Ok(role);
     }
     
     [HttpPost("refresh-token")]
     public async Task<IActionResult> RefreshToken([FromBody] TokenRefreshDTO dto)
     {
-        var tokens = await mediator.Send(dto);
+        var tokens = await _mediator.Send(dto);
         return Ok(tokens);
     }
 
@@ -69,7 +69,7 @@ public class AuthController: ControllerBase
             return Unauthorized(new { Message = "Invalid or missing user ID in token" });
         }
 
-        await mediator.Send(new LogoutDTO { UserId = Guid.Parse(userId) });
+        await _mediator.Send(new LogoutDTO { UserId = Guid.Parse(userId) });
         return Ok(new { Message = "Logout successful" });
     }
     

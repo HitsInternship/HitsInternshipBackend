@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using StudentModule.Contracts.Commands.StudentCommands;
 using StudentModule.Contracts.Queries.StudentQueries;
-using System.Text.RegularExpressions;
 
 namespace StudentModule.Controllers.Controllers
 {

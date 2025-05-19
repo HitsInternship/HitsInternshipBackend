@@ -1,18 +1,20 @@
-﻿using AutoMapper;
+﻿using System.Web.Mvc;
+using AutoMapper;
 using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.DTOs.Requests;
 using CompanyModule.Contracts.DTOs.Responses;
 using CompanyModule.Contracts.Queries;
-using CompanyModule.Domain.Entities;
 using CompanyModule.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ControllerBase = Microsoft.AspNetCore.Mvc.ControllerBase;
 
 namespace CompanyModule.Controllers.Controllers
 {
+    [Authorize]
     [ApiController]
-    [Route("api/companies/")]
+    [Microsoft.AspNetCore.Mvc.Route("api/companies/")]
     public class CompanyController : ControllerBase
     {
         private readonly ISender _sender;
@@ -28,8 +30,8 @@ namespace CompanyModule.Controllers.Controllers
         /// Получает все компании-партнеры.
         /// </summary>
         /// <returns>Список компаний партнеров.</returns>
-        [HttpGet]
-        [Route("")]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        [Microsoft.AspNetCore.Mvc.Route("")]
         [ProducesResponseType(typeof(List<CompanyResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetCompanies()
         {
@@ -40,8 +42,8 @@ namespace CompanyModule.Controllers.Controllers
         /// Добавляет компанию-партнера.
         /// </summary>
         /// <returns>Добавленная компания.</returns>
-        [HttpPost]
-        [Route("add")]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        [Microsoft.AspNetCore.Mvc.Route("add")]
         [ProducesResponseType(typeof(CompanyResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> AddCompany(CompanyRequest createRequest)
         {
@@ -51,8 +53,8 @@ namespace CompanyModule.Controllers.Controllers
         /// <summary>
         /// Изменяет информацию о компании-партнере.
         /// </summary>
-        [HttpPut]
-        [Route("{companyId}")]
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        [Microsoft.AspNetCore.Mvc.Route("{companyId}")]
         [ProducesResponseType(typeof(CompanyResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> EditCompany(Guid companyId, EditCompanyRequest editRequest)
         {
@@ -63,31 +65,34 @@ namespace CompanyModule.Controllers.Controllers
         /// Добавляет документ о партнерстве с компанией.
         /// </summary>
         /// <returns>Добавленный документ.</returns>
-        [HttpPost]
-        [Route("{companyId}/agreements/add")]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        [Microsoft.AspNetCore.Mvc.Route("{companyId}/agreements/add")]
         [ProducesResponseType(typeof(PartnershipAgreementResponse), StatusCodes.Status200OK)]
-        public async Task<IActionResult> AddPartnershipAgreement(Guid companyId, [FromForm] PartnershipAgreementRequest createRequest)
+        public async Task<IActionResult> AddPartnershipAgreement(Guid companyId,
+            [FromForm] PartnershipAgreementRequest createRequest)
         {
-            return Ok(_mapper.Map<PartnershipAgreementResponse>(await _sender.Send(new AddPartnershipAgreementCommand(companyId, createRequest))));
+            return Ok(_mapper.Map<PartnershipAgreementResponse>(
+                await _sender.Send(new AddPartnershipAgreementCommand(companyId, createRequest))));
         }
 
         /// <summary>
         /// Позволяет получить документы о партнерстве c компанией.
         /// </summary>
         /// <returns>Документ о партнерстве.</returns>
-        [HttpGet]
-        [Route("{companyId}/agreements")]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        [Microsoft.AspNetCore.Mvc.Route("{companyId}/agreements")]
         [ProducesResponseType(typeof(List<PartnershipAgreementResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetPartnershipAgreements(Guid companyId)
         {
-            return Ok((await _sender.Send(new GetPartnershipAgreementsQuery(companyId))).Select(_mapper.Map<PartnershipAgreementResponse>));
+            return Ok((await _sender.Send(new GetPartnershipAgreementsQuery(companyId))).Select(
+                _mapper.Map<PartnershipAgreementResponse>));
         }
 
         /// <summary>
         /// Изменяет статус компании-партнера.
         /// </summary>
-        [HttpPut]
-        [Route("{companyId}/status")]
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        [Microsoft.AspNetCore.Mvc.Route("{companyId}/status")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> ChangeCompanyStatus(Guid companyId, CompanyStatus companyStatus)
         {
@@ -101,24 +106,27 @@ namespace CompanyModule.Controllers.Controllers
         /// </summary>
         /// <param name="createRequest.userId">Если необходимо создать человека от компании на основе уже существующего пользователя.</param>
         /// <returns>Добавленный человек от компании.</returns>
-        [HttpPost]
-        [Route("{companyId}/persons/add")]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        [Microsoft.AspNetCore.Mvc.Route("{companyId}/persons/add")]
         [ProducesResponseType(typeof(CompanyPersonResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> AddCompanyPerson(Guid companyId, CompanyPersonRequest createRequest)
         {
-            return Ok(_mapper.Map<CompanyPersonResponse>(await _sender.Send(new AddCompanyPersonCommand(companyId, createRequest))));
+            return Ok(_mapper.Map<CompanyPersonResponse>(
+                await _sender.Send(new AddCompanyPersonCommand(companyId, createRequest))));
         }
 
         /// <summary>
         /// Получить список людей от компаний (CompanyPerson).
         /// </summary>
         /// <returns>Список людей от компании.</returns>
-        [HttpGet]
-        [Route("{companyId}/persons")]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        [Microsoft.AspNetCore.Mvc.Route("{companyId}/persons")]
         [ProducesResponseType(typeof(List<CompanyPersonResponse>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetCompanyPersons(Guid companyId, bool includeCurators, bool includeRepresenters)
+        public async Task<IActionResult> GetCompanyPersons(Guid companyId, bool includeCurators,
+            bool includeRepresenters)
         {
-            return Ok((await _sender.Send(new GetCompanyPersonsQuery(companyId, includeCurators, includeRepresenters))).Select(_mapper.Map<CompanyPersonResponse>));
+            return Ok((await _sender.Send(new GetCompanyPersonsQuery(companyId, includeCurators, includeRepresenters)))
+                .Select(_mapper.Map<CompanyPersonResponse>));
         }
     }
 }

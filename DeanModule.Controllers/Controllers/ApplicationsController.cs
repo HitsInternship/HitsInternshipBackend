@@ -5,6 +5,7 @@ using DeanModule.Contracts.Dtos.Responses;
 using DeanModule.Contracts.Queries;
 using DeanModule.Domain.Enums;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,8 @@ namespace DeanModule.Controllers.Controllers;
 /// Контроллер для управления заявками студентов (Applications).
 /// Позволяет создавать, обновлять, удалять, просматривать заявки и изменять их статус.
 /// </summary>
+
+[Authorize]
 [ApiController]
 [Route("applications")]
 public class ApplicationsController : ControllerBase

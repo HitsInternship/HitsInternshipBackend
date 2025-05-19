@@ -3,6 +3,7 @@ using DeanModule.Contracts.Dtos.Requests;
 using DeanModule.Contracts.Dtos.Responses;
 using DeanModule.Contracts.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,7 @@ namespace DeanModule.Controllers.Controllers;
 /// Контроллер для управления семестрами.
 /// </summary>
 [ApiController]
+[Authorize]
 [Route("semester")]
 public class SemesterController(ISender sender) : ControllerBase
 {
