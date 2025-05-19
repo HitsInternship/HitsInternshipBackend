@@ -1,6 +1,7 @@
 ﻿using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Domain.Exceptions;
 
