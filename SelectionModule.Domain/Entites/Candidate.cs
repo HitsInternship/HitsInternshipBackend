@@ -11,4 +11,6 @@ public class Candidate : BaseEntity
     public required Selection Selection { get; set; }
     
     public Guid SelectionId { get; set; }
+    
+    public Guid StudentId { get; set; }
 }

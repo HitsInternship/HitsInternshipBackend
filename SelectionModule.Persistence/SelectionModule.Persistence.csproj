@@ -6,4 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\SelectionModule.Contracts\SelectionModule.Contracts.csproj" />
+      <ProjectReference Include="..\SelectionModule.Infrastructure\SelectionModule.Infrastructure.csproj" />
+      <ProjectReference Include="..\Shared.Persistence\Shared.Persistence.csproj" />
+    </ItemGroup>
+
 </Project>
