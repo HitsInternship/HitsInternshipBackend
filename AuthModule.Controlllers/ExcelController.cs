@@ -1,9 +1,8 @@
 using AuthModule.Contracts.CQRS;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AuthModule.Controllers;
+namespace AuthModule.Controlllers;
 
 [ApiController]
 [Route("api/[controller]")]
