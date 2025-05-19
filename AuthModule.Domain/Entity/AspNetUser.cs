@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using UserModule.Domain.Entities;
 
 namespace AuthModule.Domain.Entity;
 
@@ -10,4 +11,5 @@ public class AspNetUser
     public string Password { get; set; }
     public string? RefreshToken { get; set; }
     public DateTime? RefreshTokenExpiryTime { get; set; }
+    public Guid? UserId { get; set; }
 }
