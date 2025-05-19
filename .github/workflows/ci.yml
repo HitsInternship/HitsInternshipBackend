@@ -18,6 +18,7 @@ jobs:
           docker system prune -af
           docker-compose up -d --build
         env:
+	  ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           MINIO_ENDPOINT: ${{ vars.MINIO_ENDPOINT }}
           MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
           MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
