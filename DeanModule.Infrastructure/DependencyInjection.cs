@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,12 +9,12 @@ public static class DependencyInjection
     public static void AddDeanModuleInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<DeanModuleDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
+            options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING") ?? configuration.GetConnectionString("HitsInternship")));
     }
 
-    public static void AddDeanModuleInfrastructure(this WebApplication app)
+    public static void AddDeanModuleInfrastructure(this IServiceProvider services)
     {
-        using var serviceScope = app.Services.CreateScope();
+        using var serviceScope = services.CreateScope();
         var dbContext = serviceScope.ServiceProvider.GetService<DeanModuleDbContext>();
         dbContext?.Database.Migrate();
     }

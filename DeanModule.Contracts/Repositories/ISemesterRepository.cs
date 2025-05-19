@@ -3,6 +3,6 @@ using Shared.Contracts.Repositories;
 
 namespace DeanModule.Contracts.Repositories;
 
-public interface ISemesterRepository : IBaseEntityRepository<Semester>
+public interface ISemesterRepository : IBaseEntityRepository<SemesterEntity>
 {
 }

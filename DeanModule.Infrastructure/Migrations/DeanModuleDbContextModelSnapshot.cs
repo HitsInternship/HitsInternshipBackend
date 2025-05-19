@@ -22,7 +22,7 @@ namespace DeanModule.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("DeanModule.Domain.Entities.Application", b =>
+            modelBuilder.Entity("DeanModule.Domain.Entities.ApplicationEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +38,6 @@ namespace DeanModule.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("DocumentUrl")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("IsDeleted")
@@ -80,7 +79,7 @@ namespace DeanModule.Infrastructure.Migrations
                     b.ToTable("DeanMembers");
                 });
 
-            modelBuilder.Entity("DeanModule.Domain.Entities.Semester", b =>
+            modelBuilder.Entity("DeanModule.Domain.Entities.SemesterEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -103,7 +102,7 @@ namespace DeanModule.Infrastructure.Migrations
                     b.ToTable("Semesters");
                 });
 
-            modelBuilder.Entity("DeanModule.Domain.Entities.StreamSemester", b =>
+            modelBuilder.Entity("DeanModule.Domain.Entities.StreamSemesterEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -123,7 +122,20 @@ namespace DeanModule.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SemesterId");
+
                     b.ToTable("StreamSemesters");
+                });
+
+            modelBuilder.Entity("DeanModule.Domain.Entities.StreamSemesterEntity", b =>
+                {
+                    b.HasOne("DeanModule.Domain.Entities.SemesterEntity", "SemesterEntity")
+                        .WithMany()
+                        .HasForeignKey("SemesterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SemesterEntity");
                 });
 #pragma warning restore 612, 618
         }
