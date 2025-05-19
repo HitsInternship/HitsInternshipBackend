@@ -1,13 +1,8 @@
-﻿using StudentModule.Contracts.DTOs;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using StudentModule.Contracts.DTOs;
 using StudentModule.Domain.Enums;
 
-namespace StudentModule.Contracts.Comands.StreamComands
+namespace StudentModule.Contracts.Commands.StreamCommands
 {
     public record EditStreamCommand() : IRequest<StreamDto>
     {

@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Shared.Domain.Exceptions;
-using StudentModule.Contracts.Comands.StreamComands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
 using StudentModule.Domain.Entities;
@@ -9,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentModule.Contracts.Commands.StreamCommands;
 
 namespace StudentModule.Application.Handlers.StreamHandlers
 {

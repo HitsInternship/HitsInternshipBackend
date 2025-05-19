@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using StudentModule.Contracts.Comands.StreamComands;
+using StudentModule.Contracts.Commands.StreamCommands;
 using StudentModule.Contracts.Queries.StreamQueries;
 
 

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AuthModel.Infrastructure;
+namespace UserInfrastructure;
 
 public static class DependencyInjection
 {

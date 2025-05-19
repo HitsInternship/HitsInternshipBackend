@@ -1,4 +1,4 @@
-using AuthModule.Controllers;
+using AuthModule.Controlllers;
 using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;

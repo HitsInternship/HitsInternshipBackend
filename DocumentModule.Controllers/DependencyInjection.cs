@@ -1,4 +1,5 @@
 ﻿using DocumentModule.Application;
+using DocumentModule.Controllers.Controllers;
 using DocumentModule.Infrastructure;
 using DocumentModule.Persistence;
 using Microsoft.AspNetCore.Builder;

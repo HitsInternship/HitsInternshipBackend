@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Shared.Domain.Exceptions;
-using StudentModule.Contracts.Comands.StreamComands;
+using StudentModule.Contracts.Commands.StreamCommands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
 using StudentModule.Domain.Entities;

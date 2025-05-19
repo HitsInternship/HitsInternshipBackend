@@ -1,4 +1,4 @@
-namespace AuthModel.Service;
+namespace AuthModel.Service.Service;
 
 public class AuthSettings
 {
