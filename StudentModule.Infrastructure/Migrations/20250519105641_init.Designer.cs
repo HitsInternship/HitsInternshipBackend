@@ -12,8 +12,8 @@ using StudentModule.Infrastructure;
 namespace StudentModule.Infrastructure.Migrations
 {
     [DbContext(typeof(StudentModuleDbContext))]
-    [Migration("20250512100046_YearFix")]
-    partial class YearFix
+    [Migration("20250519105641_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,9 +31,8 @@ namespace StudentModule.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("GroupNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("GroupNumber")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
@@ -77,10 +76,6 @@ namespace StudentModule.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uuid");
 
@@ -93,10 +88,6 @@ namespace StudentModule.Infrastructure.Migrations
                     b.Property<string>("Middlename")
                         .HasColumnType("text");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("text");
@@ -104,15 +95,14 @@ namespace StudentModule.Infrastructure.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("GroupId");
 
-                    b.ToTable("Students");
+                    b.ToTable("SStudents");
                 });
 
             modelBuilder.Entity("StudentModule.Domain.Entities.GroupEntity", b =>
@@ -120,7 +110,7 @@ namespace StudentModule.Infrastructure.Migrations
                     b.HasOne("StudentModule.Domain.Entities.StreamEntity", "Stream")
                         .WithMany("Groups")
                         .HasForeignKey("StreamId")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Stream");
@@ -131,7 +121,7 @@ namespace StudentModule.Infrastructure.Migrations
                     b.HasOne("StudentModule.Domain.Entities.GroupEntity", "Group")
                         .WithMany("Students")
                         .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Group");
