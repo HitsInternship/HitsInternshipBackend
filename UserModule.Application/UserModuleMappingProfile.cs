@@ -3,7 +3,7 @@ using UserModule.Contracts.DTOs.Requests;
 using UserModule.Contracts.DTOs.Responses;
 using UserModule.Domain.Entities;
 
-namespace CompanyModule.Application;
+namespace UserModule.Application;
 
 public class UserModuleMappingProfile : Profile
 {

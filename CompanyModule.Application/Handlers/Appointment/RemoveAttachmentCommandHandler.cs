@@ -1,12 +1,11 @@
-﻿using AutoMapper;
-using CompanyModule.Contracts.Commands;
+﻿using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.Repositories;
 using CompanyModule.Domain.Entities;
 using DocumentModule.Contracts.Repositories;
 using DocumentModule.Domain.Enums;
 using MediatR;
 
-namespace CompanyModule.Application.Handlers
+namespace CompanyModule.Application.Handlers.Appointment
 {
     public class RemoveAttachmentCommandHandler : IRequestHandler<RemoveAttachmentCommand, Unit>
     {
