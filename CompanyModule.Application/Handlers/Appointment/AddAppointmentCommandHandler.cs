@@ -1,0 +1,31 @@
+﻿using AutoMapper;
+using CompanyModule.Contracts.Commands;
+using CompanyModule.Contracts.Repositories;
+using CompanyModule.Domain.Entities;
+using MediatR;
+
+namespace CompanyModule.Application.Handlers
+{
+    public class AddAppointmentCommandHandler : IRequestHandler<AddAppointmentCommand, Appointment>
+    {
+        private readonly IAppointmentRepository _appointmentRepository;
+        private readonly ICompanyRepository _companyRepository;
+        private readonly IMapper _mapper;
+        public AddAppointmentCommandHandler(IAppointmentRepository appointmentRepository, ICompanyRepository companyRepository, IMapper mapper)
+        {
+            _appointmentRepository = appointmentRepository;
+            _companyRepository = companyRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<Appointment> Handle(AddAppointmentCommand command, CancellationToken cancellationToken)
+        {
+            Appointment appointment = _mapper.Map<Appointment>(command.createRequest);
+
+            appointment.Company = await _companyRepository.GetByIdAsync(command.companyId);
+            await _appointmentRepository.AddAsync(appointment);
+
+            return appointment;
+        }
+    }
+}

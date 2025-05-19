@@ -7,32 +7,31 @@ using Shared.Persistence.Repositories;
 
 namespace DeanModule.Persistence.Repositories;
 
-public class ApplicationRepository : BaseEntityRepository<Application>, IApplicationRepository
+public class ApplicationRepository(DeanModuleDbContext context)
+    : BaseEntityRepository<ApplicationEntity>(context), IApplicationRepository
 {
-    private readonly DeanModuleDbContext _dbContext;
-
-    public ApplicationRepository(DbContext context, DeanModuleDbContext dbContext) : base(context)
+    public async Task<IEnumerable<ApplicationEntity>> GetByStudentIdAsync(Guid studentId)
     {
-        _dbContext = dbContext;
+        return await DbSet.Where(a => a.StudentId == studentId).ToListAsync();
     }
 
-    public async Task<IEnumerable<Application>> GetByStudentIdAsync(Guid studentId)
+    public async Task<IEnumerable<ApplicationEntity>> GetByCompanyId(Guid companyId)
     {
-        return await _dbContext.Applications.Where(a => a.StudentId == studentId).ToListAsync();
+        return await DbSet.Where(a => a.CompanyId == companyId).ToListAsync();
     }
 
-    public async Task<IEnumerable<Application>> GetByCompanyId(Guid companyId)
+    public async Task<IEnumerable<ApplicationEntity>> GetByPositionIdAsync(Guid positionId)
     {
-        return await _dbContext.Applications.Where(a => a.CompanyId == companyId).ToListAsync();
+        return await DbSet.Where(a => a.PositionId == positionId).ToListAsync();
     }
 
-    public async Task<IEnumerable<Application>> GetByPositionIdAsync(Guid positionId)
+    public async Task<IEnumerable<ApplicationEntity>> GetByStatusAsync(ApplicationStatus status)
     {
-        return await _dbContext.Applications.Where(a => a.PositionId == positionId).ToListAsync();
+        return await DbSet.Where(a => a.Status == status).ToListAsync();
     }
 
-    public async Task<IEnumerable<Application>> GetByStatusAsync(ApplicationStatus status)
+    public Task<int> CountAsync()
     {
-        return await _dbContext.Applications.Where(a => a.Status == status).ToListAsync();
+        return DbSet.CountAsync();
     }
 }
