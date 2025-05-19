@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="MediatR" Version="12.5.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
 
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
@@ -17,10 +18,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\AuthModule.Application\AuthModule.Application.csproj" />
+      <ProjectReference Include="..\AuthModule.Controlllers\AuthModule.Controlllers.csproj" />
       <ProjectReference Include="..\CompanyModule.Controllers\CompanyModule.Controllers.csproj" />
       <ProjectReference Include="..\DeanModule.Controllers\DeanModule.Controllers.csproj" />
       <ProjectReference Include="..\DocumentModule.Controllers\DocumentModule.Controllers.csproj" />
       <ProjectReference Include="..\Shared.Extensions\Shared.Extensions.csproj" />
+      <ProjectReference Include="..\StudentModule.Controllers\StudentModule.Controllers.csproj" />
       <ProjectReference Include="..\UserModule.Controllers\UserModule.Controllers.csproj" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
       <ProjectReference Include="..\UserModule.Controllers\UserModule.Controllers.csproj" />

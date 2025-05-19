@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.Repositories;
-using CompanyModule.Domain.Entities;
 using MediatR;
 
-namespace CompanyModule.Application.Handlers
+namespace CompanyModule.Application.Handlers.Appointment
 {
-    public class AddAppointmentCommandHandler : IRequestHandler<AddAppointmentCommand, Appointment>
+    public class AddAppointmentCommandHandler : IRequestHandler<AddAppointmentCommand, Domain.Entities.Appointment>
     {
         private readonly IAppointmentRepository _appointmentRepository;
         private readonly ICompanyRepository _companyRepository;
@@ -18,9 +17,9 @@ namespace CompanyModule.Application.Handlers
             _mapper = mapper;
         }
 
-        public async Task<Appointment> Handle(AddAppointmentCommand command, CancellationToken cancellationToken)
+        public async Task<Domain.Entities.Appointment> Handle(AddAppointmentCommand command, CancellationToken cancellationToken)
         {
-            Appointment appointment = _mapper.Map<Appointment>(command.createRequest);
+            Domain.Entities.Appointment appointment = _mapper.Map<Domain.Entities.Appointment>(command.createRequest);
 
             appointment.Company = await _companyRepository.GetByIdAsync(command.companyId);
             await _appointmentRepository.AddAsync(appointment);

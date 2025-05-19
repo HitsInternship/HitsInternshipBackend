@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CompanyModule.Controllers
+namespace CompanyModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/companies/")]

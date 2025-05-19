@@ -5,7 +5,7 @@ using MediatR;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 
-namespace CompanyModule.Application.Handlers
+namespace CompanyModule.Application.Handlers.Company
 {
     public class GetCompanyPersonsQueryHandler : IRequestHandler<GetCompanyPersonsQuery, List<CompanyPerson>>
     {
@@ -21,7 +21,7 @@ namespace CompanyModule.Application.Handlers
 
         public async Task<List<CompanyPerson>> Handle(GetCompanyPersonsQuery query, CancellationToken cancellationToken)
         {
-            Company company = await _companyRepository.GetByIdAsync(query.companyId);
+            Domain.Entities.Company company = await _companyRepository.GetByIdAsync(query.companyId);
             List<CompanyPerson> companyPersons = await _companyPersonRepository.GetCompanyPersonsByCompany(company, query.includeCurators, query.includeRepresenters);
 
             List<Guid> userIds = companyPersons.Select(companyPerson => companyPerson.UserId).ToList();
