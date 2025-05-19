@@ -14,16 +14,16 @@ namespace AuthModel.Service.Handler;
 
 public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginResponseDTO>
 {
-    private readonly AuthDbContext context;
+    private readonly AuthDbContext _context;
 
     public TokenRefreshHandler(AuthDbContext context)
     {
-        this.context = context;
+        _context = context;
     }
 
     public async Task<LoginResponseDTO> Handle(TokenRefreshDTO request, CancellationToken cancellationToken)
     {
-        var user = await context.AspNetUsers
+        var user = await _context.AspNetUsers
             .FirstOrDefaultAsync(u => u.RefreshToken == request.RefreshToken, cancellationToken);
 
         if (user == null || user.RefreshTokenExpiryTime < DateTime.UtcNow)
@@ -37,7 +37,7 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
         user.RefreshToken = newRefreshToken;
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
 
-        await context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         return new LoginResponseDTO
         {
@@ -46,7 +46,7 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
         };
     }
 
-    private string GenerateAccessToken(Guid id)
+    private static string GenerateAccessToken(Guid id)
     {
         var handler = new JwtSecurityTokenHandler();
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSettings.PrivateKey));
@@ -65,7 +65,7 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
         return handler.WriteToken(token);
     }
 
-    private string GenerateRefreshToken()
+    private static string GenerateRefreshToken()
     {
         var randomBytes = new byte[64];
         using var rng = RandomNumberGenerator.Create();

@@ -1,22 +1,22 @@
 using System.Security.Cryptography;
-using AuthModel.Infrastructure;
 using AuthModel.Service.Interface;
 using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
 using AuthModule.Domain.Entity;
 using MediatR;
+using UserInfrastructure;
 
 namespace AuthModel.Service.Handler;
 
 public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, CredInfoDTO>
 {
-    private readonly IHashService hashService;
-    private readonly AuthDbContext context;
+    private readonly IHashService _hashService;
+    private readonly AuthDbContext _context;
 
     public CreateAspNetUserHandler(IHashService hashService, AuthDbContext context)
     {
-        this.hashService = hashService;
-        this.context = context;
+        _hashService = hashService;
+        _context = context;
     }
 
 
@@ -29,14 +29,14 @@ public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, Cr
         };
         using SHA256 sha256Hash = SHA256.Create();
 
-        context.AspNetUsers.Add(new AspNetUser()
+        _context.AspNetUsers.Add(new AspNetUser()
         {
             Id = Guid.NewGuid(),
             Login = genNewAspNetUserDto.Login,
-            Password = hashService.GetHash(sha256Hash, genNewAspNetUserDto.Password),
+            Password = _hashService.GetHash(sha256Hash, genNewAspNetUserDto.Password),
         });
-        await context.SaveChangesAsync();
-        
+        await _context.SaveChangesAsync(cancellationToken);
+
         return genNewAspNetUserDto;
     }
 }

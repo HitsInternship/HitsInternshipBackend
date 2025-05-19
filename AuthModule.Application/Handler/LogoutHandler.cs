@@ -8,16 +8,16 @@ namespace AuthModel.Service.Handler;
 
 public class LogoutHandler : IRequestHandler<LogoutDTO, Unit>
 {
-    private readonly AuthDbContext context;
+    private readonly AuthDbContext _context;
 
     public LogoutHandler(AuthDbContext context)
     {
-        this.context = context;
+        _context = context;
     }
 
     public async Task<Unit> Handle(LogoutDTO request, CancellationToken cancellationToken)
     {
-        var user = await context.AspNetUsers
+        var user = await _context.AspNetUsers
             .FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
 
         if (user == null)
@@ -28,7 +28,7 @@ public class LogoutHandler : IRequestHandler<LogoutDTO, Unit>
         user.RefreshToken = null;
         user.RefreshTokenExpiryTime = DateTime.MinValue;
 
-        await context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
         return Unit.Value;
     }
 }

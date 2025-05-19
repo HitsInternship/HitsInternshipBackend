@@ -18,20 +18,7 @@ public static class SwaggerConfig
                 BearerFormat = "JWT",
                 Scheme = "Bearer"
             });
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type=ReferenceType.SecurityScheme,
-                            Id="Bearer"
-                        }
-                    },
-                    new string[]{}
-                }
-            });
+            options.OperationFilter<SwaggerFilter>();
 
             options.CustomSchemaIds(type => type.ToString());
         });

@@ -1,38 +1,28 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using AuthModel.Service.Interface;
 using AuthModule.Contracts.CQRS;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Shared.Domain.Exceptions;
-using UserInfrastructure;
 using UserModule.Contracts.Repositories;
 
 namespace AuthModel.Service.Handler;
 
-public class GetRoleHandler :  IRequestHandler<GetRoleQuery, string>
+public class GetRoleHandler : IRequestHandler<GetRoleQuery, string>
 {
-    private readonly AuthDbContext context;
-    private readonly IRoleRepository roleRepository;
-    public GetRoleHandler(IRoleRepository roleRepository, AuthDbContext context)
+    private readonly IRoleRepository _roleRepository;
+
+    public GetRoleHandler(IRoleRepository roleRepository)
     {
-        this.roleRepository = roleRepository;
-        this.context = context;
+        _roleRepository = roleRepository;
     }
-    
-   
+
 
     public async Task<string> Handle(GetRoleQuery request, CancellationToken cancellationToken)
     {
-        var roles = await roleRepository.GetRolesByUserIdAsync(request.UserId);
+        var roles = await _roleRepository.GetRolesByUserIdAsync(request.UserId);
         if (roles == null || !roles.Any())
         {
             throw new NotFound("Роль для пользователя не найдены");
         }
-        
+
         return roles.First().RoleName.ToString();
     }
 }

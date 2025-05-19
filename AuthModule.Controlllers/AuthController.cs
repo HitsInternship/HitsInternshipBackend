@@ -1,6 +1,7 @@
 ﻿using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Domain.Exceptions;
 
@@ -23,8 +24,9 @@ public class AuthController: ControllerBase
         var token = await mediator.Send(loginDTO);
         return Ok(new { Token = token });
     }
-    [HttpPut("edit/pass")]
+
     [Authorize]
+    [HttpPut("edit/pass")]
     public async Task<IActionResult> Login(EditPasswordDTO password)
     {
         var userId = User.FindFirst("UserId")?.Value;
@@ -41,13 +43,14 @@ public class AuthController: ControllerBase
         return Ok();
     }
     
+    [Authorize]
     [HttpPost("getRoleById")]
     public async Task<IActionResult> GetMyRole(GetRoleQuery query)
     {
         var role = await mediator.Send(query);
         return Ok(role);
     }
-
+    
     [HttpPost("refresh-token")]
     public async Task<IActionResult> RefreshToken([FromBody] TokenRefreshDTO dto)
     {
@@ -55,6 +58,7 @@ public class AuthController: ControllerBase
         return Ok(tokens);
     }
 
+    [Authorize]
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
     {

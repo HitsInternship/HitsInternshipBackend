@@ -3,11 +3,6 @@ using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Commands.GroupCommands;
 using StudentModule.Contracts.Repositories;
 using StudentModule.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentModule.Application.Handlers.GroupHandlers
 {

@@ -16,20 +16,21 @@ namespace AuthModel.Service.Handler;
 
 public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
 {
-    private readonly IHashService hashService;
-    private readonly AuthDbContext context;
+    private readonly IHashService _hashService;
+    private readonly AuthDbContext _context;
+
     public LoginHandler(IHashService hashService, AuthDbContext context)
     {
-        this.hashService = hashService;
-        this.context = context;
+        _hashService = hashService;
+        _context = context;
     }
-    
+
     public async Task<LoginResponseDTO> Handle(LoginDTO request, CancellationToken cancellationToken)
     {
         using SHA256 sha256Hash = SHA256.Create();
-        var passwordHash = hashService.GetHash(sha256Hash, request.Password);
+        var passwordHash = _hashService.GetHash(sha256Hash, request.Password);
 
-        var user = await context.AspNetUsers
+        var user = await _context.AspNetUsers
             .FirstOrDefaultAsync(u => u.Login == request.Login && u.Password == passwordHash, cancellationToken);
 
         if (user == null)
@@ -43,7 +44,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
         user.RefreshToken = refreshToken;
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
 
-        await context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         return new LoginResponseDTO
         {
@@ -51,7 +52,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
             RefreshToken = refreshToken
         };
     }
-    
+
     private string GenerateAccessToken(Guid id)
     {
         var handler = new JwtSecurityTokenHandler();
