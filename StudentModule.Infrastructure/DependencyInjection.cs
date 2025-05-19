@@ -10,7 +10,7 @@ namespace StudentModule.Infrastructure
         public static void AddStudentModuleInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<StudentModuleDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("HitsInternship")));
+                options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING") ?? configuration.GetConnectionString("HitsInternship")));
         }
 
         public static void AddStudentModuleInfrastructure(this IServiceProvider services)
