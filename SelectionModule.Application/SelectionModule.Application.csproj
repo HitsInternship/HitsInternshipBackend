@@ -7,13 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Commands\" />
+      <Folder Include="Features\Commands\Position\" />
+      <Folder Include="Features\Commands\VacancyResponse\" />
+      <Folder Include="Features\Commands\Vacancy\" />
       <Folder Include="Features\Queries\" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="MediatR" Version="12.5.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SelectionModule.Contracts\SelectionModule.Contracts.csproj" />
+      <ProjectReference Include="..\StudentModule.Contracts\StudentModule.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

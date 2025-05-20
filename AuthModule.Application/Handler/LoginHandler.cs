@@ -43,7 +43,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
             throw new NotFound("Пользователь не найден");
         }
 
-        var accessToken = GenerateAccessToken(user.Id);
+        var accessToken = GenerateAccessToken(user);
         var refreshToken = GenerateRefreshToken();
 
         user.RefreshToken = refreshToken;

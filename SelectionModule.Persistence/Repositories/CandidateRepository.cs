@@ -6,6 +6,6 @@ using Shared.Persistence.Repositories;
 namespace SelectionModule.Persistence.Repositories;
 
 public class CandidateRepository(SelectionDbContext context)
-    : BaseEntityRepository<Candidate>(context), ICandidateRepository
+    : BaseEntityRepository<CandidateEntity>(context), ICandidateRepository
 {
 }

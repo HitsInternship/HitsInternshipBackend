@@ -2,6 +2,7 @@ using AuthModule.Controlllers;
 using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;
+using SelectionModule.Controllers;
 using Shared.Extensions;
 using StudentModule.Controllers;
 using UserModule.Controllers;

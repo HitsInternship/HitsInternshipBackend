@@ -3,14 +3,13 @@ using Shared.Domain.Entites;
 
 namespace SelectionModule.Domain.Entites;
 
-public class Candidate : BaseEntity
+public class CandidateEntity : BaseEntity
 {
     public Guid UserId { get; set; }
-    
-    [ForeignKey("SelectionId")]
-    public required Selection Selection { get; set; }
-    
-    public Guid SelectionId { get; set; }
-    
+
+    public SelectionEntity? Selection { get; set; }
+
     public Guid StudentId { get; set; }
+
+    public ICollection<VacancyResponse> Responses { get; set; } = [];
 }

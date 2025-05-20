@@ -22,7 +22,7 @@ namespace SelectionModule.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Candidate", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.CandidateEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -31,9 +31,6 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("SelectionId")
-                        .HasColumnType("uuid");
-
                     b.Property<Guid>("StudentId")
                         .HasColumnType("uuid");
 
@@ -41,9 +38,6 @@ namespace SelectionModule.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SelectionId")
-                        .IsUnique();
 
                     b.ToTable("Candidates");
                 });
@@ -89,6 +83,9 @@ namespace SelectionModule.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CandidateId")
+                        .IsUnique();
+
                     b.ToTable("Selections");
                 });
 
@@ -125,15 +122,42 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.ToTable("Vacancies");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Candidate", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponse", b =>
                 {
-                    b.HasOne("SelectionModule.Domain.Entites.Selection", "Selection")
-                        .WithOne("Candidate")
-                        .HasForeignKey("SelectionModule.Domain.Entites.Candidate", "SelectionId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("CandidateId")
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("VacancyId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidateId");
+
+                    b.HasIndex("VacancyId");
+
+                    b.ToTable("VacancyResponse");
+                });
+
+            modelBuilder.Entity("SelectionModule.Domain.Entites.Selection", b =>
+                {
+                    b.HasOne("SelectionModule.Domain.Entites.CandidateEntity", "Candidate")
+                        .WithOne("Selection")
+                        .HasForeignKey("SelectionModule.Domain.Entites.Selection", "CandidateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Selection");
+                    b.Navigation("Candidate");
                 });
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.Vacancy", b =>
@@ -147,10 +171,35 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Navigation("Position");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Selection", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponse", b =>
                 {
-                    b.Navigation("Candidate")
+                    b.HasOne("SelectionModule.Domain.Entites.CandidateEntity", "Candidate")
+                        .WithMany("Responses")
+                        .HasForeignKey("CandidateId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("SelectionModule.Domain.Entites.Vacancy", "Vacancy")
+                        .WithMany("Responses")
+                        .HasForeignKey("VacancyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Candidate");
+
+                    b.Navigation("Vacancy");
+                });
+
+            modelBuilder.Entity("SelectionModule.Domain.Entites.CandidateEntity", b =>
+                {
+                    b.Navigation("Responses");
+
+                    b.Navigation("Selection");
+                });
+
+            modelBuilder.Entity("SelectionModule.Domain.Entites.Vacancy", b =>
+                {
+                    b.Navigation("Responses");
                 });
 #pragma warning restore 612, 618
         }

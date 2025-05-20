@@ -17,4 +17,6 @@ public class Vacancy : BaseEntity
     public required Guid CompanyId { get; set; }
     
     public bool IsClosed { get; set; } = false;
+
+    public ICollection<VacancyResponse> Responses { get; set; } = [];
 }
