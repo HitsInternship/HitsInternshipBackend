@@ -2,7 +2,6 @@ using AuthModule.Controlllers;
 using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;
-using SelectionModule.Controllers;
 using Shared.Extensions;
 using StudentModule.Controllers;
 using UserModule.Controllers;
@@ -20,6 +19,7 @@ public static class Modules
         services.AddAuthModule(configuration);
         services.AddStudentModule(configuration);
         services.AddSelectionModule(configuration);
+        services.AddCompanyModule(configuration);
     }
 
     public static void UseApplicationModules(this IServiceProvider services)

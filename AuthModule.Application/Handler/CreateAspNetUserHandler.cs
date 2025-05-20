@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using AuthModel.Infrastructure;
 using AuthModel.Service.Interface;
 using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;

@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using AuthModel.Service.Interface;
 using AuthModule.Contracts.CQRS;
+using AuthModule.Domain.Entity;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shared.Domain.Exceptions;
