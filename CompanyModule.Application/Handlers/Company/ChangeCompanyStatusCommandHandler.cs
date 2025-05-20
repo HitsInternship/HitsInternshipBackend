@@ -1,9 +1,8 @@
 ﻿using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.Repositories;
-using CompanyModule.Domain.Entities;
 using MediatR;
 
-namespace CompanyModule.Application.Handlers
+namespace CompanyModule.Application.Handlers.Company
 {
     public class ChangeCompanyStatusCommandHandler : IRequestHandler<ChangeCompanyStatusCommand, Unit>
     {
@@ -15,7 +14,7 @@ namespace CompanyModule.Application.Handlers
 
         public async Task<Unit> Handle(ChangeCompanyStatusCommand command, CancellationToken cancellationToken)
         {
-            Company company = await _companyRepository.GetByIdAsync(command.companyId);
+            Domain.Entities.Company company = await _companyRepository.GetByIdAsync(command.companyId);
 
             company.Status = command.companyStatus;
             await _companyRepository.UpdateAsync(company);

@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DocumentModule.Controllers
+namespace DocumentModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/documents/")]

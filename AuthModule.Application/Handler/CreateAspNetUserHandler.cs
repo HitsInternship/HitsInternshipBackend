@@ -1,5 +1,4 @@
 using System.Security.Cryptography;
-using AuthModel.Infrastructure;
 using AuthModel.Service.Interface;
 using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
@@ -34,9 +33,7 @@ public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, Cr
             Id = Guid.NewGuid(),
             Login = genNewAspNetUserDto.Login,
             Password = hashService.GetHash(sha256Hash, genNewAspNetUserDto.Password),
-            UserId = genNewAspNetUserDto.UserId
         });
-
         await context.SaveChangesAsync();
         
         return genNewAspNetUserDto;

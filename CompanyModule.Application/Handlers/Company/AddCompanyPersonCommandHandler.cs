@@ -7,7 +7,7 @@ using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 using UserModule.Domain.Enums;
 
-namespace CompanyModule.Application.Handlers
+namespace CompanyModule.Application.Handlers.Company
 {
     public class AddCompanyPersonCommandHandler : IRequestHandler<AddCompanyPersonCommand, CompanyPerson>
     {
@@ -27,7 +27,7 @@ namespace CompanyModule.Application.Handlers
 
         public async Task<CompanyPerson> Handle(AddCompanyPersonCommand command, CancellationToken cancellationToken)
         {
-            Company company = await _companyRepository.GetByIdAsync(command.companyId);
+            Domain.Entities.Company company = await _companyRepository.GetByIdAsync(command.companyId);
 
             CompanyPerson companyPerson = command.createRequest.isCurator ? _mapper.Map<Curator>(command.createRequest) : _mapper.Map<CompanyRepresenter>(command.createRequest);
             companyPerson.Company = company;

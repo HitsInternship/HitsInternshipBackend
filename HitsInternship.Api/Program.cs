@@ -4,6 +4,7 @@ using HitsInternship.Api.Extensions.Swagger;
 using Shared.Extensions.Validation;
 using System.Text.Json.Serialization;
 using AuthModel.Service;
+using AuthModel.Service.Service;
 using HitsInternship.Api.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -16,9 +17,9 @@ builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
-        builder => builder.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader());
+        config => config.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 });
 
 
@@ -52,6 +53,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerConfiguration();
 }
+
 app.UseCors("AllowAllOrigins");
 
 app.Services.UseApplicationModules();
