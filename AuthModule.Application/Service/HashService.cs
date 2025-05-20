@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 using System.Text;
 using AuthModel.Service.Interface;
 
-namespace AuthModel.Service;
+namespace AuthModel.Service.Service;
 
 public class HashService : IHashService
 {

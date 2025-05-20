@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Domain.Exceptions;
 
-namespace AuthModule.Controllers;
+namespace AuthModule.Controlllers;
 
 [ApiController]
 [Route("api/auth/")]

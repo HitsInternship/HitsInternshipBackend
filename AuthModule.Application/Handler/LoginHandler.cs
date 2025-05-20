@@ -2,8 +2,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using AuthModel.Infrastructure;
 using AuthModel.Service.Interface;
+using AuthModel.Service.Service;
 using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
 using AuthModule.Domain.Entity;
@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Shared.Domain.Exceptions;
 using UserModule.Contracts.Repositories;
+using UserInfrastructure;
+
 
 namespace AuthModel.Service.Handler;
 
@@ -62,6 +64,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new List<Claim> { new Claim("UserId", user.UserId.ToString()) };
+
         
         var roles = await roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
         foreach (var role in roles)

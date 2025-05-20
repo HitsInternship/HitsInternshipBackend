@@ -1,8 +1,9 @@
-using AuthModule.Controllers;
+using AuthModule.Controlllers;
 using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;
 using Shared.Extensions;
+using StudentModule.Controllers;
 using UserModule.Controllers;
 
 namespace HitsInternship.Api.Extensions;
@@ -16,6 +17,8 @@ public static class Modules
         services.AddUserModule(configuration);
         services.AddDocumentModule(configuration);
         services.AddAuthModule(configuration);
+        services.AddStudentModule(configuration);
+        services.AddCompanyModule(configuration);
     }
 
     public static void UseApplicationModules(this IServiceProvider services)
@@ -25,5 +28,6 @@ public static class Modules
         services.UseDocumentModule();
         services.UseCompanyModule();
         services.UseAuthModule();
+        services.UseStudentModule();
     }
 }

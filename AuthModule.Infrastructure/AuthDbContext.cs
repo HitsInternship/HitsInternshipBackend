@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using AuthModule.Domain.Entity;
+﻿using AuthModule.Domain.Entity;
+using Microsoft.EntityFrameworkCore;
 
-namespace AuthModel.Infrastructure
+namespace UserInfrastructure
 
 {
     public class AuthDbContext : DbContext

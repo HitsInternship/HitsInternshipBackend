@@ -1,9 +1,9 @@
-using AuthModel.Infrastructure;
 using AuthModule.Contracts.CQRS;
 using AuthModule.Contracts.Model;
 using AuthModule.Domain.Entity;
 using OfficeOpenXml;
 using Shared.Domain.Exceptions;
+using UserInfrastructure;
 using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace AuthModel.Service.Handler;

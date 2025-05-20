@@ -1,8 +1,8 @@
-using AuthModel.Infrastructure;
 using AuthModule.Contracts.Model;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shared.Domain.Exceptions;
+using UserInfrastructure;
 
 namespace AuthModel.Service.Handler;
 

@@ -2,7 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using AuthModel.Infrastructure;
+using AuthModel.Service.Service;
 using AuthModule.Contracts.Model;
 using AuthModule.Domain.Entity;
 using MediatR;
@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Shared.Domain.Exceptions;
 using UserModule.Contracts.Repositories;
+using UserInfrastructure;
 
 namespace AuthModel.Service.Handler;
 
