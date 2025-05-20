@@ -18,6 +18,7 @@ public static class Modules
         services.AddDocumentModule(configuration);
         services.AddAuthModule(configuration);
         services.AddStudentModule(configuration);
+        services.AddCompanyModule(configuration);
     }
 
     public static void UseApplicationModules(this IServiceProvider services)
