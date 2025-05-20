@@ -4,20 +4,23 @@ using System.Security.Cryptography;
 using System.Text;
 using AuthModel.Infrastructure;
 using AuthModule.Contracts.Model;
+using AuthModule.Domain.Entity;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Shared.Domain.Exceptions;
+using UserModule.Contracts.Repositories;
 
 namespace AuthModel.Service.Handler;
 
 public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginResponseDTO>
 {
     private readonly AuthDbContext context;
-
-    public TokenRefreshHandler(AuthDbContext context)
+    private readonly IRoleRepository roleRepository;
+    public TokenRefreshHandler(AuthDbContext context, IRoleRepository roleRepository)
     {
         this.context = context;
+        this.roleRepository = roleRepository;
     }
 
     public async Task<LoginResponseDTO> Handle(TokenRefreshDTO request, CancellationToken cancellationToken)
@@ -30,7 +33,7 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
             throw new Unauthorized("Невалидный или истекший refresh token");
         }
 
-        var accessToken = GenerateAccessToken(user.Id);
+        var accessToken = await GenerateAccessToken(user);
         var newRefreshToken = GenerateRefreshToken();
 
         user.RefreshToken = newRefreshToken;
@@ -45,14 +48,20 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
         };
     }
 
-    private string GenerateAccessToken(Guid id)
+    private async Task<string> GenerateAccessToken(AspNetUser user)
     {
         var handler = new JwtSecurityTokenHandler();
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSettings.PrivateKey));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        var claims = new List<Claim> { new Claim("UserId", id.ToString()) };
-
+        var claims = new List<Claim> { new Claim("UserId", user.UserId.ToString()) };
+        
+        var roles = await roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
+        foreach (var role in roles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role.RoleName.ToString()));
+        }
+        
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),

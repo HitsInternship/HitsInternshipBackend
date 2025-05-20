@@ -61,7 +61,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSettings.PrivateKey));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        var claims = new List<Claim> { new Claim("UserId", user.Id.ToString()) };
+        var claims = new List<Claim> { new Claim("UserId", user.UserId.ToString()) };
         
         var roles = await roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
         foreach (var role in roles)
