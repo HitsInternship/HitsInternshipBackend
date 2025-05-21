@@ -1,5 +1,4 @@
 using MediatR;
-using Unit = System.Reactive.Unit;
 
 namespace SelectionModule.Contracts.Commands.Position;
 

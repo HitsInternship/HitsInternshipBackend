@@ -3,6 +3,6 @@ using Shared.Contracts.Repositories;
 
 namespace SelectionModule.Contracts.Repositories;
 
-public interface IPositionRepository : IBaseEntityRepository<Position>
+public interface IPositionRepository : IBaseEntityRepository<PositionEntity>
 {
 }

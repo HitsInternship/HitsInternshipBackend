@@ -3,6 +3,6 @@ using Shared.Contracts.Repositories;
 
 namespace SelectionModule.Contracts.Repositories;
 
-public interface IVacancyRepository : IBaseEntityRepository<Vacancy>
+public interface IVacancyRepository : IBaseEntityRepository<VacancyEntity>
 {
 }

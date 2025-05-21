@@ -7,7 +7,7 @@ public class VacancyResponse : BaseEntity
 {
     public Guid VacancyId { get; set; }
 
-    public Vacancy Vacancy { get; set; } = null!;
+    public VacancyEntity Vacancy { get; set; } = null!;
 
     public Guid CandidateId { get; set; }
 

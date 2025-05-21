@@ -7,9 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Commands\Position\" />
       <Folder Include="Features\Commands\VacancyResponse\" />
-      <Folder Include="Features\Commands\Vacancy\" />
       <Folder Include="Features\Queries\" />
     </ItemGroup>
 

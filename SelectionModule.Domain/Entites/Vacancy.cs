@@ -3,14 +3,14 @@ using Shared.Domain.Entites;
 
 namespace SelectionModule.Domain.Entites;
 
-public class Vacancy : BaseEntity
+public class VacancyEntity : BaseEntity
 {
     public string Title { get; set; }
 
     public string Description { get; set; }
     
     [ForeignKey("PositionId")]
-    public required Position Position { get; set; }
+    public required PositionEntity Position { get; set; }
     
     public required Guid PositionId { get; set; }
     
