@@ -4,7 +4,6 @@ using AppSettingsModule.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Shared.Persistence.Repositories;
 
-
 namespace AppSettingsModule.Persistence
 {
     public class SettingsRepository : BaseEntityRepository<Settings>, ISettingsRepository
@@ -13,6 +12,11 @@ namespace AppSettingsModule.Persistence
         public SettingsRepository(AppSettingsDbContext context) : base(context)
         {
             this.context = context;
+        }
+
+        public Task<Settings> GetSettingsByUserIdAsync(Guid id)
+        {
+            return context.Settings.FirstOrDefaultAsync(s => s.userId == id);
         }
     }
 }

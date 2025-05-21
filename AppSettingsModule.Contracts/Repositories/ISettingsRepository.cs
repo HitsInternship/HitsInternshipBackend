@@ -6,5 +6,6 @@ namespace AppSettingsModule.Contracts.Repositories
 {
     public interface ISettingsRepository : IBaseEntityRepository<Settings>
     {
+        Task<Settings> GetSettingsByUserIdAsync(Guid id);
     }
 }

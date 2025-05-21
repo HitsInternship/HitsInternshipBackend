@@ -14,7 +14,7 @@ namespace AppSettingsModule.Infrastructure
                 options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING") ?? configuration.GetConnectionString("HitsInternship")));
         }
 
-        public static void AddCompanyModuleInfrastructure(this IServiceProvider services)
+        public static void AddAppSettingsModuleInfrastructure(this IServiceProvider services)
         {
             using var serviceScope = services.CreateScope();
             var dbContext = serviceScope.ServiceProvider.GetService<AppSettingsDbContext>();
