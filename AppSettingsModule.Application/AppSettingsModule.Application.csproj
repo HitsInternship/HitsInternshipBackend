@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\" />
+    <ProjectReference Include="..\AppSettingsModule.Contracts\AppSettingsModule.Contracts.csproj" />
+    <ProjectReference Include="..\AppSettingsModule.Infrastructure\AppSettingsModule.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

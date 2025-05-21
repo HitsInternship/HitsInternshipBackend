@@ -8,7 +8,7 @@ namespace AppSettingsModule.Domain.Enums
 {
     public enum Theme
     {
-        White,
-        Black
+        Light,
+        Dark
     }
 }
