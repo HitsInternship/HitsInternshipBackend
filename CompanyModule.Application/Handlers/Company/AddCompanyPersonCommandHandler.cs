@@ -3,6 +3,9 @@ using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.Repositories;
 using CompanyModule.Domain.Entities;
 using MediatR;
+using Shared.Domain.Exceptions;
+using UserModule.Contracts.Commands;
+using UserModule.Contracts.Queries;
 using UserModule.Contracts.Repositories;
 using UserModule.Domain.Entities;
 using UserModule.Domain.Enums;
@@ -13,15 +16,13 @@ namespace CompanyModule.Application.Handlers.Company
     {
         private readonly ICompanyPersonRepository _companyPersonRepository;
         private readonly ICompanyRepository _companyRepository;
-        private readonly IUserRepository _userRepository;
-        private readonly IRoleRepository _roleRepository;
+        private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-        public AddCompanyPersonCommandHandler(ICompanyPersonRepository companyPersonRepository, ICompanyRepository companyRepository, IUserRepository userRepository, IRoleRepository roleRepository, IMapper mapper)
+        public AddCompanyPersonCommandHandler(ICompanyPersonRepository companyPersonRepository, ICompanyRepository companyRepository, IMediator mediator, IMapper mapper)
         {
             _companyPersonRepository = companyPersonRepository;
             _companyRepository = companyRepository;
-            _userRepository = userRepository;
-            _roleRepository = roleRepository;
+            _mediator = mediator;
             _mapper = mapper;
         }
 
@@ -32,19 +33,21 @@ namespace CompanyModule.Application.Handlers.Company
             CompanyPerson companyPerson = command.createRequest.isCurator ? _mapper.Map<Curator>(command.createRequest) : _mapper.Map<CompanyRepresenter>(command.createRequest);
             companyPerson.Company = company;
 
-            User user;
-            if (command.createRequest.userId != null)
+            User user = null;
+            if (command.createRequest.userRequest != null)
             {
-                user = await _userRepository.GetByIdAsync((Guid)command.createRequest.userId);
+                user = await _mediator.Send(new CreateUserCommand(command.createRequest.userRequest));
             }
-            else
+            else if (command.createRequest.userId == null)
             {
-                user = _mapper.Map<User>(command.createRequest.userRequest);
-                user.Roles.Add(await _roleRepository.GetRoleAsync(command.createRequest.isCurator ? RoleName.Curator : RoleName.CompanyRepresenter));
-                await _userRepository.AddAsync(user);
+                throw new BadRequest("Provide userRequest or userId");
             }
 
+            user = await _mediator.Send(new AddUserRoleCommand(command.createRequest.userId ?? user!.Id, command.createRequest.isCurator ? RoleName.Curator : RoleName.CompanyRepresenter));
+
             companyPerson.UserId = user.Id;
+            companyPerson.User = user;
+
             await _companyPersonRepository.AddAsync(companyPerson);
 
             return companyPerson;
