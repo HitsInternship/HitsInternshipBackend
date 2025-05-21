@@ -31,7 +31,7 @@ namespace UserModule.Application.Handlers
 
             if (query.searchRequest.email != null)
             {
-                dbQuery = dbQuery.Where(user => user.Surname.StartsWith(query.searchRequest.email)).AsQueryable();
+                dbQuery = dbQuery.Where(user => user.Email.StartsWith(query.searchRequest.email)).AsQueryable();
             }
 
             if (query.searchRequest.roles != null)

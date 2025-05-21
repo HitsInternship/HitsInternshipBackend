@@ -22,22 +22,6 @@ namespace UserModule.Controllers.Controllers
             _mapper = mapper;
         }
 
-        ///// <summary>
-        ///// Добавляет пользователя в систему.
-        ///// </summary>
-        ///// <returns>Добавленный пользователь.</returns>
-        //[HttpPost]
-        //[Route("create")]
-        //[ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
-        //public async Task<IActionResult> CreateUser(UserRequest createRequest)
-        //{
-        //    return Ok(_mapper.Map<UserResponse>(await mediator.Send(new CreateUserCommand(createRequest))));
-        //}
-
-        /// <summary>
-        /// Возвращает список пользователей по соответствующим параметрам.
-        /// </summary>
-        /// <returns>Список пользователей.</returns>
         [HttpGet]
         [Route("search")]
         [ProducesResponseType(typeof(List<UserResponse>), StatusCodes.Status200OK)]
