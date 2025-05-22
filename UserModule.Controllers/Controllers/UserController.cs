@@ -27,7 +27,7 @@ namespace UserModule.Controllers.Controllers
         [ProducesResponseType(typeof(List<UserResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetListUserInfo([FromQuery] SearchUserRequest searchRequest)
         {
-            return Ok((await _mediator.Send(new GetListUserQuery(searchRequest))).Select(_mapper.Map<UserResponse>));
+            return Ok((await _mediator.Send(new GetListSearchUserQuery(searchRequest))).Select(_mapper.Map<UserResponse>));
         }
 
         /// <summary>
