@@ -6,6 +6,7 @@ using CompanyModule.Contracts.DTOs.Responses;
 using CompanyModule.Contracts.Queries;
 using CompanyModule.Domain.Enums;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ControllerBase = Microsoft.AspNetCore.Mvc.ControllerBase;
@@ -127,6 +128,21 @@ namespace CompanyModule.Controllers.Controllers
         {
             return Ok((await _sender.Send(new GetCompanyPersonsQuery(companyId, includeCurators, includeRepresenters)))
                 .Select(_mapper.Map<CompanyPersonResponse>));
+        }
+
+        /// <summary>
+        /// Получить информацию о человеке от компании.
+        /// </summary>
+        /// <returns>Информация о человеке от компании.</returns>
+        [HttpGet]
+        [Authorize(Roles = "Curator, CompanyRepresenter")]
+        [Route("person")]
+        [ProducesResponseType(typeof(CompanyPersonResponse), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetCompanyPersonInfo()
+        {
+            var userId = User.Claims.First().Value.ToString();
+
+            return Ok(_mapper.Map<CompanyPersonResponse>(await _sender.Send(new GetCompanyPersonQuery(new Guid(userId)))));
         }
     }
 }
