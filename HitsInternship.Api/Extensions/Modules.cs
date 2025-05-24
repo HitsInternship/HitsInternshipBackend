@@ -2,6 +2,7 @@ using AuthModule.Controlllers;
 using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;
+using PracticeModule.Service;
 using Shared.Extensions;
 using StudentModule.Controllers;
 using UserModule.Controllers;
@@ -19,6 +20,7 @@ public static class Modules
         services.AddAuthModule(configuration);
         services.AddStudentModule(configuration);
         services.AddCompanyModule(configuration);
+        services.AddPracticeModule(configuration);
     }
 
     public static void UseApplicationModules(this IServiceProvider services)
@@ -29,5 +31,6 @@ public static class Modules
         services.UseCompanyModule();
         services.UseAuthModule();
         services.UseStudentModule();
+        services.UsePracticeModule();
     }
 }
