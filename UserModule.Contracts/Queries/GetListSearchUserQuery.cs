@@ -9,5 +9,5 @@ using UserModule.Domain.Entities;
 
 namespace UserModule.Contracts.Queries
 {
-    public record GetListUserQuery(List<Guid> userIds) : IRequest<List<User>> { }
+    public record GetListSearchUserQuery(SearchUserRequest searchRequest) : IRequest<List<User>> { }
 }

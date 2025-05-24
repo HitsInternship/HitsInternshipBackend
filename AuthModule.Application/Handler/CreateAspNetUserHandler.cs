@@ -6,6 +6,7 @@ using AuthModule.Domain.Entity;
 using MediatR;
 using UserInfrastructure;
 
+
 namespace AuthModel.Service.Handler;
 
 public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, CredInfoDTO>
@@ -24,6 +25,7 @@ public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, Cr
     {
         var genNewAspNetUserDto = new CredInfoDTO()
         {
+            UserId = request.UserId,
             Login = request.Email,
             Password = Guid.NewGuid().ToString(),
         };
@@ -34,6 +36,7 @@ public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, Cr
             Id = Guid.NewGuid(),
             Login = genNewAspNetUserDto.Login,
             Password = hashService.GetHash(sha256Hash, genNewAspNetUserDto.Password),
+            UserId = genNewAspNetUserDto.UserId
         });
         await context.SaveChangesAsync();
         
