@@ -8,4 +8,5 @@ public class PracticeDiary
     public Guid Id { get; set; }
     public Practice Practice { get; set; }
     public Guid PracticeId { get; set; }
+    public Guid DocumentId { get; set; }
 }

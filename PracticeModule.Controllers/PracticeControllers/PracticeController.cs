@@ -17,7 +17,14 @@ public class PracticeController : ControllerBase
     }
 
 
-    [HttpGet("student-characteristics")]
+    [HttpPost("student-characteristics")]
+    public async Task<IActionResult> StudentCharacteristics([FromForm] StudentCharacteristicsAddQuery dto)
+    {
+        await mediator.Send(dto);
+        return Ok();
+    }
+    
+    [HttpPost("student-characteristics")]
     public async Task<IActionResult> GetPractice([FromForm] StudentCharacteristicsAddQuery dto)
     {
         await mediator.Send(dto);
