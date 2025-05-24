@@ -23,6 +23,7 @@
       <ProjectReference Include="..\CompanyModule.Controllers\CompanyModule.Controllers.csproj" />
       <ProjectReference Include="..\DeanModule.Controllers\DeanModule.Controllers.csproj" />
       <ProjectReference Include="..\DocumentModule.Controllers\DocumentModule.Controllers.csproj" />
+      <ProjectReference Include="..\PracticeModule.Controllers\PracticeModule.Controllers.csproj" />
       <ProjectReference Include="..\Shared.Extensions\Shared.Extensions.csproj" />
       <ProjectReference Include="..\StudentModule.Controllers\StudentModule.Controllers.csproj" />
       <ProjectReference Include="..\UserModule.Controllers\UserModule.Controllers.csproj" />
