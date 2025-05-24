@@ -25,6 +25,7 @@ public class CreateAspNetUserHandler : IRequestHandler<CreateAspNetUserQuery, Cr
     {
         var genNewAspNetUserDto = new CredInfoDTO()
         {
+            UserId = request.UserId,
             Login = request.Email,
             Password = Guid.NewGuid().ToString(),
         };
