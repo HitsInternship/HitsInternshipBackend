@@ -4,6 +4,7 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -32,6 +33,12 @@
       <ProjectReference Include="..\UserModule.Controllers\UserModule.Controllers.csproj" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
       <ProjectReference Include="..\UserModule.Controllers\UserModule.Controllers.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>
