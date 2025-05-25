@@ -11,5 +11,5 @@ public class CandidateEntity : BaseEntity
 
     public Guid StudentId { get; set; }
 
-    public ICollection<VacancyResponse> Responses { get; set; } = [];
+    public ICollection<VacancyResponseEntity> Responses { get; set; } = [];
 }

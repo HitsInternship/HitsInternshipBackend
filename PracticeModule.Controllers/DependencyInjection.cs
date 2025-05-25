@@ -1,10 +1,9 @@
-﻿using System.Reflection;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PracticeModule.Application;
 using PracticeModule.Infrastructure;
 
-namespace PracticeModule.Service
+namespace PracticeModule.Controllers
 {
     public static class DependencyInjection
     {

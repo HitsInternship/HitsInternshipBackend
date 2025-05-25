@@ -3,7 +3,7 @@ using Shared.Domain.Entites;
 
 namespace SelectionModule.Domain.Entites;
 
-public class VacancyResponse : BaseEntity
+public class VacancyResponseEntity : BaseEntity
 {
     public Guid VacancyId { get; set; }
 

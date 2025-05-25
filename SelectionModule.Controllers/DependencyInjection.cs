@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SelectionModule.Application;
+using SelectionModule.Controllers.Controllers;
 using SelectionModule.Infrastructure;
 using SelectionModule.Persistence;
 
@@ -14,11 +15,11 @@ public static class DependencyInjection
         services.AddSelectionModulePersistence();
         services.AddSelectionModuleApplication();
 
-        /*services.AddSwaggerGen(options =>
+        services.AddSwaggerGen(options =>
         {
-            var companyModuleControllersXmlFilename = $"{typeof(DocumentController).Assembly.GetName().Name}.xml";
+            var companyModuleControllersXmlFilename = $"{typeof(VacancyController).Assembly.GetName().Name}.xml";
             options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, companyModuleControllersXmlFilename));
-        });*/
+        });
     }
 
     public static void UseSelectionModule(this IServiceProvider services)

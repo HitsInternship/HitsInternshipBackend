@@ -16,7 +16,7 @@ namespace DeanModule.Controllers.Controllers;
 /// Позволяет создавать, обновлять, удалять, просматривать заявки и изменять их статус.
 /// </summary>
 
-[Authorize]
+[Authorize(Roles = "DeanMember")]
 [ApiController]
 [Route("applications")]
 public class ApplicationsController : ControllerBase

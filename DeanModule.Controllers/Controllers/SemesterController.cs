@@ -13,7 +13,7 @@ namespace DeanModule.Controllers.Controllers;
 /// Контроллер для управления семестрами.
 /// </summary>
 [ApiController]
-[Authorize]
+[Authorize(Roles = "DeanMember")]
 [Route("semester")]
 public class SemesterController(ISender sender) : ControllerBase
 {

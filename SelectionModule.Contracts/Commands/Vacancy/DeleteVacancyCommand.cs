@@ -2,4 +2,4 @@ using MediatR;
 
 namespace SelectionModule.Contracts.Commands.Vacancy;
 
-public record DeleteVacancyCommand(Guid UserId, Guid VacancyId, bool ToArchive) : IRequest<Unit>;
+public record DeleteVacancyCommand(Guid VacancyId, bool ToArchive, Guid? UserId = null) : IRequest<Unit>;

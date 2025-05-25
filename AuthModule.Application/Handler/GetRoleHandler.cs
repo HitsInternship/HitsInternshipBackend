@@ -5,7 +5,7 @@ using UserModule.Contracts.Repositories;
 
 namespace AuthModel.Service.Handler;
 
-public class GetRoleHandler : IRequestHandler<GetRoleQuery, string>
+public class GetRoleHandler : IRequestHandler<GetRoleQuery, List<string>>
 {
     private readonly IRoleRepository _roleRepository;
 
@@ -15,7 +15,7 @@ public class GetRoleHandler : IRequestHandler<GetRoleQuery, string>
     }
 
 
-    public async Task<string> Handle(GetRoleQuery request, CancellationToken cancellationToken)
+    public async Task<List<string>> Handle(GetRoleQuery request, CancellationToken cancellationToken)
     {
         var roles = await _roleRepository.GetRolesByUserIdAsync(request.UserId);
         if (roles == null || !roles.Any())
@@ -23,6 +23,6 @@ public class GetRoleHandler : IRequestHandler<GetRoleQuery, string>
             throw new NotFound("Роль для пользователя не найдены");
         }
 
-        return roles.First().RoleName.ToString();
+        return roles.Select(r => r.RoleName.ToString()).ToList();
     }
 }

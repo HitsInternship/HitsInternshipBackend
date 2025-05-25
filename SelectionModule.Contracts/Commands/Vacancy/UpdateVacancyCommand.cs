@@ -3,4 +3,4 @@ using SelectionModule.Contracts.Dtos.Requests;
 
 namespace SelectionModule.Contracts.Commands.Vacancy;
 
-public record UpdateVacancyCommand(Guid UserId, Guid VacancyId, VacancyRequestDto VacancyRequestDto) : IRequest<Unit>;
+public record UpdateVacancyCommand(Guid VacancyId, VacancyRequestDto VacancyRequestDto, Guid? UserId = null) : IRequest<Unit>;

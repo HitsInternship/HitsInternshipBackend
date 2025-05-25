@@ -18,5 +18,5 @@ public class VacancyEntity : BaseEntity
     
     public bool IsClosed { get; set; } = false;
 
-    public ICollection<VacancyResponse> Responses { get; set; } = [];
+    public ICollection<VacancyResponseEntity> Responses { get; set; } = [];
 }

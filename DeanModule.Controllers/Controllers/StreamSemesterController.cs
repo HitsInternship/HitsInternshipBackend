@@ -13,7 +13,7 @@ namespace DeanModule.Controllers.Controllers;
 /// Контроллер для управления связью между потоками и семестрами.
 /// </summary>
 [ApiController]
-[Authorize]
+[Authorize(Roles = "DeanMember")]
 [Route("stream-semester")]
 public class StreamSemesterController(ISender sender) : ControllerBase
 {

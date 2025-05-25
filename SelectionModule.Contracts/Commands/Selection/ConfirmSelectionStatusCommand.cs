@@ -2,4 +2,4 @@ using MediatR;
 
 namespace SelectionModule.Contracts.Commands.Selection;
 
-public record ConfirmSelectionStatusCommand(Guid UserId, Guid SelectionId) : IRequest<Unit>;
+public record ConfirmSelectionStatusCommand(Guid SelectionId) : IRequest<Unit>;

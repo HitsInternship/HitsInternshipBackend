@@ -10,12 +10,14 @@ public class ConfirmSelectionStatusCommandHandler : IRequestHandler<ConfirmSelec
 {
     private readonly ISelectionRepository _selectionRepository;
     private readonly ICandidateRepository _candidateRepository;
+    private readonly IVacancyResponseRepository _vacancyResponseRepository;
 
     public ConfirmSelectionStatusCommandHandler(ISelectionRepository selectionRepository,
-        ICandidateRepository candidateRepository)
+        ICandidateRepository candidateRepository, IVacancyResponseRepository vacancyResponseRepository)
     {
         _selectionRepository = selectionRepository;
         _candidateRepository = candidateRepository;
+        _vacancyResponseRepository = vacancyResponseRepository;
     }
 
     public async Task<Unit> Handle(ConfirmSelectionStatusCommand request, CancellationToken cancellationToken)
@@ -33,6 +35,7 @@ public class ConfirmSelectionStatusCommandHandler : IRequestHandler<ConfirmSelec
 
         await _selectionRepository.SoftDeleteAsync(selection.Id);
         await _candidateRepository.SoftDeleteAsync(selection.CandidateId);
+        await _vacancyResponseRepository.SoftDeleteByCandidateAsync(selection.CandidateId);
         
         return Unit.Value;
     }

@@ -17,7 +17,7 @@ namespace SelectionModule.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -42,7 +42,7 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.ToTable("Candidates");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Position", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.PositionEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,7 +63,7 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.ToTable("Positions");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Selection", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.SelectionEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,7 +89,7 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.ToTable("Selections");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Vacancy", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -122,7 +122,7 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.ToTable("Vacancies");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponse", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponseEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -146,23 +146,23 @@ namespace SelectionModule.Infrastructure.Migrations
 
                     b.HasIndex("VacancyId");
 
-                    b.ToTable("VacancyResponse");
+                    b.ToTable("VacancyResponseEntity");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Selection", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.SelectionEntity", b =>
                 {
                     b.HasOne("SelectionModule.Domain.Entites.CandidateEntity", "Candidate")
                         .WithOne("Selection")
-                        .HasForeignKey("SelectionModule.Domain.Entites.Selection", "CandidateId")
+                        .HasForeignKey("SelectionModule.Domain.Entites.SelectionEntity", "CandidateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Candidate");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Vacancy", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyEntity", b =>
                 {
-                    b.HasOne("SelectionModule.Domain.Entites.Position", "Position")
+                    b.HasOne("SelectionModule.Domain.Entites.PositionEntity", "Position")
                         .WithMany()
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -171,7 +171,7 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Navigation("Position");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponse", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponseEntity", b =>
                 {
                     b.HasOne("SelectionModule.Domain.Entites.CandidateEntity", "Candidate")
                         .WithMany("Responses")
@@ -179,7 +179,7 @@ namespace SelectionModule.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SelectionModule.Domain.Entites.Vacancy", "Vacancy")
+                    b.HasOne("SelectionModule.Domain.Entites.VacancyEntity", "Vacancy")
                         .WithMany("Responses")
                         .HasForeignKey("VacancyId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -197,7 +197,7 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Navigation("Selection");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.Vacancy", b =>
+            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyEntity", b =>
                 {
                     b.Navigation("Responses");
                 });

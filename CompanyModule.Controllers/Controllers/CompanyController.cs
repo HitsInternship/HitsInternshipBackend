@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using AutoMapper;
+﻿using AutoMapper;
 using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.DTOs.Requests;
 using CompanyModule.Contracts.DTOs.Responses;
@@ -9,13 +8,12 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ControllerBase = Microsoft.AspNetCore.Mvc.ControllerBase;
 
 namespace CompanyModule.Controllers.Controllers
 {
     [Authorize]
     [ApiController]
-    [Microsoft.AspNetCore.Mvc.Route("api/companies/")]
+    [Route("api/companies/")]
     public class CompanyController : ControllerBase
     {
         private readonly ISender _sender;
@@ -31,8 +29,8 @@ namespace CompanyModule.Controllers.Controllers
         /// Получает все компании-партнеры.
         /// </summary>
         /// <returns>Список компаний партнеров.</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        [Microsoft.AspNetCore.Mvc.Route("")]
+        [HttpGet]
+        [Route("")]
         [ProducesResponseType(typeof(List<CompanyResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetCompanies()
         {
@@ -43,8 +41,8 @@ namespace CompanyModule.Controllers.Controllers
         /// Добавляет компанию-партнера.
         /// </summary>
         /// <returns>Добавленная компания.</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost]
-        [Microsoft.AspNetCore.Mvc.Route("add")]
+        [HttpPost]
+        [Route("add")]
         [ProducesResponseType(typeof(CompanyResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> AddCompany(CompanyRequest createRequest)
         {
@@ -54,8 +52,8 @@ namespace CompanyModule.Controllers.Controllers
         /// <summary>
         /// Изменяет информацию о компании-партнере.
         /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPut]
-        [Microsoft.AspNetCore.Mvc.Route("{companyId}")]
+        [HttpPut]
+        [Route("{companyId}")]
         [ProducesResponseType(typeof(CompanyResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> EditCompany(Guid companyId, EditCompanyRequest editRequest)
         {
@@ -66,8 +64,8 @@ namespace CompanyModule.Controllers.Controllers
         /// Добавляет документ о партнерстве с компанией.
         /// </summary>
         /// <returns>Добавленный документ.</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost]
-        [Microsoft.AspNetCore.Mvc.Route("{companyId}/agreements/add")]
+        [HttpPost]
+        [Route("{companyId}/agreements/add")]
         [ProducesResponseType(typeof(PartnershipAgreementResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> AddPartnershipAgreement(Guid companyId,
             [FromForm] PartnershipAgreementRequest createRequest)
@@ -80,8 +78,8 @@ namespace CompanyModule.Controllers.Controllers
         /// Позволяет получить документы о партнерстве c компанией.
         /// </summary>
         /// <returns>Документ о партнерстве.</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        [Microsoft.AspNetCore.Mvc.Route("{companyId}/agreements")]
+        [HttpGet]
+        [Route("{companyId}/agreements")]
         [ProducesResponseType(typeof(List<PartnershipAgreementResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetPartnershipAgreements(Guid companyId)
         {
@@ -92,8 +90,8 @@ namespace CompanyModule.Controllers.Controllers
         /// <summary>
         /// Изменяет статус компании-партнера.
         /// </summary>
-        [Microsoft.AspNetCore.Mvc.HttpPut]
-        [Microsoft.AspNetCore.Mvc.Route("{companyId}/status")]
+        [HttpPut]
+        [Route("{companyId}/status")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> ChangeCompanyStatus(Guid companyId, CompanyStatus companyStatus)
         {
@@ -107,8 +105,8 @@ namespace CompanyModule.Controllers.Controllers
         /// </summary>
         /// <param name="createRequest.userId">Если необходимо создать человека от компании на основе уже существующего пользователя.</param>
         /// <returns>Добавленный человек от компании.</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost]
-        [Microsoft.AspNetCore.Mvc.Route("{companyId}/persons/add")]
+        [HttpPost]
+        [Route("{companyId}/persons/add")]
         [ProducesResponseType(typeof(CompanyPersonResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> AddCompanyPerson(Guid companyId, CompanyPersonRequest createRequest)
         {
@@ -120,8 +118,8 @@ namespace CompanyModule.Controllers.Controllers
         /// Получить список людей от компаний (CompanyPerson).
         /// </summary>
         /// <returns>Список людей от компании.</returns>
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        [Microsoft.AspNetCore.Mvc.Route("{companyId}/persons")]
+        [HttpGet]
+        [Route("{companyId}/persons")]
         [ProducesResponseType(typeof(List<CompanyPersonResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetCompanyPersons(Guid companyId, bool includeCurators,
             bool includeRepresenters)
@@ -142,7 +140,8 @@ namespace CompanyModule.Controllers.Controllers
         {
             var userId = User.Claims.First().Value.ToString();
 
-            return Ok(_mapper.Map<CompanyPersonResponse>(await _sender.Send(new GetCompanyPersonQuery(new Guid(userId)))));
+            return Ok(_mapper.Map<CompanyPersonResponse>(
+                await _sender.Send(new GetCompanyPersonQuery(new Guid(userId)))));
         }
     }
 }

@@ -33,15 +33,19 @@ public class UpdateVacancyCommandHandler : IRequestHandler<UpdateVacancyCommand,
         if (!await _positionRepository.CheckIfExistsAsync(request.VacancyRequestDto.PositionId))
             throw new BadRequest("Invalid positionId");
 
-        if (!await _companyPersonRepository.CheckIfUserIsCompanyPerson(request.VacancyRequestDto.CompanyId,
-                request.UserId))
-            throw new Forbidden("You cannot create a vacancy from this company");
-
         var vacancy = await _vacancyRepository.GetByIdAsync(request.VacancyId);
 
-        if (!await _companyPersonRepository.CheckIfUserIsCompanyPerson(vacancy.CompanyId,
-                request.UserId))
-            throw new Forbidden("You cannot create a vacancy from this company");
+        if (request.UserId.HasValue)
+        {
+            if (!await _companyPersonRepository.CheckIfUserIsCompanyPerson(request.VacancyRequestDto.CompanyId,
+                    request.UserId.Value))
+                throw new Forbidden("You cannot create a vacancy from this company");
+
+            if (!await _companyPersonRepository.CheckIfUserIsCompanyPerson(vacancy.CompanyId,
+                    request.UserId.Value))
+                throw new Forbidden("You cannot create a vacancy from this company");
+        }
+
 
         vacancy.PositionId = request.VacancyRequestDto.PositionId;
         vacancy.CompanyId = request.VacancyRequestDto.CompanyId;

@@ -5,6 +5,7 @@ using Shared.Persistence.Repositories;
 
 namespace SelectionModule.Persistence.Repositories;
 
-public class VacancyRepository(SelectionDbContext context) : BaseEntityRepository<VacancyEntity>(context), IVacancyRepository
+public class VacancyRepository(SelectionDbContext context)
+    : BaseEntityRepository<VacancyEntity>(context), IVacancyRepository
 {
 }

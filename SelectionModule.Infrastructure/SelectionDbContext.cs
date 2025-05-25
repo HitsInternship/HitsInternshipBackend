@@ -22,12 +22,12 @@ public class SelectionDbContext(DbContextOptions<SelectionDbContext> options) : 
             .OnDelete(DeleteBehavior.Cascade);
 
 
-        modelBuilder.Entity<VacancyResponse>()
+        modelBuilder.Entity<VacancyResponseEntity>()
             .HasOne(vr => vr.Candidate)
             .WithMany(c => c.Responses)
             .HasForeignKey(vr => vr.CandidateId);
 
-        modelBuilder.Entity<VacancyResponse>()
+        modelBuilder.Entity<VacancyResponseEntity>()
             .HasOne(vr => vr.Vacancy)
             .WithMany(v => v.Responses)
             .HasForeignKey(vr => vr.VacancyId);

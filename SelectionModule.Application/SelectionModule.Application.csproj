@@ -7,11 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Commands\VacancyResponse\" />
-      <Folder Include="Features\Queries\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="MediatR" Version="12.5.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
     </ItemGroup>

@@ -25,27 +25,27 @@ public class GetApplicationsQueryHandler : IRequestHandler<GetApplicationsQuery,
 
     public async Task<ApplicationsDto> Handle(GetApplicationsQuery request, CancellationToken cancellationToken)
     {
-        var totalCount = await _applicationRepository.CountAsync();
-
         var skip = (request.Page - 1) * _size;
 
-        var applications = request.IsArchives
+        var query = request.IsArchives
             ? await _applicationRepository.ListAllArchivedAsync()
             : await _applicationRepository.ListAllAsync();
 
         if (request.ApplicationStatus != null)
-            applications = applications.Where(x => x.Status == request.ApplicationStatus);
+            query = query.Where(x => x.Status == request.ApplicationStatus);
 
         if (request.StudentId != null)
-            applications = applications.Where(x => x.StudentId == request.StudentId);
+            query = query.Where(x => x.StudentId == request.StudentId);
 
-        var pagedApplications = await applications
+        var totalCount = await query.CountAsync(cancellationToken);
+
+        var pagedApplications = await query
             .Skip(skip)
             .Take(_size)
-            .ToListAsync(cancellationToken: cancellationToken);
+            .ToListAsync(cancellationToken);
 
-        var dtos = _mapper.Map<List<ListedApplicationResponseDto>>(pagedApplications);
+        var dto = _mapper.Map<List<ListedApplicationResponseDto>>(pagedApplications);
 
-        return new ApplicationsDto(dtos, _size, totalCount, request.Page);
+        return new ApplicationsDto(dto, _size, totalCount, request.Page);
     }
 }
