@@ -5,19 +5,22 @@ using DeanModule.Contracts.Dtos.Requests;
 using DeanModule.Contracts.Repositories;
 using DeanModule.Domain.Entities;
 using MediatR;
+using StudentModule.Contracts.Repositories;
 
 namespace DeanModule.Application.Features.Commands.StreamSemester;
 
 public class UpdateStreamSemesterCommandHandler : IRequestHandler<UpdateStreamSemester, Unit>
 {
     private readonly ISemesterRepository _semesterRepository;
+    private readonly IStreamRepository _streamRepository;
     private readonly IStreamSemesterRepository _streamSemesterRepository;
 
     public UpdateStreamSemesterCommandHandler(ISemesterRepository semesterRepository,
-        IStreamSemesterRepository streamSemesterRepository)
+        IStreamSemesterRepository streamSemesterRepository, IStreamRepository streamRepository)
     {
         _semesterRepository = semesterRepository;
         _streamSemesterRepository = streamSemesterRepository;
+        _streamRepository = streamRepository;
     }
 
 
@@ -26,8 +29,9 @@ public class UpdateStreamSemesterCommandHandler : IRequestHandler<UpdateStreamSe
         if (!await _streamSemesterRepository.CheckIfExistsAsync(request.StreamSemesterId))
             throw new StreamSemesterNotFound(request.StreamSemesterId);
 
-        //todo: check stream
-        
+        if (!await _streamRepository.CheckIfExistsAsync(request.StreamSemesterRequestDto.StreamId))
+            throw new StreamSemesterNotFound(request.StreamSemesterRequestDto.StreamId);
+
         if (!await _semesterRepository.CheckIfExistsAsync(request.StreamSemesterRequestDto.SemesterId))
             throw new SemesterNotFound(request.StreamSemesterRequestDto.StreamId);
 

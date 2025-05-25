@@ -8,6 +8,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UserModule.Persistence;
 
 namespace DeanModule.Controllers.Controllers;
 
@@ -15,9 +16,8 @@ namespace DeanModule.Controllers.Controllers;
 /// Контроллер для управления заявками студентов (Applications).
 /// Позволяет создавать, обновлять, удалять, просматривать заявки и изменять их статус.
 /// </summary>
-
-[Authorize(Roles = "DeanMember")]
 [ApiController]
+[Authorize]
 [Route("applications")]
 public class ApplicationsController : ControllerBase
 {
@@ -65,10 +65,8 @@ public class ApplicationsController : ControllerBase
     public async Task<IActionResult> UpdateApplication(Guid applicationId,
         [FromBody] ApplicationRequestDto applicationRequestDto)
     {
-        // TODO: заменить временный userId на текущего пользователя
         return Ok(
-            await _sender.Send(new UpdateApplicationCommand(applicationId, applicationRequestDto,
-                Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"))));
+            await _sender.Send(new UpdateApplicationCommand(applicationId, applicationRequestDto, User.GetUserId())));
     }
 
     /// <summary>
@@ -80,9 +78,7 @@ public class ApplicationsController : ControllerBase
     [HttpDelete, Route("{applicationId}")]
     public async Task<IActionResult> DeleteApplication(Guid applicationId, [FromQuery] bool isArchive = true)
     {
-        // TODO: заменить временный userId на текущего пользователя
-        return Ok(await _sender.Send(new DeleteApplicationCommand(applicationId, isArchive,
-            Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"))));
+        return Ok(await _sender.Send(new DeleteApplicationCommand(applicationId, isArchive, User.GetUserId(), User.GetRoles())));
     }
 
     /// <summary>
@@ -92,6 +88,7 @@ public class ApplicationsController : ControllerBase
     /// <param name="status">Новый статус заявки (обязателен).</param>
     /// <returns>Результат обновления статуса.</returns>
     [HttpPost, Route("{applicationId}/application-status")]
+    [Authorize(Roles = "DeanMember")]
     public async Task<IActionResult> ApproveApplication(Guid applicationId,
         [FromQuery, Required] ApplicationStatus status)
     {
@@ -107,8 +104,6 @@ public class ApplicationsController : ControllerBase
     [ProducesResponseType(typeof(ApplicationResponseDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetApplication(Guid applicationId)
     {
-        // TODO: заменить временный userId на текущего пользователя
-        return Ok(await _sender.Send(new GetApplicationQuery(applicationId,
-            Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"))));
+        return Ok(await _sender.Send(new GetApplicationQuery(applicationId, User.GetUserId(), User.GetRoles())));
     }
 }

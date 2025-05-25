@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SelectionModule.Application;
+using SelectionModule.Contracts.Dtos.Responses;
 using SelectionModule.Controllers.Controllers;
 using SelectionModule.Infrastructure;
 using SelectionModule.Persistence;
@@ -17,8 +18,11 @@ public static class DependencyInjection
 
         services.AddSwaggerGen(options =>
         {
-            var companyModuleControllersXmlFilename = $"{typeof(VacancyController).Assembly.GetName().Name}.xml";
-            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, companyModuleControllersXmlFilename));
+            var selectionModuleControllersXmlFilename = $"{typeof(VacancyController).Assembly.GetName().Name}.xml";
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, selectionModuleControllersXmlFilename));
+            
+            var selectionModuleDtosXmlFiles = $"{typeof(CandidateDto).Assembly.GetName().Name}.xml";
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, selectionModuleDtosXmlFiles));
         });
     }
 
