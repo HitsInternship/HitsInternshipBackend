@@ -29,9 +29,4 @@ public class ApplicationRepository(DeanModuleDbContext context)
     {
         return await DbSet.Where(a => a.Status == status).ToListAsync();
     }
-
-    public Task<int> CountAsync()
-    {
-        return DbSet.CountAsync();
-    }
 }

@@ -1,3 +1,4 @@
+using DocumentModule.Contracts.Commands;
 using DocumentModule.Contracts.Queries;
 using DocumentModule.Domain.Enums;
 using MediatR;
@@ -12,25 +13,25 @@ namespace PracticeModule.Application.Handler;
 
 public class StudentCharacteristicsAddHandler : IRequestHandler<StudentCharacteristicsAddQuery>
 {
-    private readonly PracticeDbContext context;
-    private readonly IMediator mediator;
+    private readonly PracticeDbContext _context;
+    private readonly IMediator _mediator;
     public StudentCharacteristicsAddHandler(PracticeDbContext context, IMediator mediator)
     {
-        this.context = context;
-        this.mediator = mediator;
+        _context = context;
+        _mediator = mediator;
     }
 
     public async Task Handle(StudentCharacteristicsAddQuery request, CancellationToken cancellationToken)
     {
-        var getPractice = await context.Practice.FirstOrDefaultAsync(x => x.Id == request.IdPractice, cancellationToken);
+        var getPractice = await _context.Practice.FirstOrDefaultAsync(x => x.Id == request.IdPractice, cancellationToken);
         if (getPractice == null)
         {
             throw new NotFound("Practice does not exist");
         }
         var command = new LoadDocumentCommand(DocumentType.StudentPracticeCharacteristic, request.FormPhoto);
-        var id = await mediator.Send(command, cancellationToken);
+        var id = await _mediator.Send(command, cancellationToken);
 
-        context.StudentPracticeCharacteristic.Add(new StudentPracticeCharacteristic()
+        _context.StudentPracticeCharacteristic.Add(new StudentPracticeCharacteristic()
         {
             
             Id = Guid.NewGuid(),
@@ -38,6 +39,6 @@ public class StudentCharacteristicsAddHandler : IRequestHandler<StudentCharacter
             PracticeId = request.IdPractice
         });
         
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 }

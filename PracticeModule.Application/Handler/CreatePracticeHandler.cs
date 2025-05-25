@@ -8,11 +8,11 @@ namespace PracticeModule.Application.Handler;
 
 public class CreatePracticeHandler : IRequestHandler<CreatePracticeQuery, PracticeDTO>
 {
-    private readonly PracticeDbContext context;
+    private readonly PracticeDbContext _context;
     
     public CreatePracticeHandler(PracticeDbContext context)
     {
-        this.context = context;
+        _context = context;
     }
     
     public async Task<PracticeDTO> Handle(CreatePracticeQuery request, CancellationToken cancellationToken)
@@ -29,8 +29,8 @@ public class CreatePracticeHandler : IRequestHandler<CreatePracticeQuery, Practi
             PracticeType = request.PracticeType
         };
 
-        context.Practice.Add(practice);
-        await context.SaveChangesAsync();
+        _context.Practice.Add(practice);
+        await _context.SaveChangesAsync();
         
         
         var practiceDto = new PracticeDTO()

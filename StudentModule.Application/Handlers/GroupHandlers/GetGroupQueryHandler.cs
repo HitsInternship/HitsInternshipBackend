@@ -32,8 +32,10 @@ namespace StudentModule.Application.Handlers.GroupHandlers
                 studentDtos.Add(new StudentDto(student));
             }
 
-            var groupDto = new GroupDto(group);
-            groupDto.Students = studentDtos;
+            var groupDto = new GroupDto(group)
+            {
+                Students = studentDtos
+            };
 
             return groupDto;
         }

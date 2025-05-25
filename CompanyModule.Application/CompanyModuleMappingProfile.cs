@@ -12,7 +12,8 @@ public class CompanyModuleMappingProfile : Profile
         CreateMap<CompanyRequest, Company>();
         CreateMap<EditCompanyRequest, Company>();
         CreateMap<Company, CompanyResponse>();
-
+        CreateMap<Company, ShortenCompanyDto>();
+        
         CreateMap<PartnershipAgreementRequest, PartnershipAgreement>();
         CreateMap<PartnershipAgreement, PartnershipAgreementResponse>();
 

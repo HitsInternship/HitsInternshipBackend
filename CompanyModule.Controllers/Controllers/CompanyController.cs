@@ -3,7 +3,6 @@ using CompanyModule.Contracts.Commands;
 using CompanyModule.Contracts.DTOs.Requests;
 using CompanyModule.Contracts.DTOs.Responses;
 using CompanyModule.Contracts.Queries;
-using CompanyModule.Domain.Entities;
 using CompanyModule.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyModule.Controllers.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/companies/")]
     public class CompanyController : ControllerBase
@@ -67,9 +67,11 @@ namespace CompanyModule.Controllers.Controllers
         [HttpPost]
         [Route("{companyId}/agreements/add")]
         [ProducesResponseType(typeof(PartnershipAgreementResponse), StatusCodes.Status200OK)]
-        public async Task<IActionResult> AddPartnershipAgreement(Guid companyId, [FromForm] PartnershipAgreementRequest createRequest)
+        public async Task<IActionResult> AddPartnershipAgreement(Guid companyId,
+            [FromForm] PartnershipAgreementRequest createRequest)
         {
-            return Ok(_mapper.Map<PartnershipAgreementResponse>(await _sender.Send(new AddPartnershipAgreementCommand(companyId, createRequest))));
+            return Ok(_mapper.Map<PartnershipAgreementResponse>(
+                await _sender.Send(new AddPartnershipAgreementCommand(companyId, createRequest))));
         }
 
         /// <summary>
@@ -81,7 +83,8 @@ namespace CompanyModule.Controllers.Controllers
         [ProducesResponseType(typeof(List<PartnershipAgreementResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetPartnershipAgreements(Guid companyId)
         {
-            return Ok((await _sender.Send(new GetPartnershipAgreementsQuery(companyId))).Select(_mapper.Map<PartnershipAgreementResponse>));
+            return Ok((await _sender.Send(new GetPartnershipAgreementsQuery(companyId))).Select(
+                _mapper.Map<PartnershipAgreementResponse>));
         }
 
         /// <summary>
@@ -107,7 +110,8 @@ namespace CompanyModule.Controllers.Controllers
         [ProducesResponseType(typeof(CompanyPersonResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> AddCompanyPerson(Guid companyId, CompanyPersonRequest createRequest)
         {
-            return Ok(_mapper.Map<CompanyPersonResponse>(await _sender.Send(new AddCompanyPersonCommand(companyId, createRequest))));
+            return Ok(_mapper.Map<CompanyPersonResponse>(
+                await _sender.Send(new AddCompanyPersonCommand(companyId, createRequest))));
         }
 
         /// <summary>
@@ -117,9 +121,11 @@ namespace CompanyModule.Controllers.Controllers
         [HttpGet]
         [Route("{companyId}/persons")]
         [ProducesResponseType(typeof(List<CompanyPersonResponse>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetCompanyPersons(Guid companyId, bool includeCurators, bool includeRepresenters)
+        public async Task<IActionResult> GetCompanyPersons(Guid companyId, bool includeCurators,
+            bool includeRepresenters)
         {
-            return Ok((await _sender.Send(new GetCompanyPersonsQuery(companyId, includeCurators, includeRepresenters))).Select(_mapper.Map<CompanyPersonResponse>));
+            return Ok((await _sender.Send(new GetCompanyPersonsQuery(companyId, includeCurators, includeRepresenters)))
+                .Select(_mapper.Map<CompanyPersonResponse>));
         }
 
         /// <summary>
@@ -134,7 +140,8 @@ namespace CompanyModule.Controllers.Controllers
         {
             var userId = User.Claims.First().Value.ToString();
 
-            return Ok(_mapper.Map<CompanyPersonResponse>(await _sender.Send(new GetCompanyPersonQuery(new Guid(userId)))));
+            return Ok(_mapper.Map<CompanyPersonResponse>(
+                await _sender.Send(new GetCompanyPersonQuery(new Guid(userId)))));
         }
     }
 }

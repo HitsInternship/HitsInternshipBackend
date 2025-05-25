@@ -1,3 +1,4 @@
+using DocumentModule.Contracts.Commands;
 using DocumentModule.Contracts.Queries;
 using DocumentModule.Domain.Enums;
 using MediatR;
@@ -12,25 +13,25 @@ namespace PracticeModule.Application.Handler;
 public class PracticeDiaryAddHandler :  IRequestHandler<PracticeDiaryAddQuery>
 {
     
-    private readonly PracticeDbContext context;
-    private readonly IMediator mediator;
+    private readonly PracticeDbContext _context;
+    private readonly IMediator _mediator;
     public PracticeDiaryAddHandler(PracticeDbContext context, IMediator mediator)
     {
-        this.context = context;
-        this.mediator = mediator;
+        _context = context;
+        _mediator = mediator;
     }
     
     public async Task Handle(PracticeDiaryAddQuery request, CancellationToken cancellationToken)
     {
-        var getPractice = await context.Practice.FirstOrDefaultAsync(x => x.Id == request.IdPractice, cancellationToken);
+        var getPractice = await _context.Practice.FirstOrDefaultAsync(x => x.Id == request.IdPractice, cancellationToken);
         if (getPractice == null)
         {
             throw new NotFound("Practice does not exist");
         }
         var command = new LoadDocumentCommand(DocumentType.PracticeDiary, request.FormPhoto);
-        var id = await mediator.Send(command, cancellationToken);
+        var id = await _mediator.Send(command, cancellationToken);
 
-        context.PracticeDiary.Add(new PracticeDiary()
+        _context.PracticeDiary.Add(new PracticeDiary()
         {
             
             Id = Guid.NewGuid(),
@@ -38,6 +39,6 @@ public class PracticeDiaryAddHandler :  IRequestHandler<PracticeDiaryAddQuery>
             PracticeId = request.IdPractice
         });
         
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 }

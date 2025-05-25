@@ -1,4 +1,5 @@
-﻿using DocumentModule.Contracts.Queries;
+﻿using DocumentModule.Contracts.Commands;
+using DocumentModule.Contracts.Queries;
 using DocumentModule.Contracts.Repositories;
 using MediatR;
 

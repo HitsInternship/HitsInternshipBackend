@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
-namespace PracticeModule.Contracts.Model;
+namespace PracticeModule.Contracts.CQRS;
 
 public class StudentCharacteristicsAddQuery : IRequest
 { 

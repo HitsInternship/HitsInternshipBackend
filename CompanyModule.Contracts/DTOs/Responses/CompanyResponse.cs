@@ -1,10 +1,4 @@
-﻿using CompanyModule.Domain.Entities;
-using CompanyModule.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CompanyModule.Domain.Enums;
 
 namespace CompanyModule.Contracts.DTOs.Responses
 {
