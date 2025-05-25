@@ -1,4 +1,5 @@
 using Shared.Contracts.Dtos;
+using StudentModule.Contracts.DTOs;
 
 namespace DeanModule.Contracts.Dtos.Responses;
 
@@ -7,7 +8,7 @@ namespace DeanModule.Contracts.Dtos.Responses;
 /// </summary>
 public record StreamSemesterResponseDto : BaseDto
 {
-    // TODO: добавить StreamDto, если появится
+    public StreamDto Stream { get; set; }
 
     /// <summary>
     /// Порядковый номер семестра в рамках потока.
