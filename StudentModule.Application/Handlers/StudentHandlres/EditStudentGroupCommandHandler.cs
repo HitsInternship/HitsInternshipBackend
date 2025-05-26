@@ -32,7 +32,7 @@ namespace StudentModule.Application.Handlers.StudentHandlres
 
             var user = await _userRepository.GetByIdAsync(student.UserId);
 
-            var group = await _groupRepository.GetByIdAsync(request.groupId) 
+            var group = await _groupRepository.GetGroupByIdAsync(request.groupId) 
                 ?? throw new NotFound("Group not found");
 
             

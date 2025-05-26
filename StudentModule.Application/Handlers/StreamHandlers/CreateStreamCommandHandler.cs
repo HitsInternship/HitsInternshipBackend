@@ -30,6 +30,7 @@ namespace StudentModule.Application.Handlers.StreamHandlers
                 StreamNumber = request.StreamNumber,
                 Year = request.Year,
                 Status = request.Status,
+                Course = request.Course
             };
 
             await _streamRepository.AddAsync(stream);

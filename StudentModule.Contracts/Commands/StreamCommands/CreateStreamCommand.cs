@@ -9,5 +9,6 @@ namespace StudentModule.Contracts.Commands.StreamCommands
         public int StreamNumber { get; set; }
         public int Year { get; set; }
         public StreamStatus Status { get; set; }
+        public int Course { get; set; }
     }
 }
