@@ -76,7 +76,7 @@ namespace StudentModule.Controllers.Controllers
         [Authorize]
         public async Task<IActionResult> GetStudent()
         {
-            var userId  = User.FindFirst("UserId")?.Value;
+            var userId = User.Claims.First().Value.ToString();
 
             if (userId != null) 
             {
