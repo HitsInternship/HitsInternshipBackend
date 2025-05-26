@@ -7,7 +7,7 @@ using PracticeModule.Contracts.Model;
 namespace PracticeModule.Controllers.PracticeControllers;
 
 [ApiController]
-[Route("api/auth/")]
+[Route("api/practice/")]
 public class PracticeController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -25,8 +25,8 @@ public class PracticeController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("student-characteristics")]
-    public async Task<IActionResult> GetPractice([FromForm] StudentCharacteristicsAddQuery dto)
+    [HttpPost("student-practice-diary")]
+    public async Task<IActionResult> GetPractice([FromForm] PracticeDiaryAddQuery dto)
     {
         await _mediator.Send(dto);
         return Ok();

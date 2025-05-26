@@ -50,11 +50,13 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
 
         await _context.SaveChangesAsync(cancellationToken);
+        var roles = await _roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
 
         return new LoginResponseDTO
         {
             AccessToken = accessToken.ToString(),
-            RefreshToken = refreshToken
+            RefreshToken = refreshToken,
+            Roles = roles
         };
     }
     
