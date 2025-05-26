@@ -12,12 +12,11 @@ using MediatR;
 
 public class UploadExcelHandler : IRequestHandler<UploadExcelDTO, List<ExcelStudentDTO>>
 {
-    
-    private readonly AuthDbContext context;
+    private readonly AuthDbContext _context;
 
     public UploadExcelHandler(AuthDbContext context)
     {
-        this.context = context;
+        _context = context;
     }
 
     public async Task<List<ExcelStudentDTO>> Handle(UploadExcelDTO request, CancellationToken cancellationToken)
@@ -64,10 +63,9 @@ public class UploadExcelHandler : IRequestHandler<UploadExcelDTO, List<ExcelStud
             });
         }
 
-        await context.Students.AddRangeAsync(studentEntities, cancellationToken);
-        await context.SaveChangesAsync(cancellationToken);
+        await _context.Students.AddRangeAsync(studentEntities, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         return students;
     }
 }
-

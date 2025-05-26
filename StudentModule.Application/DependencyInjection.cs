@@ -15,6 +15,7 @@ namespace StudentModule.Application
             services.AddMediatR(config
                 => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
+            services.AddAutoMapper(typeof(MappingProfile));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using DocumentModule.Application;
+using DocumentModule.Application;
 using DocumentModule.Controllers.Controllers;
 using DocumentModule.Infrastructure;
 using DocumentModule.Persistence;

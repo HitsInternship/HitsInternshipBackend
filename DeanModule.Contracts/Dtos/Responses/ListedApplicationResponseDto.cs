@@ -1,5 +1,8 @@
+using CompanyModule.Contracts.DTOs.Responses;
 using DeanModule.Domain.Enums;
+using SelectionModule.Contracts.Dtos.Responses;
 using Shared.Contracts.Dtos;
+using StudentModule.Contracts.DTOs;
 
 namespace DeanModule.Contracts.Dtos.Responses;
 
@@ -18,7 +21,9 @@ public record ListedApplicationResponseDto : BaseDto
     /// </summary>
     public ApplicationStatus Status { get; init; }
 
-    // todo: добавить DTO студента
-    // todo: добавить DTO компании
-    // todo: добавить DTO позиции
+    public StudentDto Student { get; set; }
+
+    public CompanyResponse Company { get; set; }
+
+    public PositionDto Position { get; set; }
 }

@@ -2,6 +2,8 @@ using AuthModule.Controlllers;
 using CompanyModule.Controllers;
 using DeanModule.Controllers;
 using DocumentModule.Controllers;
+using PracticeModule.Controllers;
+using SelectionModule.Controllers;
 using Shared.Extensions;
 using StudentModule.Controllers;
 using UserModule.Controllers;
@@ -19,7 +21,9 @@ public static class Modules
         services.AddDocumentModule(configuration);
         services.AddAuthModule(configuration);
         services.AddStudentModule(configuration);
+        services.AddSelectionModule(configuration);
         services.AddCompanyModule(configuration);
+        services.AddPracticeModule(configuration);
         services.AddAppSettingsModule(configuration);
     }
 
@@ -31,6 +35,8 @@ public static class Modules
         services.UseCompanyModule();
         services.UseAuthModule();
         services.UseStudentModule();
+        services.UseSelectionModule();
+        services.UsePracticeModule();
         services.UseAppSettingsModule();
     }
 }
