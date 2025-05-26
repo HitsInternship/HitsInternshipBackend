@@ -25,28 +25,16 @@ namespace StudentModule.Application.Handlers.StreamHandlers
 
             List<StreamDto> streamDtos = new List<StreamDto>();
             List<GroupDto> groupDtos = new List<GroupDto>();
-            List<StudentDto> studentDtos = new List<StudentDto>();
 
             foreach (var stream in streams)
             {
                 groupDtos = new List<GroupDto>();
                 foreach (var group in stream.Groups)
                 {
-                    studentDtos = new List<StudentDto>();
-                    foreach (var student in group.Students)
-                    {
-                        var user = await _userRepository.GetByIdAsync(student.UserId);
-                        student.User = user;
-                        studentDtos.Add(new StudentDto(student));
-                    }
-
-                    var groupDto = new GroupDto(group);
-                    groupDto.Students = studentDtos;
-                    groupDtos.Add(groupDto);
+                    groupDtos.Add(new GroupDto(group));
                 }
 
-                var streamDto = new StreamDto(stream);
-                streamDto.groups = groupDtos;
+                var streamDto = new StreamDto(stream) { groups = groupDtos };
                 streamDtos.Add(streamDto);
             }
 

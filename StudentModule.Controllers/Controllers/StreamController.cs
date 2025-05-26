@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudentModule.Contracts.Commands.StreamCommands;
 using StudentModule.Contracts.Queries.StreamQueries;
@@ -8,7 +9,7 @@ namespace StudentModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/streams/")]
-    //[Authorize(Roles = "Dean")]
+    [Authorize(Roles = "Dean")]
     public class StreamController : ControllerBase
     {
         private readonly IMediator _mediator;
