@@ -6,12 +6,12 @@ using StudentModule.Infrastructure;
 
 namespace StudentModule.Persistence.Repositories
 {
-    public class StudentRepository : BaseEntityRepository<StudentEntity>, IStudentRepository
+    public class StudentRepository(StudentModuleDbContext context)
+        : BaseEntityRepository<StudentEntity>(context), IStudentRepository
     {
-        private readonly StudentModuleDbContext context;
-        public StudentRepository(StudentModuleDbContext context) : base(context)
+        public async Task<List<StudentEntity>> GetStudentsByGroup(int groupNumber)
         {
-            this.context = context;
+            return await DbSet.Where(x => x.Group.GroupNumber == groupNumber).AsNoTracking().ToListAsync();
         }
 
         public Task<StudentEntity> GetStudentByIdAsync(Guid id)

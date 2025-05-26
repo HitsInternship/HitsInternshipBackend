@@ -22,9 +22,6 @@ namespace StudentModule.Contracts.DTOs
             year = stream.Year;
             course = stream.Course;
             status = stream.Status;
-            /*groups = stream.Groups
-                    .Select(g => new GroupDto(g))
-                    .ToList();*/
         }
     }
 }

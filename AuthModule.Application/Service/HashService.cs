@@ -12,9 +12,9 @@ public class HashService : IHashService
         
         var sBuilder = new StringBuilder();
 
-        for (int i = 0; i < data.Length; i++)
+        foreach (var t in data)
         {
-            sBuilder.Append(data[i].ToString("x2"));
+            sBuilder.Append(t.ToString("x2"));
         }
         
         return sBuilder.ToString();

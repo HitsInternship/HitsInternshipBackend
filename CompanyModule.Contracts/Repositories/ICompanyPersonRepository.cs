@@ -5,6 +5,9 @@ namespace CompanyModule.Contracts.Repositories
 {
     public interface ICompanyPersonRepository : IBaseEntityRepository<CompanyPerson>
     {
-        public Task<List<CompanyPerson>> GetCompanyPersonsByCompany(Company company, bool includeCurators, bool includeRepresenters);
+        public Task<List<CompanyPerson>> GetCompanyPersonsByCompany(Company company, bool includeCurators,
+            bool includeRepresenters);
+
+        public Task<bool> CheckIfUserIsCompanyPerson(Guid companyId, Guid userId);
     }
 }

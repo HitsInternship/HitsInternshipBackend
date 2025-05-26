@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserModule.Contracts.Commands;
@@ -11,6 +12,7 @@ using UserModule.Contracts.Queries;
 namespace UserModule.Controllers.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/users/")]
     public class UserController : ControllerBase
     {

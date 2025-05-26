@@ -19,22 +19,23 @@ namespace AuthModel.Service.Handler;
 
 public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
 {
-    private readonly IHashService hashService;
-    private readonly AuthDbContext context;
-    private readonly IRoleRepository roleRepository;
+    private readonly IHashService _hashService;
+    private readonly AuthDbContext _context;
+    private readonly IRoleRepository _roleRepository;
+    
     public LoginHandler(IHashService hashService, AuthDbContext context, IRoleRepository roleRepository)
     {
-        this.hashService = hashService;
-        this.context = context;
-        this.roleRepository = roleRepository;
+        _hashService = hashService;
+        _context = context;
+        _roleRepository = roleRepository;
     }
     
     public async Task<LoginResponseDTO> Handle(LoginDTO request, CancellationToken cancellationToken)
     {
         using SHA256 sha256Hash = SHA256.Create();
-        var passwordHash = hashService.GetHash(sha256Hash, request.Password);
+        var passwordHash = _hashService.GetHash(sha256Hash, request.Password);
 
-        var user = await context.AspNetUsers
+        var user = await _context.AspNetUsers
             .FirstOrDefaultAsync(u => u.Login == request.Login && u.Password == passwordHash, cancellationToken);
 
         if (user == null)
@@ -42,13 +43,13 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
             throw new NotFound("Пользователь не найден");
         }
 
-        var accessToken = await GenerateAccessToken(user);
+        var accessToken = GenerateAccessToken(user);
         var refreshToken = GenerateRefreshToken();
 
         user.RefreshToken = refreshToken;
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
 
-        await context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         return new LoginResponseDTO
         {
@@ -66,7 +67,7 @@ public class LoginHandler : IRequestHandler<LoginDTO, LoginResponseDTO>
         var claims = new List<Claim> { new Claim("UserId", user.UserId.ToString()) };
 
         
-        var roles = await roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
+        var roles = await _roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
         foreach (var role in roles)
         {
             claims.Add(new Claim(ClaimTypes.Role, role.RoleName.ToString()));

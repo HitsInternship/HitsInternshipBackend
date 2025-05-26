@@ -1,13 +1,12 @@
 using System.Text;
 using HitsInternship.Api.Extensions.Middlewares;
 using HitsInternship.Api.Extensions.Swagger;
-using Shared.Extensions.Validation;
 using System.Text.Json.Serialization;
-using AuthModel.Service;
 using AuthModel.Service.Service;
 using HitsInternship.Api.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Shared.Extensions.Validation;
 
 
 var builder = WebApplication.CreateBuilder(args);

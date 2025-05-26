@@ -16,17 +16,18 @@ namespace AuthModel.Service.Handler;
 
 public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginResponseDTO>
 {
-    private readonly AuthDbContext context;
-    private readonly IRoleRepository roleRepository;
+    private readonly AuthDbContext _context;
+    private readonly IRoleRepository _roleRepository;
+    
     public TokenRefreshHandler(AuthDbContext context, IRoleRepository roleRepository)
     {
-        this.context = context;
-        this.roleRepository = roleRepository;
+        _context = context;
+        _roleRepository = roleRepository;
     }
 
     public async Task<LoginResponseDTO> Handle(TokenRefreshDTO request, CancellationToken cancellationToken)
     {
-        var user = await context.AspNetUsers
+        var user = await _context.AspNetUsers
             .FirstOrDefaultAsync(u => u.RefreshToken == request.RefreshToken, cancellationToken);
 
         if (user == null || user.RefreshTokenExpiryTime < DateTime.UtcNow)
@@ -40,7 +41,7 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
         user.RefreshToken = newRefreshToken;
         user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
 
-        await context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
         return new LoginResponseDTO
         {
@@ -57,7 +58,7 @@ public class TokenRefreshHandler : IRequestHandler<TokenRefreshDTO, LoginRespons
 
         var claims = new List<Claim> { new Claim("UserId", user.UserId.ToString()) };
         
-        var roles = await roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
+        var roles = await _roleRepository.GetRolesByUserIdAsync(user.UserId.Value);
         foreach (var role in roles)
         {
             claims.Add(new Claim(ClaimTypes.Role, role.RoleName.ToString()));

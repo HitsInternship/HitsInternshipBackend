@@ -5,39 +5,37 @@ using AuthModule.Domain.Entity;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shared.Domain.Exceptions;
-using AuthModel.Service.Interface;
-using AuthModule.Contracts.CQRS;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Shared.Domain.Exceptions;
 using UserInfrastructure;
 
 namespace AuthModel.Service.Handler;
 
 public class EditPasswordHandler : IRequestHandler<EditPasswordQuery>
 {
-    private readonly IHashService hashService;
-    private readonly AuthDbContext context;
+    private readonly IHashService _hashService;
+    private readonly AuthDbContext _context;
+
     public EditPasswordHandler(IHashService hashService, AuthDbContext context)
     {
-        this.hashService = hashService;
-        this.context = context;
+        _hashService = hashService;
+        _context = context;
     }
-    
-    
+
+
     public async Task Handle(EditPasswordQuery request, CancellationToken cancellationToken)
-    { 
+    {
         using SHA256 sha256Hash = SHA256.Create();
-        var hash = hashService.GetHash(sha256Hash, request.OldPassword);
-        
-        var aspNetUser = await context.AspNetUsers.Where(x => x.Id.Equals(request.UserId) && x.Password == hash).FirstOrDefaultAsync();
+        var hash = _hashService.GetHash(sha256Hash, request.OldPassword);
+
+        var aspNetUser = await _context.AspNetUsers.Where(x => x.Id.Equals(request.UserId) && x.Password == hash)
+            .FirstOrDefaultAsync(cancellationToken);
 
         if (aspNetUser == null)
         {
             throw new NotFound("aspNetUser not found");
         }
-        var newHash = hashService.GetHash(sha256Hash, request.NewPassword);
+
+        var newHash = _hashService.GetHash(sha256Hash, request.NewPassword);
         aspNetUser.Password = newHash;
-        await context.SaveChangesAsync();
+        await _context.SaveChangesAsync(cancellationToken);
     }
 }

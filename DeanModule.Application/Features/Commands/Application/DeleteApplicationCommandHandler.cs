@@ -21,13 +21,15 @@ public class DeleteApplicationCommandHandler : IRequestHandler<DeleteApplication
             throw new ApplicationNotFound(request.ApplicationId);
 
         var application = await _applicationRepository.GetByIdAsync(request.ApplicationId);
-
-        //todo: add role check
-        if (application.StudentId == request.UserId && request.IsArchive)
-            throw new BadRequest("You cannot archive application.");
-
-        if (application.StudentId != request.UserId)
-            throw new Forbidden("You cannot delete this application.");
+        
+        if (!request.roles.Contains("DeanMember"))
+        {
+            if (application.StudentId != request.UserId)
+                throw new Forbidden("You cannot delete this application.");
+            
+            if (application.StudentId == request.UserId && request.IsArchive)
+                throw new BadRequest("You cannot archive application.");
+        }
 
         if (request.IsArchive)
             await _applicationRepository.SoftDeleteAsync(application.Id);
