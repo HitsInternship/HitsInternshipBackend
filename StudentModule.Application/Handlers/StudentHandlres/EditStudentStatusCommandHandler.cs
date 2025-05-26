@@ -19,7 +19,7 @@ namespace StudentModule.Application.Handlers.StudentHandlres
         }
         public async Task<StudentDto> Handle(EditStudentStatusCommand request, CancellationToken cancellationToken)
         {
-            var student = await _studentRepository.GetByIdAsync(request.StudentId) 
+            var student = await _studentRepository.GetStudentByIdAsync(request.StudentId) 
                 ?? throw new NotFound("Student not found");
 
             var user = await _userRepository.GetByIdAsync(student.UserId);

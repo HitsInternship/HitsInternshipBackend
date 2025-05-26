@@ -16,13 +16,15 @@ namespace StudentModule.Application.Handlers.StudentHandlres
     {
         private readonly IStudentRepository _studentRepository;
         private readonly IGroupRepository _groupRepository;
+        private readonly IStreamRepository _streamRepository;
         private readonly IMediator _mediator;
 
-        public CreateStudentCommandHandler(IStudentRepository studentRepository, IGroupRepository groupRepository, IMediator mediator)
+        public CreateStudentCommandHandler(IStudentRepository studentRepository, IGroupRepository groupRepository, IMediator mediator, IStreamRepository streamRepository)
         {
             _studentRepository = studentRepository;
             _groupRepository = groupRepository;
             _mediator = mediator;
+            _streamRepository = streamRepository;
         }
         public async Task<StudentDto> Handle(CreateStudentCommand request, CancellationToken cancellationToken)
         {
@@ -54,6 +56,9 @@ namespace StudentModule.Application.Handlers.StudentHandlres
             };
 
             await _studentRepository.AddAsync(student);
+
+            var stream = await _streamRepository.GetByIdAsync(group.StreamId);
+            student.Group.Stream = stream;
 
             return new StudentDto(student);
         }

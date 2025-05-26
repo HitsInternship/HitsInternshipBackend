@@ -4,25 +4,25 @@ using StudentModule.Contracts.Commands.GroupCommands;
 using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
 using StudentModule.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UserModule.Contracts.Repositories;
 
 namespace StudentModule.Application.Handlers.GroupHandlers
 {
     public class EditGroupCommandHandler : IRequestHandler<EditGroupCommand, GroupDto>
     {
         private readonly IGroupRepository _groupRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IStreamRepository _streamRepository;
 
-        public EditGroupCommandHandler(IGroupRepository groupRepository)
+        public EditGroupCommandHandler(IGroupRepository groupRepository, IUserRepository userRepository, IStreamRepository streamRepository)
         {
             _groupRepository = groupRepository;
+            _userRepository = userRepository;
+            _streamRepository = streamRepository;
         }
         public async Task<GroupDto> Handle(EditGroupCommand request, CancellationToken cancellationToken)
         {
-            GroupEntity? group = await _groupRepository.GetByIdAsync(request.Id)
+            GroupEntity? group = await _groupRepository.GetGroupByIdAsync(request.Id)
                 ?? throw new NotFound("Stream not found");
 
             if (await _groupRepository.IsGroupWithNumderExistsAsync(request.GroupNumber))
@@ -32,7 +32,24 @@ namespace StudentModule.Application.Handlers.GroupHandlers
 
             await _groupRepository.UpdateAsync(group);
 
-            return new GroupDto(group);
+            return await GetGroup(group);
+        }
+
+        private async Task<GroupDto> GetGroup(GroupEntity group)
+        {
+            var studentDtos = new List<StudentDto>();
+
+            foreach (var student in group.Students)
+            {
+                var user = await _userRepository.GetByIdAsync(student.UserId);
+                student.User = user;
+                studentDtos.Add(new StudentDto(student));
+            }
+
+            var groupDto = new GroupDto(group);
+            groupDto.Students = studentDtos;
+
+            return groupDto;
         }
     }
 }

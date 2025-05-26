@@ -10,5 +10,6 @@ namespace StudentModule.Contracts.Repositories
 {
     public interface IStudentRepository : IBaseEntityRepository<StudentEntity>
     {
+        Task<StudentEntity> GetStudentByIdAsync(Guid id);
     }
 }

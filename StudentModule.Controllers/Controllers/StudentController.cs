@@ -1,8 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Commands.StudentCommands;
 using StudentModule.Contracts.Queries.StudentQueries;
-using System.Text.RegularExpressions;
+using System.Security.Claims;
+
 
 namespace StudentModule.Controllers.Controllers
 {
@@ -61,10 +65,26 @@ namespace StudentModule.Controllers.Controllers
         [HttpGet]
         [Route("get-student/{id}")]
         //[Authorize(Roles = "Dean")]
-        public async Task<IActionResult> GetStudent([FromRoute] Guid id)
+        public async Task<IActionResult> GetStudentForDean([FromRoute] Guid id)
         {
             var query = new GetStudentQuery() { id = id };
             return Ok(await _mediator.Send(query));
+        }
+
+        [HttpGet]
+        [Route("get-student")]
+        [Authorize]
+        public async Task<IActionResult> GetStudent()
+        {
+            var userId  = User.FindFirst("UserId")?.Value;
+
+            if (userId != null) 
+            {
+                var query = new GetStudentQuery() { id = new Guid(userId) };
+                return Ok(await _mediator.Send(query));
+            }
+
+            else { throw new BadRequest("Invalid UserId"); }
         }
     }
 }

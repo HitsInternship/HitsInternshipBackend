@@ -16,7 +16,10 @@ namespace StudentModule.Persistence.Repositories
 
         public async Task<List<GroupEntity>> GetGroupAsync()
         {
-            var groups = context.Groups.Include(g => g.Students).ToList();
+            var groups = context.Groups
+                .Include(g => g.Stream)
+                .Include(g => g.Students)
+                .ToList();
 
             return groups;
         }
@@ -24,6 +27,7 @@ namespace StudentModule.Persistence.Repositories
         public async Task<GroupEntity> GetGroupByIdAsync(Guid id)
         {
             var group = await context.Groups
+                        .Include(g => g.Stream)
                         .Include(g => g.Students)
                         .FirstOrDefaultAsync(g => g.Id == id);
 
