@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudentModule.Contracts.Commands.GroupCommands;
 using StudentModule.Contracts.Queries.GroupQueries;
@@ -8,7 +9,7 @@ namespace StudentModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/groups/")]
-    //[Authorize(Roles = "Dean")]
+    [Authorize(Roles = "Dean")]
     public class GroupController : ControllerBase
     {
         private readonly IMediator _mediator;
