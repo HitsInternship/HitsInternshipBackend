@@ -9,37 +9,22 @@ namespace StudentModule.Application.Handlers.GroupHandlers
     public class GetGroupsQueryHandler : IRequestHandler<GetGroupsQuery, List<GroupDto>>
     {
         private readonly IGroupRepository _groupRepository;
-        private readonly IUserRepository _userRepository;
 
-        public GetGroupsQueryHandler(IGroupRepository groupRepository, IUserRepository userRepository)
+        public GetGroupsQueryHandler(IGroupRepository groupRepository)
         {
             _groupRepository = groupRepository;
-            _userRepository = userRepository;
         }
         public async Task<List<GroupDto>> Handle(GetGroupsQuery request, CancellationToken cancellationToken)
         {
             var groups = await _groupRepository.GetGroupAsync();
-            var groupDtos = new List<GroupDto>();
-            var studentDtos = new List<StudentDto>();
-
+            var groupsDto = new List<GroupDto>(groups.Count);
+           
             foreach (var group in groups)
             {
-                studentDtos = new List<StudentDto>();
-                foreach (var student in group.Students)
-                {
-                    var user = await _userRepository.GetByIdAsync(student.UserId);
-                    student.User = user;
-                    studentDtos.Add(new StudentDto(student));
-                }
-
-                var groupDto = new GroupDto(group)
-                {
-                    Students = studentDtos
-                };
-                groupDtos.Add(groupDto);
+                groupsDto.Add(new GroupDto(group));
             }
 
-            return groupDtos;
+            return groupsDto;
         }
     }
 }

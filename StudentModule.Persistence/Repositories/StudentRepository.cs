@@ -23,5 +23,12 @@ namespace StudentModule.Persistence.Repositories
 
             return student;
         }
+
+        public Task<StudentEntity> GetStudentByUserIdAsync(Guid id)
+        {
+            var student = context.SStudents.FirstOrDefaultAsync(s => s.UserId == id);
+
+            return student;
+        }
     }
 }
