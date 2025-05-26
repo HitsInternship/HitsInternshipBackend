@@ -19,6 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\AppSettingsModule.Controllers\AppSettingsModule.Controllers.csproj" />
       <ProjectReference Include="..\AuthModule.Application\AuthModule.Application.csproj" />
       <ProjectReference Include="..\AuthModule.Controlllers\AuthModule.Controlllers.csproj" />
       <ProjectReference Include="..\CompanyModule.Controllers\CompanyModule.Controllers.csproj" />

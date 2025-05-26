@@ -7,6 +7,7 @@ using SelectionModule.Controllers;
 using Shared.Extensions;
 using StudentModule.Controllers;
 using UserModule.Controllers;
+using AppSettingsModule.Controllers;
 
 namespace HitsInternship.Api.Extensions;
 
@@ -23,6 +24,7 @@ public static class Modules
         services.AddSelectionModule(configuration);
         services.AddCompanyModule(configuration);
         services.AddPracticeModule(configuration);
+        services.AddAppSettingsModule(configuration);
     }
 
     public static void UseApplicationModules(this IServiceProvider services)
@@ -35,5 +37,6 @@ public static class Modules
         services.UseStudentModule();
         services.UseSelectionModule();
         services.UsePracticeModule();
+        services.UseAppSettingsModule();
     }
 }
