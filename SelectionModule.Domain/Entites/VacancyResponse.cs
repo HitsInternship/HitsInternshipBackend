@@ -14,4 +14,6 @@ public class VacancyResponseEntity : BaseEntity
     public CandidateEntity Candidate { get; set; } = null!;
     
     public VacancyResponseStatus Status { get; set; }
+
+    public ICollection<VacancyResponseCommentEntity> Comments { get; set; } = [];
 }

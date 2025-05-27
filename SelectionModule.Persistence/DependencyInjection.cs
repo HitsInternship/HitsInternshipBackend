@@ -13,5 +13,7 @@ public static class DependencyInjection
         services.AddTransient<ISelectionRepository, SelectionRepository>();
         services.AddTransient<IPositionRepository, PositionRepository>();
         services.AddTransient<IVacancyRepository, VacancyRepository>();
+        services.AddTransient<ISelectionCommentRepository, SelectionCommentRepository>();
+        services.AddTransient<IVacancyResponseCommentRepository, VacancyResponseCommentRepository>();
     }
 }

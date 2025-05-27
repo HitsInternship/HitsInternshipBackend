@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SelectionModule.Infrastructure;
@@ -11,9 +12,11 @@ using SelectionModule.Infrastructure;
 namespace SelectionModule.Infrastructure.Migrations
 {
     [DbContext(typeof(SelectionDbContext))]
-    partial class SelectionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250527182752_add comment update")]
+    partial class addcommentupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,14 +25,32 @@ namespace SelectionModule.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.CandidateEntity", b =>
+            modelBuilder.Entity("Shared.Domain.Entites.BaseEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("character varying(21)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BaseEntity");
+
+                    b.HasDiscriminator().HasValue("BaseEntity");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("SelectionModule.Domain.Entites.CandidateEntity", b =>
+                {
+                    b.HasBaseType("Shared.Domain.Entites.BaseEntity");
 
                     b.Property<Guid>("StudentId")
                         .HasColumnType("uuid");
@@ -37,63 +58,32 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Candidates");
+                    b.HasDiscriminator().HasValue("CandidateEntity");
                 });
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.PositionEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.HasBaseType("Shared.Domain.Entites.BaseEntity");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.ToTable("BaseEntity", t =>
+                        {
+                            t.Property("Description")
+                                .HasColumnName("PositionEntity_Description");
+                        });
 
-                    b.ToTable("Positions");
-                });
-
-            modelBuilder.Entity("SelectionModule.Domain.Entites.SelectionCommentEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<Guid>("ParentId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ParentId");
-
-                    b.ToTable("SelectionComments");
+                    b.HasDiscriminator().HasValue("PositionEntity");
                 });
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.SelectionEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.HasBaseType("Shared.Domain.Entites.BaseEntity");
 
                     b.Property<Guid>("CandidateId")
                         .HasColumnType("uuid");
@@ -101,25 +91,24 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Property<DateTime>("DeadLine")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
                     b.Property<int>("SelectionStatus")
                         .HasColumnType("integer");
-
-                    b.HasKey("Id");
 
                     b.HasIndex("CandidateId")
                         .IsUnique();
 
-                    b.ToTable("Selections");
+                    b.ToTable("BaseEntity", t =>
+                        {
+                            t.Property("CandidateId")
+                                .HasColumnName("SelectionEntity_CandidateId");
+                        });
+
+                    b.HasDiscriminator().HasValue("SelectionEntity");
                 });
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.HasBaseType("Shared.Domain.Entites.BaseEntity");
 
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uuid");
@@ -131,9 +120,6 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Property<bool>("IsClosed")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
                     b.Property<Guid>("PositionId")
                         .HasColumnType("uuid");
 
@@ -141,50 +127,17 @@ namespace SelectionModule.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
-
                     b.HasIndex("PositionId");
 
-                    b.ToTable("Vacancies");
-                });
-
-            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponseComment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<Guid>("ParentId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ParentId");
-
-                    b.ToTable("VacancyResponseComments");
+                    b.HasDiscriminator().HasValue("VacancyEntity");
                 });
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponseEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.HasBaseType("Shared.Domain.Entites.BaseEntity");
 
                     b.Property<Guid>("CandidateId")
                         .HasColumnType("uuid");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
@@ -192,24 +145,41 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Property<Guid>("VacancyId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("Id");
-
                     b.HasIndex("CandidateId");
 
                     b.HasIndex("VacancyId");
 
-                    b.ToTable("VacancyResponseEntity");
+                    b.HasDiscriminator().HasValue("VacancyResponseEntity");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.SelectionCommentEntity", b =>
+            modelBuilder.Entity("Shared.Domain.Entites.Comment", b =>
                 {
-                    b.HasOne("SelectionModule.Domain.Entites.SelectionEntity", "Selection")
-                        .WithMany("Comments")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("Shared.Domain.Entites.BaseEntity");
 
-                    b.Navigation("Selection");
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("ParentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("SelectionEntityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("SelectionEntityId");
+
+                    b.ToTable("BaseEntity", t =>
+                        {
+                            t.Property("UserId")
+                                .HasColumnName("Comment_UserId");
+                        });
+
+                    b.HasDiscriminator().HasValue("Comment");
                 });
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.SelectionEntity", b =>
@@ -234,17 +204,6 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Navigation("Position");
                 });
 
-            modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponseComment", b =>
-                {
-                    b.HasOne("SelectionModule.Domain.Entites.VacancyResponseEntity", "VacancyResponse")
-                        .WithMany("Comments")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("VacancyResponse");
-                });
-
             modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponseEntity", b =>
                 {
                     b.HasOne("SelectionModule.Domain.Entites.CandidateEntity", "Candidate")
@@ -264,6 +223,21 @@ namespace SelectionModule.Infrastructure.Migrations
                     b.Navigation("Vacancy");
                 });
 
+            modelBuilder.Entity("Shared.Domain.Entites.Comment", b =>
+                {
+                    b.HasOne("SelectionModule.Domain.Entites.VacancyResponseEntity", "Parent")
+                        .WithMany("Comment")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SelectionModule.Domain.Entites.SelectionEntity", null)
+                        .WithMany("Comment")
+                        .HasForeignKey("SelectionEntityId");
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("SelectionModule.Domain.Entites.CandidateEntity", b =>
                 {
                     b.Navigation("Responses");
@@ -273,7 +247,7 @@ namespace SelectionModule.Infrastructure.Migrations
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.SelectionEntity", b =>
                 {
-                    b.Navigation("Comments");
+                    b.Navigation("Comment");
                 });
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyEntity", b =>
@@ -283,7 +257,7 @@ namespace SelectionModule.Infrastructure.Migrations
 
             modelBuilder.Entity("SelectionModule.Domain.Entites.VacancyResponseEntity", b =>
                 {
-                    b.Navigation("Comments");
+                    b.Navigation("Comment");
                 });
 #pragma warning restore 612, 618
         }

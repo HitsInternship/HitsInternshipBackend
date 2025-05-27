@@ -33,7 +33,7 @@ namespace SelectionModule.Controllers.Controllers
         /// <param name="deadline">Крайний срок прохождения отбора.</param>
         [HttpPost]
         [Authorize(Roles = "DeanMember")]
-        [Route("{studentId}/add")]
+        [Route("{studentId}/selection/add")]
         public async Task<IActionResult> CreateSelection(Guid studentId, [FromBody] DateTime deadline)
         {
             return Ok(await _sender.Send(new CreateSelectionCommand(studentId, deadline)));
@@ -45,7 +45,7 @@ namespace SelectionModule.Controllers.Controllers
         /// <param name="selectionId">ID отбора.</param>
         /// <param name="status">Новый статус.</param>
         [HttpPut]
-        [Route("{selectionId}/edit")]
+        [Route("selections/{selectionId}/edit")]
         public async Task<IActionResult> UpdateSelection(Guid selectionId, [FromBody] SelectionStatus status)
         {
             return Ok(await _sender.Send(
@@ -87,7 +87,7 @@ namespace SelectionModule.Controllers.Controllers
         /// <param name="selectionId">ID процедуры отбора.</param>
         [HttpPost]
         [Authorize(Roles = "DeanMember, Curator, CompanyRepresenter")]
-        [Route("{selectionId}/confirm")]
+        [Route("selections/{selectionId}/confirm")]
         public async Task<IActionResult> ConfirmSelection(Guid selectionId)
         {
             return Ok(await _sender.Send(new ConfirmSelectionStatusCommand(selectionId)));
