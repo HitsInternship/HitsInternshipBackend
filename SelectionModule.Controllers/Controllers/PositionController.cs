@@ -44,7 +44,8 @@ namespace SelectionModule.Controllers.Controllers
         /// <returns>Обновлённая позиция.</returns>
         [HttpPut]
         [Route("{positionId}")]
-        public async Task<IActionResult> UpdatePosition(Guid positionId, [FromBody] PositionRequestDto positionRequestDto)
+        public async Task<IActionResult> UpdatePosition(Guid positionId,
+            [FromBody] PositionRequestDto positionRequestDto)
         {
             return Ok(await _mediator.Send(new UpdatePositionCommand(positionId, positionRequestDto)));
         }

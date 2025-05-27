@@ -14,4 +14,6 @@ public class SelectionEntity : BaseEntity
     public required CandidateEntity Candidate { get; set; }
 
     public required SelectionStatus SelectionStatus { get; set; }
+
+    public ICollection<SelectionCommentEntity> Comments { get; set; } = [];
 }
