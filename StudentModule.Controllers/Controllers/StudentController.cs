@@ -6,11 +6,13 @@ using Shared.Domain.Exceptions;
 using StudentModule.Contracts.Commands.StudentCommands;
 using StudentModule.Contracts.Queries.StudentQueries;
 using System.Security.Claims;
+using UserModule.Persistence;
 
 
 namespace StudentModule.Controllers.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/student/")]
     public class StudentController : ControllerBase
     {
@@ -73,18 +75,13 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpGet]
         [Route("get-student")]
-        [Authorize]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> GetStudent()
         {
-            var userId = User.Claims.First().Value.ToString();
+            var userId = User.GetUserId();
 
-            if (userId != null) 
-            {
-                var query = new GetStudentHimselfQuery() { userId = new Guid(userId) };
-                return Ok(await _mediator.Send(query));
-            }
-
-            else { throw new BadRequest("Invalid UserId"); }
+            var query = new GetStudentHimselfQuery() { userId = userId };
+            return Ok(await _mediator.Send(query));
         }
     }
 }
