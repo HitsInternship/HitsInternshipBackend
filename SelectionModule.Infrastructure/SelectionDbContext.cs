@@ -11,7 +11,7 @@ public class SelectionDbContext(DbContextOptions<SelectionDbContext> options) : 
     private DbSet<SelectionEntity> Selections { get; set; }
     private DbSet<VacancyEntity> Vacancies { get; set; }
     private DbSet<SelectionCommentEntity> SelectionComments { get; set; }
-    private DbSet<VacancyResponseComment> VacancyResponseComments { get; set; }
+    private DbSet<VacancyResponseCommentEntity> VacancyResponseComments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

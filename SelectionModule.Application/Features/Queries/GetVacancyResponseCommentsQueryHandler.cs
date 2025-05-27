@@ -7,29 +7,31 @@ using UserModule.Contracts.Repositories;
 
 namespace SelectionModule.Application.Features.Queries;
 
-public class GetSelectionCommentsQueryHandler : IRequestHandler<GetSelectionCommentsQuery, List<CommentDto>>
+public class GetVacancyResponseCommentsQueryHandler : IRequestHandler<GetVacancyResponseCommentsQuery, List<CommentDto>>
 {
     private readonly IUserRepository _userRepository;
-    private readonly ISelectionRepository _selectionRepository;
+    private readonly IVacancyResponseRepository _vacancyResponseRepository;
 
-    public GetSelectionCommentsQueryHandler(ISelectionRepository selectionRepository, IUserRepository userRepository)
+    public GetVacancyResponseCommentsQueryHandler(IUserRepository userRepository,
+        IVacancyResponseRepository vacancyResponseRepository)
     {
-        _selectionRepository = selectionRepository;
         _userRepository = userRepository;
+        _vacancyResponseRepository = vacancyResponseRepository;
     }
 
 
-    public async Task<List<CommentDto>> Handle(GetSelectionCommentsQuery request, CancellationToken cancellationToken)
+    public async Task<List<CommentDto>> Handle(GetVacancyResponseCommentsQuery request,
+        CancellationToken cancellationToken)
     {
-        if (!await _selectionRepository.CheckIfExistsAsync(request.SelectionId))
+        if (!await _vacancyResponseRepository.CheckIfExistsAsync(request.VacancyResponseId))
             throw new NotFound("Selection not found");
 
-        var selection = await _selectionRepository.GetByIdAsync(request.SelectionId);
+        var vacancyResponse = await _vacancyResponseRepository.GetByIdAsync(request.VacancyResponseId);
 
-        if (selection.Candidate.UserId != request.UserId && !request.Roles.Contains("DeanMember"))
+        if (vacancyResponse.Candidate.UserId != request.UserId && !request.Roles.Contains("DeanMember"))
             throw new Forbidden("You do not have access to leave comment");
 
-        var comments = selection.Comments;
+        var comments = vacancyResponse.Comments;
 
         var result = new List<CommentDto>();
 
@@ -50,7 +52,7 @@ public class GetSelectionCommentsQueryHandler : IRequestHandler<GetSelectionComm
                 }
             });
         }
-        
+
         return result;
     }
 }

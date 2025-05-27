@@ -15,5 +15,5 @@ public class VacancyResponseEntity : BaseEntity
     
     public VacancyResponseStatus Status { get; set; }
 
-    public ICollection<VacancyResponseComment> Comments { get; set; } = [];
+    public ICollection<VacancyResponseCommentEntity> Comments { get; set; } = [];
 }

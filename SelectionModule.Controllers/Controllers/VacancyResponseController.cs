@@ -1,7 +1,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SelectionModule.Contracts.Commands.VacancyResponse;
+using SelectionModule.Contracts.Dtos.Responses;
 using SelectionModule.Contracts.Queries;
 using SelectionModule.Domain.Enums;
 using UserModule.Persistence;
@@ -55,6 +57,7 @@ public class VacancyResponseController : ControllerBase
     [HttpGet]
     [Route("{vacancyId}/responses")]
     [Authorize(Roles = "DeanMember, Curator, CompanyRepresenter")]
+    [ProducesResponseType(typeof(List<VacancyResponseDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetVacancyResponse([FromRoute] Guid vacancyId)
     {
         return Ok(await _mediator.Send(new GetVacancyResponsesQuery(vacancyId)));
