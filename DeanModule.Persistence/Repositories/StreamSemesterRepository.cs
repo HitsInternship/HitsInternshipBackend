@@ -11,7 +11,8 @@ public class StreamSemesterRepository(DeanModuleDbContext context)
 {
     public async Task<IEnumerable<StreamSemesterEntity>> GetByStreamIdAsync(Guid streamId)
     {
-        return await DbSet.Where(s => s.StreamId == streamId).ToListAsync();
+        return await DbSet.Include(x => x.SemesterEntity).
+            Where(s => s.StreamId == streamId).ToListAsync();
     }
 
     public async Task<StreamSemesterEntity?> GetBySemesterIdAsync(Guid semesterId, int semesterNumber)

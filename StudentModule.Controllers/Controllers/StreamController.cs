@@ -9,10 +9,11 @@ namespace StudentModule.Controllers.Controllers
 {
     [ApiController]
     [Route("api/streams/")]
-    [Authorize(Roles = "Dean")]
+    [Authorize(Roles = "DeanMember")]
     public class StreamController : ControllerBase
     {
         private readonly IMediator _mediator;
+
         public StreamController(IMediator mediator)
         {
             _mediator = mediator;
@@ -58,7 +59,7 @@ namespace StudentModule.Controllers.Controllers
         [Route("get/{streamId}")]
         public async Task<IActionResult> GetStream([FromRoute] Guid streamId)
         {
-            var query = new GetStreamQuery() {streamId = streamId };
+            var query = new GetStreamQuery() { streamId = streamId };
             return Ok(await _mediator.Send(query));
         }
     }

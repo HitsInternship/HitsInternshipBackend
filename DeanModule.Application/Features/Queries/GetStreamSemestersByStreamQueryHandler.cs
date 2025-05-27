@@ -4,6 +4,7 @@ using DeanModule.Contracts.Queries;
 using DeanModule.Contracts.Repositories;
 using MediatR;
 using Shared.Domain.Exceptions;
+using StudentModule.Contracts.DTOs;
 using StudentModule.Contracts.Repositories;
 
 namespace DeanModule.Application.Features.Queries;
@@ -30,8 +31,21 @@ public class
         if (!await _streamRepository.CheckIfExistsAsync(request.StreamId))
             throw new NotFound("Stream does not exist");
 
-        var semesters = (await _streamSemesterRepository.ListAllAsync()).ToList();
+        var semesters = (await _streamSemesterRepository.GetByStreamIdAsync(request.StreamId)).ToList();
 
-        return _mapper.Map<List<StreamSemesterResponseDto>>(semesters);
+        var stream = await _streamRepository.GetStreamByIdAsync(request.StreamId);
+
+        var streamDto = _mapper.Map<StreamDto>(stream);
+        
+        var result = new List<StreamSemesterResponseDto>();
+
+        foreach (var dto in semesters.Select(semester => _mapper.Map<StreamSemesterResponseDto>(semester)))
+        {
+            dto.Stream = streamDto;
+
+            result.Add(dto);
+        }
+
+        return result;
     }
 }
