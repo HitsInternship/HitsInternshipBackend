@@ -40,7 +40,7 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpPatch]
         [Route("edit-student-group")]
-        [Authorize(Roles = "Dean")]
+        [Authorize(Roles = "DeanMember")]
         public async Task<IActionResult> EditStudentGroup(EditStudentGroupCommand command)
         {
             return Ok(await _mediator.Send(command));
@@ -48,7 +48,7 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpGet]
         [Route("get-students-by-group/{groupId}")]
-        [Authorize(Roles = "Dean")]
+        [Authorize(Roles = "DeanMember")]
         public async Task<IActionResult> GetStudentsByGroup([FromRoute] Guid groupId)
         {
             var query = new GetStudentsFromGroupQuery() { GroupId = groupId };
@@ -57,7 +57,7 @@ namespace StudentModule.Controllers.Controllers
 
         [HttpGet]
         [Route("get-students-by-stream/{streamId}")]
-        [Authorize(Roles = "Dean")]
+        [Authorize(Roles = "DeanMember")]
         public async Task<IActionResult> GetStudentsByStream([FromRoute] Guid streamId)
         {
             var query = new GetStudentsFromStreamQuery() { streamId = streamId };
@@ -66,7 +66,7 @@ namespace StudentModule.Controllers.Controllers
         
         [HttpGet]
         [Route("get-student/{id}")]
-        [Authorize(Roles = "Dean")]
+        [Authorize(Roles = "DeanMember")]
         public async Task<IActionResult> GetStudentForDean([FromRoute] Guid id)
         {
             var query = new GetStudentQuery() { id = id };
