@@ -46,7 +46,7 @@ namespace StudentModule.Controllers.Controllers
             return Ok(await _mediator.Send(command));
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("edit-student")]
         [Authorize(Roles = "DeanMember")]
         public async Task<IActionResult> EditStudent(EditStudentCommand command)
